@@ -1,0 +1,82 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    background-color: rgb(57, 54, 54);
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.image-container {
+    flex-basis: 50%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-image: url('https://ppp.gov.ph/wp-content/uploads/2020/10/PPPC_BNR_PROJ_GenSan-Sanitray-LandfIll.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 600px;
+}
+
+.login-container {
+    flex-basis: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+.login-label {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    padding: 10px;
+    border-radius: 5px;
+    width: 400px;
+    font-size: 16px;
+}
+
+.login-button-container {
+    text-align: center;
+}
+
+.login-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+.forgot-password-link {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: blue;
+    }
+
+.login-button:hover {
+    background-color: #0056b3;
+}
