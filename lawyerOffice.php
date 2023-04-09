@@ -34,21 +34,17 @@
         <div class="menu-bar">
             <div class="menu">
 
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="Dashboard.html">
+                        <a href="Dashboard.php">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="lawyerOffice.html">
+                        <a href="lawyerOffice.php">
                             <i class='bx bx-buildings icon' ></i>
                             <span class="text nav-text">Law Office</span>
                         </a>
@@ -82,7 +78,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="Admin.html">
+                    <a href="Admin.php">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
