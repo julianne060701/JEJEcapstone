@@ -23,7 +23,7 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Law Office</span>
+                    <span class="name">Attorney Office</span>
                     <span class="profession">General Santos City</span>
                 </div>
             </div>
