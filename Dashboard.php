@@ -52,14 +52,14 @@
 
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="lawyerlist.php">
                             <i class='bx bx-user icon' ></i>
                             <span class="text nav-text">Lawyer</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="noticeboard.php">
                             <i class='bx bx-list-plus icon' ></i>
                             <span class="text nav-text">Client List</span>
                         </a>
@@ -69,7 +69,7 @@
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notifications</span>
+                            <span class="text nav-text">Notice Board</span>
                         </a>
                     </li>
 

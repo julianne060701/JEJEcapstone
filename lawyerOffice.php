@@ -13,6 +13,11 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     
     <!--<title>Dashboard Sidebar Menu</title>--> 
+    <style>
+            <?php
+                include "lawyer.css"
+            ?>
+        </style>
 </head>
 <body>
     <nav class="sidebar close">
@@ -52,14 +57,14 @@
 
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="lawyerlist.php">
                             <i class='bx bx-user icon' ></i>
                             <span class="text nav-text">Lawyer</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="noticeboard.php">
                             <i class='bx bx-list-plus icon' ></i>
                             <span class="text nav-text">Client List</span>
                         </a>
@@ -69,7 +74,7 @@
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notifications</span>
+                            <span class="text nav-text">Notice Board</span>
                         </a>
                     </li>
 
@@ -101,44 +106,40 @@
 
     </nav>
 
-    <section class="home">
-        <div class="text">Dashboard</div>
-        <div class="content-1">
-
-            <div class="item" style="font-size: 20px;">
-            
-                <table style="width:100%">
-                    <tr>
-                      <th>Firm Name</th>
-                      <th>Address</th> 
-                      <th>Contact</th>
-                      <th>Email Address</th>
-                      <th>?</th>
-                      <th>Action</th>
-                    </tr>
-                    <tr>
-                      <td>Elmer Firm</td>
-                      <td>Brgy. Apopong</td>
-                      <td>09485344156</td>
-                      <td>jvlaroco@gmail.com</td>
-                      <td>N/A</td>
-                      <td>Accept/Reject</td>
-                    </tr>
-                    <tr>
-                        <td>Jv Firm</td>
-                        <td>Brgy. Bula</td>
-                        <td>09354682753</td>
-                        <td>elmerXD@gmail.com</td>
-                        <td>N/A</td>
-                        <td>Accept/Reject</td>
-                    </tr>
-                  </table>
-            
+      <!-- ADD NEW BUTTON --> 
+      <div class="margin">   
+            <a href="#" class = "btn btn-add mb-5" onclick = "openAdd()"> 
+                    <i class="fa fa-user-plus"style="font-size:23px;float:left" ></i> Add New 
+                </a>
             </div>
-
-        </div>
-
-    </section>
+            <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                 <div class="row">
+                        <div class="col-sm-4">
+                            <div class="search-box">
+                                <i class="material-icons">&#xE8B6;</i>
+                             <input type="text" class="form-control" placeholder="Search&hellip;">
+                            </div>
+                      </div>
+                 </div>
+                </div>
+            
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Profile</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col"> Contact </th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Legal Experience </th>
+                        <th scope="col">Action </th>
+                      
+                    </tr>
+                </thead>    
+                <tbody>
 
     <script>
         const body = document.querySelector('body'),
