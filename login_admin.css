@@ -80,3 +80,11 @@ body {
 .login-button:hover {
     background-color: #0056b3;
 }
+
+.error {
+    background: #f59595fb;
+    color: #b92c2c;
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+}

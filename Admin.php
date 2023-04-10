@@ -9,21 +9,25 @@
         <div class="image-container"></div>
         <div class="login-container">
             <h2 class="login-label">Admin Login</h2>
-            <form>
+            <form action="adminLogin.php" method="post">
+                <?php if (isset($_GET['error'])) { ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
                 <div class="input-group">
                     <label class="input-label" for="username">Username</label>
-                    <input class="input-field" type="text" id="username" name="username" required>
+                    <input class="input-field" type="text" id="username" name="username" >
                 </div>
                 <div class="input-group">
                     <label class="input-label" for="password">Password</label>
-                    <input class="input-field" type="password" id="password" name="password" required>
+                    <input class="input-field" type="password" id="password" name="password">
                     <a class="forgot-password-link" href="#">Forgot Password?</a>
                 </div>
                 <div class="login-button-container">
-                   <button class="login-button" onclick="window.location.href='Dashboard.php'">Login</button>
+                   <button class="login-button" type="submit" href='#'>Login</button>
                 </div>
             </form>
         </div>
     </div>
+
 </body>
 </html>
