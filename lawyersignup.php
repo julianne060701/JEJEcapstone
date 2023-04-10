@@ -8,34 +8,34 @@
 <div class="header">
 	<h2>Register</h2>
 </div>
-<form method="post" action="register.php">
+<form method="post" action="lawyerregister.php">
 <div class="input-group">
 		<label>FirstName</label>
-		<input type="text" name="firstname" value="">
+		<input type="text" name="firstname" value="" required>
 	</div>
     <div class="input-group">
 		<label>LastName</label>
-		<input type="text" name="lastname" value="">
+		<input type="text" name="lastname" value="" required>
 	</div>
 	<div class="input-group">
 		<label>Username</label>
-		<input type="text" name="username" value="">
+		<input type="text" name="username" value="" required>
 	</div>
 	<div class="input-group">
 		<label>Email</label>
-		<input type="email" name="email" value="">
+		<input type="email" name="email" value="" required>
 	</div>
     <div class="input-group">
 		<label>Phone Number</label>
-		<input type="text" name="phonenumber" value="">
+		<input type="text" name="phonenumber" value="" required>
 	</div>
 	<div class="input-group">
 		<label>Password</label>
-		<input type="password" name="password_1">
+		<input type="password" name="password_1" required>
 	</div>
 	<div class="input-group">
 		<label>Confirm password</label>
-		<input type="password" name="password_2">
+		<input type="password" name="password_2" required>
 	</div>
 	<div class="input-group">
     <label>Account type</label>
@@ -46,11 +46,11 @@
 </div>
 <div class="input-group">
 		<label>Valid ID</label>
-		<input type="file" name="valid_id">
+		<input type="file" name="valid_id" >
 	</div>
 	<div class="input-group">
 		<label>Business Permit</label>
-		<input type="file" name="business_permit">
+		<input type="file" name="business_permit" >
 	</div>
 
 

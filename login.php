@@ -9,7 +9,10 @@
 		<h2>Login</h2>
 	</div>
 	
-	<form method="post" action="login.php">
+	<form action="userlogin.php" method="post">
+		<?php if (isset($_GET['error'])) { ?>
+			<p class="error"><?php echo $_GET['error']; ?> </p>
+		<?php } ?>
 		<div class="input-group">
 			<label>Email Address</label>
 			<input type="text" name="emailadd">

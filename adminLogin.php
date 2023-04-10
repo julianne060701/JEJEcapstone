@@ -38,7 +38,7 @@ include "dbconn.php";
        }
 
    } else {
-    header("Location: Admin.php;");
+    header("Location: Admin.php");
     exit();
    }
    
