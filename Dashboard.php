@@ -108,6 +108,7 @@
             <div class="item" style="font-size: 20px;">Number of Law Office <br>20</div>
             <div class="item" style="font-size: 20px;">Number of Attorney <br>18</div>
             <div class="item" style="font-size: 20px;">Number of Appoinment <br>45</div>
+            <div class="item" style="font-size: 20px;">Pending of Law office Registration <br>10</div>
 
         </div>
 
