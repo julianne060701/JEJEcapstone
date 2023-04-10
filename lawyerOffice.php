@@ -57,14 +57,14 @@
 
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="lawyerlist.php">
                             <i class='bx bx-user icon' ></i>
                             <span class="text nav-text">Lawyer</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="noticeboard.php">
                             <i class='bx bx-list-plus icon' ></i>
                             <span class="text nav-text">Client List</span>
                         </a>
@@ -74,7 +74,7 @@
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notifications</span>
+                            <span class="text nav-text">Notice Board</span>
                         </a>
                     </li>
 
@@ -129,12 +129,13 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Room No.</th>
-                        <th scope="col">Bed No.</th>
-                        <th scope="col">Monthly Rate </th>
-                        <th scope="col">Start Date </th>
-                        <th scope="col">Status </th>
+                        <th scope="col">Profile</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col"> Contact </th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Legal Experience </th>
+                        <th scope="col">Action </th>
                       
                     </tr>
                 </thead>    
