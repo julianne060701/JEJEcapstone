@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2023 at 09:27 PM
+-- Generation Time: Apr 12, 2023 at 04:28 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,54 +43,42 @@ INSERT INTO `tbl_useradmin` (`adminID`, `userName`, `passWord`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_userclient`
+-- Table structure for table `tbl_usercredentials`
 --
 
-CREATE TABLE `tbl_userclient` (
-  `clientID` int(11) NOT NULL,
-  `firstName` varchar(244) NOT NULL,
-  `lastName` varchar(244) NOT NULL,
+CREATE TABLE `tbl_usercredentials` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `userName` varchar(244) NOT NULL,
-  `email` varchar(244) NOT NULL,
-  `phone` int(11) NOT NULL,
   `passWord` varchar(244) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_userclient`
+-- Dumping data for table `tbl_usercredentials`
 --
 
-INSERT INTO `tbl_userclient` (`clientID`, `firstName`, `lastName`, `userName`, `email`, `phone`, `passWord`) VALUES
-(3, 'julie', 'ann', 'juan', 'juan@gmail.com', 123123, '123123'),
-(5, 'sad', 'sad', 'sad', 'sad@gmail.com', 123, 'qwe'),
-(6, 'sd', 'ssd', 'sssd', 'sssd@gmail.com', 123, '123');
+INSERT INTO `tbl_usercredentials` (`id`, `user_id`, `userName`, `passWord`) VALUES
+(1, 1, 'username', 'password');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_userlawyer`
+-- Table structure for table `tbl_userinfo`
 --
 
-CREATE TABLE `tbl_userlawyer` (
-  `lawyerID` int(11) NOT NULL,
+CREATE TABLE `tbl_userinfo` (
+  `user_id` int(11) NOT NULL,
   `firstName` varchar(244) NOT NULL,
   `lastName` varchar(244) NOT NULL,
-  `userName` varchar(244) NOT NULL,
-  `email` varchar(244) NOT NULL,
-  `phone` int(11) NOT NULL,
-  `passWord` varchar(244) NOT NULL,
-  `validID` longblob NOT NULL,
-  `businessPermit` longblob NOT NULL
+  `email` varchar(244) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_userlawyer`
+-- Dumping data for table `tbl_userinfo`
 --
 
-INSERT INTO `tbl_userlawyer` (`lawyerID`, `firstName`, `lastName`, `userName`, `email`, `phone`, `passWord`, `validID`, `businessPermit`) VALUES
-(5, 'qwe', 'qwe', 'qwe', 'qwe@gmail.com', 123, '123', '', ''),
-(6, 'qwe', 'qwe', 'qwe', 'qweq@gmail.com', 123, 'qwe', '', ''),
-(7, 'qwe', 'qwe', 'qwe', 'qweqq@gmail.com', 123, '123', '', '');
+INSERT INTO `tbl_userinfo` (`user_id`, `firstName`, `lastName`, `email`) VALUES
+(1, 'fn', 'ln', 'email@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -103,16 +91,17 @@ ALTER TABLE `tbl_useradmin`
   ADD PRIMARY KEY (`adminID`);
 
 --
--- Indexes for table `tbl_userclient`
+-- Indexes for table `tbl_usercredentials`
 --
-ALTER TABLE `tbl_userclient`
-  ADD PRIMARY KEY (`clientID`);
+ALTER TABLE `tbl_usercredentials`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `test` (`user_id`);
 
 --
--- Indexes for table `tbl_userlawyer`
+-- Indexes for table `tbl_userinfo`
 --
-ALTER TABLE `tbl_userlawyer`
-  ADD PRIMARY KEY (`lawyerID`);
+ALTER TABLE `tbl_userinfo`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -125,16 +114,26 @@ ALTER TABLE `tbl_useradmin`
   MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_userclient`
+-- AUTO_INCREMENT for table `tbl_usercredentials`
 --
-ALTER TABLE `tbl_userclient`
-  MODIFY `clientID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `tbl_usercredentials`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_userlawyer`
+-- AUTO_INCREMENT for table `tbl_userinfo`
 --
-ALTER TABLE `tbl_userlawyer`
-  MODIFY `lawyerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `tbl_userinfo`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_usercredentials`
+--
+ALTER TABLE `tbl_usercredentials`
+  ADD CONSTRAINT `test` FOREIGN KEY (`user_id`) REFERENCES `tbl_userinfo` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
