@@ -8,34 +8,34 @@
 <div class="header">
 	<h2>Register</h2>
 </div>
-<form method="post" action="lawyerregister.php">
+<form method="post" action="lawyerregister.php" novalidate onsubmit="return validateFirstname() && validateLastname()">
 <div class="input-group">
-		<label>FirstName</label>
-		<input type="text" name="firstname" value="" required>
+		<label>First Name</label>
+		<input type="text" name="firstname" id="firstname" value="" required onblur="validateFirstname()">
 	</div>
     <div class="input-group">
-		<label>LastName</label>
-		<input type="text" name="lastname" value="" required>
+		<label>Last Name</label>
+		<input type="text" name="lastname" id="lastname" value="" required onblur="validateLastname()">
 	</div>
 	<div class="input-group">
 		<label>Username</label>
-		<input type="text" name="username" value="" required>
+		<input type="text" name="username" id="username" value="" required>
 	</div>
 	<div class="input-group">
 		<label>Email</label>
-		<input type="email" name="email" value="" required>
+		<input type="email" name="email" id="email" value="" required>
 	</div>
     <div class="input-group">
 		<label>Phone Number</label>
-		<input type="text" name="phonenumber" value="" required>
+		<input type="text" name="phonenumber" id="phonenumber" value="" required>
 	</div>
 	<div class="input-group">
 		<label>Password</label>
-		<input type="password" name="password_1" required>
+		<input type="password" name="password_1" id="password_1" value="" required>
 	</div>
 	<div class="input-group">
 		<label>Confirm password</label>
-		<input type="password" name="password_2" required>
+		<input type="password" name="password_2" id="password_2" value="" required>
 	</div>
 	<div class="input-group">
     <label>Account type</label>
@@ -53,6 +53,44 @@
 		<input type="file" name="business_permit" >
 	</div>
 
+<!-- java script -->
+<script>
+	function validateFirstname() {
+		var firstnameInput =document.getElementById("firstname");
+		var firstnameValue =firstnameInput.value;
+		var letters = /^[a-zA-Z]+$/;;
+
+		if (firstnameValue =="") {
+			alert("Error: First name field must be filled.");
+			return false;
+		}else if (!firstnameValue.match(letters)) {
+			alert("Error: First name must be alphabetical.");
+			firstnameInput.value ="";
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+</script>
+
+<script>
+	function validateLastname() {
+		var lastnameInput = document.getElementById("lastname");
+		var lastnameValue =lastnameInput.value;
+		var letters = /^[a-zA-Z]+$/;
+
+		if (lastnameValue == "") {
+			alert("Error: Last name field should not be empty.");
+			return false;
+		} else if (!lastnameValue.match(letters)) {
+			alert("Error: Last name must be alphabetical")
+			return false;
+		} else {
+			return true;
+		}
+	}
+</script>
 
 <script>
     document.getElementById('user_type').addEventListener('change', function() {
