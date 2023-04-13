@@ -32,7 +32,7 @@
 	</div>
 	<div class="input-group">
 		<label>Password</label>
-		<input type="password" name="password_1" id="password" required onblur="validatePassword()">
+		<input type="password" name="password_1" id="password_1" required onblur="validatePassword()">
 	</div>
 	<div class="input-group">
 		<label>Confirm password</label>
@@ -98,12 +98,12 @@
 		if (usernameValue == "") {
 			alert("Error: Username field cannot be empty.");
 			return false;
-		}else {
-			return true;
 		}
-	}
+			else {
+				return true;
+			}
+		}	
 </script>
-
 
 <script>
 	function validateEmail() {
@@ -112,7 +112,7 @@
 		var format = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 		if (emailValue == "") {
-			alert("Error: Email filed must be filled");
+			alert("Error: Email field must be filled");
 			return false;
 		}
 		else if (!emailValue.match(format)) {
@@ -152,7 +152,7 @@
 <!-- validate password -->
 <script>
 	function validatePassword() {
-		var password_1Input =document.getElementById("password");
+		var password_1Input =document.getElementById("password_1");
 		var password_1Value =password_1Input.value;
 
 		if (password_1Value == "") {
@@ -167,23 +167,23 @@
 <!-- validate confirm password -->
 <script>
 	function validateConfirmpassword() {
-		var password_2Input =document.getElementById("cfpassword");
-		var password_2Value =password_2Input.value;
-		var password_1Input =document.getElementById("password");
-		var password_1Value =password_1Input.value;
-
+		var password_2Input = document.getElementById("cfpassword");
+		var password_2Value = password_2Input.value;
+		var password_1Input = document.getElementById("password_1");
+		var password_1Value = password_1Input.value;
 
 		if (password_2Value == "") {
-			alert("Error: Confirm password field cannot be empty.")
-		}
-		else if (!password_2Value.match(password_1Value)) {
-			alert("Error: Password is not match.");
-			password_2Value = "";
+			alert("Error: Confirm password field cannot be empty.");
 			return false;
 		}
-		else (
+		else if (password_2Value == password_1Value) {
 			return true;
-		)
+		}
+		else {
+			alert("Error: Passwords do not match.");
+			password_2Input.value = "";
+			return false;
+		}
 	}
 </script>
 
