@@ -28,15 +28,15 @@
 	</div>
     <div class="input-group">
 		<label>Phone Number</label>
-		<input type="text" name="phonenumber" id="phonenumber" value=""  required onblur="validatePhone()">
+		<input type="text" name="phonenumber" id="phonenumber1" value=""  required onblur="validatePhone()">
 	</div>
 	<div class="input-group">
 		<label>Password</label>
-		<input type="password" name="password_1" id="password_1" required onblur="validatePassword()">
+		<input type="password" name="password_1" id="password" required onblur="validatePassword()">
 	</div>
 	<div class="input-group">
 		<label>Confirm password</label>
-		<input type="password" name="password_2" id="password_2" required onblur="validateConfirmpassword()">
+		<input type="password" name="password_2" id="cfpassword" required onblur="validateConfirmpassword()">
 	</div>
 	<div class="input-group">
     <label>Account type</label>
@@ -53,11 +53,16 @@
 		var nameValue =nameInput.value;
 		var letters = /^[a-zA-Z]+$/;
 
-		if (!nameValue.match(letters)) {
-			alert("Error: First name should be letter only.");
+		if (nameValue == "") {
+			alert("Error: First name field must be filled.");
+			return false;
+		}
+		else if (!nameValue.match(letters)) {
+			alert("Error: First name must be alphabetical.");
 			nameInput.value ="";
 			return false;
-		}else {
+		}
+		else {
 			return true;
 		}
 	}
@@ -69,11 +74,16 @@
 		var nameValue =nameInput.value;
 		var letters = /^[a-zA-Z]+$/;
 
-		if (!nameValue.match(letters)) {
-			alert("Error: Last name should be letter only.");
+		if (nameValue == "") {
+			alert("Error: Last name field must be filled.");
+			return false;
+		}
+		else if (!nameValue.match(letters)) {
+			alert("Error: Last name must be alphabetical.");
 			nameInput.value ="";
 			return false;
-		}else {
+		}
+		else {
 			return true;
 		}
 	}
@@ -94,38 +104,44 @@
 	}
 </script>
 
-<!-- validate email -->
+
 <script>
 	function validateEmail() {
-		var emailInput = document.getElementById("email");
-		var emailValue = emailInput.value;
-		var emailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+		var emailInput =document.getElementById("email");
+		var emailValue =emailInput.value;
+		var format = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-		if (!emailValue.match(emailFormat)) {
-			alert("Error: Incorrect email format.");
+		if (emailValue == "") {
+			alert("Error: Email filed must be filled");
 			return false;
-		}else (
+		}
+		else if (!emailValue.match(format)) {
+			alert("Error: Email must contain '@'");
+			emailInput.value = "";
+			return false;
+		}else {
 			return true;
-		)
+		}
 	}
 </script>
 
 <!-- validate phone -->
 <script>
 	function validatePhone() {
-		var phoneInput = document.getElementById("phonenumber");
+		var phoneInput = document.getElementById("phonenumber1");
 		var phoneValue = phoneInput.value;
 
-		if(isNaN(phoneValue)) {
+		if(phoneValue == "") {
+			alert("Error: Phone number field must be filled.");
+			return false;
+		}
+		else if(isNaN(phoneValue)) {
 			alert("Error: Incorrect Phone Number.");
 			phoneInput.value = "";
 			return false;
 		} else if (phoneValue.length != 11) {
 			alert("Error: Phone number should be 11 digits.");
 			phoneInput.value = "";
-			return false;
-		}else if(phoneValue == " ") {
-			alert("Error: Phone number field cannot be empty.");
 			return false;
 		}else {
 			return true;
@@ -136,7 +152,7 @@
 <!-- validate password -->
 <script>
 	function validatePassword() {
-		var password_1Input =document.getElementById("password_1");
+		var password_1Input =document.getElementById("password");
 		var password_1Value =password_1Input.value;
 
 		if (password_1Value == "") {
@@ -151,16 +167,19 @@
 <!-- validate confirm password -->
 <script>
 	function validateConfirmpassword() {
-		var password_1Input =document.getElementById("password_1");
-		var password_1Value =password_1Input.value;
-		var password_2Input =document.getElementById("password_2");
+		var password_2Input =document.getElementById("cfpassword");
 		var password_2Value =password_2Input.value;
+		var password_1Input =document.getElementById("password");
+		var password_1Value =password_1Input.value;
 
-		if (!password_2Value.match(password_1Value)) {
-			alert("Error: Password is not match.");
-			return false;
-		}else if (password_2Value == "") {
+
+		if (password_2Value == "") {
 			alert("Error: Confirm password field cannot be empty.")
+		}
+		else if (!password_2Value.match(password_1Value)) {
+			alert("Error: Password is not match.");
+			password_2Value = "";
+			return false;
 		}
 		else (
 			return true;
