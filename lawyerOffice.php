@@ -121,17 +121,18 @@
     <td>09485344156</td>
     <td>jvlaroco@gmail.com</td>
     <td>
-      <select>
-        <option value="accept">Accept</option>
-        <option value="decline">Decline</option>
-      </select>
-    </td>
-    <td>
-      <select>
-        <option value="active">Active</option>
-        <option value="inactive">Inactive</option>
-      </select>
-    </td>
+  <select id="action1">
+    <option value="accept">Accept</option>
+    <option value="decline">Decline</option>
+  </select>
+</td>
+<td>
+  <select id="status1">
+    <option value="active">Active</option>
+    <option value="inactive">Inactive</option>
+  </select>
+</td>
+
   </tr>
   <tr>
     <td>Jv Firm</td>
@@ -139,17 +140,17 @@
     <td>09354682753</td>
     <td>elmerXD@gmail.com</td>
     <td>
-      <select>
-        <option value="accept">Accept</option>
-        <option value="decline">Decline</option>
-      </select>
-    </td>
-    <td>
-      <select>
-        <option value="active">Active</option>
-        <option value="inactive">Inactive</option>
-      </select>
-    </td>
+  <select id="action2">
+    <option value="accept">Accept</option>
+    <option value="decline">Decline</option>
+  </select>
+</td>
+<td>
+  <select id="status2">
+    <option value="active">Active</option>
+    <option value="inactive">Inactive</option>
+  </select>
+</td>
   </tr>
 </table>
 
@@ -159,7 +160,27 @@
         </div>
 
     </section>
+<script>
+// Get the select elements by their ids
+const actionSelect1 = document.getElementById("action1");
+const statusSelect1 = document.getElementById("status1");
 
+
+// Add an event listener to the action select element
+actionSelect1.addEventListener("change", function() {
+  // Get the selected option value
+  const selectedAction = actionSelect1.value;
+
+  // Change the status based on the selected action
+  if (selectedAction === "accept") {
+    statusSelect1.value = "active";
+  } else if (selectedAction === "decline") {
+    statusSelect1.value = "inactive";
+  }
+});
+
+
+    </script>
     <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
