@@ -106,33 +106,53 @@
 
             <div class="item" style="font-size: 20px;">
             
-                <table style="width:100%">
-                    <tr>
-                      <th>Office Name</th>
-                      <th>Address</th> 
-                      <th>Contact</th>
-                      <th>Email Address</th>
-                      <th>Action</th>
-                      <th>Status</th>
-                    </tr>
-                    <tr>
-                      <td>Elmer Firm</td>
-                      <td>Brgy. Apopong</td>
-                      <td>09485344156</td>
-                      <td>jvlaroco@gmail.com</td>
-                      <td>Accept/Decline</td>
-                      <td>Active/Inactive</td>
-                    </tr>
-                    <tr>
-                        <td>Jv Firm</td>
-                        <td>Brgy. Bula</td>
-                        <td>09354682753</td>
-                        <td>elmerXD@gmail.com</td>
-                        <td>Accept/Decline</td>
-                        <td>Active/Inactive</td>
-                    </tr>
-                    
-                  </table>
+            <table style="width:100%">
+  <tr>
+    <th>Office Name</th>
+    <th>Address</th> 
+    <th>Contact</th>
+    <th>Email Address</th>
+    <th>Action</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>Elmer Firm</td>
+    <td>Brgy. Apopong</td>
+    <td>09485344156</td>
+    <td>jvlaroco@gmail.com</td>
+    <td>
+      <select>
+        <option value="accept">Accept</option>
+        <option value="decline">Decline</option>
+      </select>
+    </td>
+    <td>
+      <select>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Jv Firm</td>
+    <td>Brgy. Bula</td>
+    <td>09354682753</td>
+    <td>elmerXD@gmail.com</td>
+    <td>
+      <select>
+        <option value="accept">Accept</option>
+        <option value="decline">Decline</option>
+      </select>
+    </td>
+    <td>
+      <select>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+    </td>
+  </tr>
+</table>
+
             
             </div>
 

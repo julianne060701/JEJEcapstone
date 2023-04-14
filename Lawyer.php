@@ -124,7 +124,7 @@
                       <td>09485344156</td>
                       <td>jvlaroco@gmail.com</td>
                       <td>Political Science</td>
-                      <td>Edit</td>
+                      <td><button class="view-button">View</button></td>
                     </tr>
                     <tr>
                         <td><img src=""class="prof-img" alt="JPG"></td>
@@ -133,7 +133,7 @@
                         <td>09485344156</td>
                         <td>elmerXD@gmail.com</td>
                         <td>N/A</td>
-                        <td>Edit</td>
+                        <td><button class="view-button">View</button></td>
                       </tr>
                       <tr>
                         <td><img src=""class="prof-img" alt="JPG"></td>
@@ -142,7 +142,7 @@
                         <td>09485344156</td>
                         <td>jvburdo@gmail.com</td>
                         <td>N/A</td>
-                        <td>Edit</td>
+                        <td><button class="view-button">View</button></td>
                       </tr>
                     
                   </table>

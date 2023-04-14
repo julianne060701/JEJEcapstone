@@ -126,7 +126,7 @@
                       <td>jvlaroco@gmail.com</td>
                       <td>April 12, 2023
                         08:00-09:00 AM</td>
-                      <td>Edit</td>
+                        <td><button class="view-button">View</button></td>
                     </tr>
                     <tr>
                         <td><img src=""class="prof-img" alt="JPG"></td>
@@ -136,7 +136,7 @@
                         <td>elmerXD@gmail.com</td>
                         <td>April 12, 2023
                             10:00-11:00 AM</td>
-                        <td>Edit</td>
+                            <td><button class="view-button">View</button></td>
                       </tr>
                       <tr>
                         <td><img src=""class="prof-img" alt="JPG"></td>
@@ -146,7 +146,7 @@
                         <td>jvburdo@gmail.com</td>
                         <td>April 12, 2023
                             01:00 -02:00 PM</td>
-                        <td>Edit</td>
+                            <td><button class="view-button">View</button></td>
                       </tr>
                     
                   </table>
