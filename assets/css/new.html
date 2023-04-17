@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body{
+    background: #eb4559;
+}
+
+.container{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+
+ .upload-box{
+    font-size: 16px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px black;
+    outline: none;
+
+}
+
+::-webkit-file-upload-button{
+    height: 2px;
+    color: white;
+    background: #206a5d;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 1px 0 1px #6b4559;
+    outline: none;
+}
+
+::-webkit-textfield-decoration-container{
+    background: #eb4559;
+}
+
+::-webkit-file-upload-button:hover{
+    background: #438a5e;
+    cursor: pointer;
+}
+
+
+
+
+</style>
+<body>
+    <div class="container">
+        <input type="file" class="upload-box">
+    </div>
+    
+</body>
+</html>

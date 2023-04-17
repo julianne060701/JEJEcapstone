@@ -25,6 +25,9 @@
                 <div class="login-button-container">
                    <button class="login-button" type="submit" href='#'>Login</button>
                 </div>
+                 <div class="login-button-container">
+                   <button class="login-button" type="submit" href='#'>Login</button>
+                </div>
             </form>
         </div>
     </div>

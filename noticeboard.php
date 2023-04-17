@@ -1,112 +1,123 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="Dashboard.css">
-    
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!--<title>Dashboard Sidebar Menu</title>--> 
-    <style>
-            <?php
-                include "noticeboard.css"
-            ?>
-        </style>
+    <title>Admin Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">Law Office</span>
-                    <span class="profession">General Santos City</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="Dashboard.php">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="lawyerOffice.php">
-                            <i class='bx bx-buildings icon' ></i>
-                            <span class="text nav-text">Law Office</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-link">
-                        <a href="lawyerlist.php">
-                            <i class='bx bx-user icon' ></i>
-                            <span class="text nav-text">Lawyer</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="noticeboard.php">
-                            <i class='bx bx-list-plus icon' ></i>
-                            <span class="text nav-text">Client List</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notice Board</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="Admin.php">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="assets/imgs/justice-scale.png" alt="" style="width: 66px; height: 66px;" >
+                        </span>
+                        <span class="title">Law Office Gensan</span>
                     </a>
                 </li>
 
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
+                <li>
+                    <a href="Dashboard.php">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
                 </li>
-                
-            </div>
+
+                <li>
+                    <a href="lawyerOffice.php">
+                        <span class="icon">
+                            <ion-icon name="business-outline"></ion-icon>
+                        </span>
+                        <span class="title">Law Office</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Lawyer.php">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Lawyer</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="clientlist.php">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </span>
+                        <span class="title">Client List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="noticeboard.php">
+                        <span class="icon">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                        </span>
+                        <span class="title">Notice Board</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.php">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
-    </nav>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
 
- <!-- Modal -->
+                <div class="user">
+                    <img src="assets/imgs/customer01.jpg" alt="">
+                </div>
+            </div>
+
+  
+                <!-- ================= New Clients ================ -->
+                <div id = "page-content-wrapper">
+            <nav class = "navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class = "d-flex align-items-center"> 
+                    <h2 class = "fs-2 m-0"> Notice Board </h2>
+                </div>
+
+                    </ul> 
+
+                </div>
+            </nav>  
+
+                  <!-- Button trigger modal -->
+          <button type="button" class="btn btn-add mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <i class="fa fa-pen-to-square" style="font-size:20px;float:left;" ></i>New Post 
+          </button>
+<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     
@@ -185,80 +196,12 @@
                     grid-template-columns: 1fr 1fr;
                 }
             </style>
-          
-                            
-                    
-                        
-                        <!-- <button class="btn-success" id="myText" onclick="myFunction()">Active</button>
-                        <script>
-                        
-                      
-                        function myFunction() {
-                        document.getElementById("myText").Name = "Inactive";    
-                        
-                        
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
 
-
-            </div>
-
-
-                </div>   
-                      
-        </div>
-        
-    </div>
-        
-    <div class="overlay" id = "popup-msg">
-        <div class="popup" id = "popup">
-            <p>Are you sure you want to log out?</p>
-            <div class="text-right">
-                <button class="btn btn-cancel" onclick="closeForm()">Cancel</button>
-                <button class="btn btn-primary" onclick="location.href='index.php'">Yes</button>
-            </div>
-        </div>
-    </div>
-
-<script>
-    function openForm() {
-    document.getElementById("popup-msg").style.display = "block";
-    document.getElementById("popup").style.display = "block";
-    }
-
-    function closeForm() {
-        document.getElementById("popup-msg").style.display = "none";
-        document.getElementById("popup").style.display = "none";
-    }
-</script>-->
-    </body>
-
-    <script>
-        const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
-
-
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
-
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
-
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-        
-    }
-});
-    </script>
-
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

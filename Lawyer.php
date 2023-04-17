@@ -1,186 +1,180 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="lawyer.css">
-    
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!--<title>Dashboard Sidebar Menu</title>--> 
+    <title>Admin Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/lawOffice.css">
 </head>
+
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">Law Office</span>
-                    <span class="profession">General Santos City</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="Dashboard.php">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="lawyerOffice.php">
-                            <i class='bx bx-buildings icon' ></i>
-                            <span class="text nav-text">Law Office</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-user icon' ></i>
-                            <span class="text nav-text">Lawyer</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="clientlist.php">
-                            <i class='bx bx-list-plus icon' ></i>
-                            <span class="text nav-text">Client List</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notifications</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="Admin.html">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="assets/imgs/justice-scale.png" alt="" style="width: 66px; height: 66px;" >
+                        </span>
+                        <span class="title">Law Office Gensan</span>
                     </a>
                 </li>
 
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
+                <li>
+                    <a href="Dashboard.php">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
                 </li>
-                
-            </div>
+
+                <li>
+                    <a href="lawyerOffice.php">
+                        <span class="icon">
+                            <ion-icon name="business-outline"></ion-icon>
+                        </span>
+                        <span class="title">Law Office</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Lawyer.php">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Lawyer</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="clientlist.php">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </span>
+                        <span class="title">Client List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="noticeboard.php">
+                        <span class="icon">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                        </span>
+                        <span class="title">Notice Board</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.php">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
-    </nav>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
 
-    <section class="home">
-        <div class="text">Law Office</div>
-        <div class="content-1">
-            
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
 
-            <div class="item" style="font-size: 20px;">
-            
-                <table style="width:100%">
-                    <tr>
-                      <th>Profile</th>
-                      <th>Full Name</th> 
-                      <th>Address</th>
-                      <th>Contact</th>
-                      <th>Email</th>
-                      <th>Legal Experience</th>
-                      <th>Action</th>
-                    </tr>
-                    <tr>
-                      <td><img src=""class="prof-img" alt="JPG"></td>
-                      <td>Ryan Varquez</td>
-                      <td>Brgy. Apopong</td>
-                      <td>09485344156</td>
-                      <td>jvlaroco@gmail.com</td>
-                      <td>Political Science</td>
-                      <td><button class="view-button">View</button></td>
-                    </tr>
-                    <tr>
-                        <td><img src=""class="prof-img" alt="JPG"></td>
-                        <td>Elmer Luspo</td>
-                        <td>Brgy. Tambler</td>
-                        <td>09485344156</td>
-                        <td>elmerXD@gmail.com</td>
-                        <td>N/A</td>
-                        <td><button class="view-button">View</button></td>
-                      </tr>
-                      <tr>
-                        <td><img src=""class="prof-img" alt="JPG"></td>
-                        <td>Jv Burdo</td>
-                        <td>Brgy. Apopong</td>
-                        <td>09485344156</td>
-                        <td>jvburdo@gmail.com</td>
-                        <td>N/A</td>
-                        <td><button class="view-button">View</button></td>
-                      </tr>
-                    
-                  </table>
-            
+                <div class="user">
+                    <img src="assets/imgs/customer01.jpg" alt="">
+                </div>
             </div>
 
+            <!-- ======================= Cards ================== -->
+            
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="Appointment">
+                    <div class="cardHeader">
+                        <h2>Lawyer</h2>
+                        <a href="#" class="btn">Add Lawyer</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Profile</td>
+                                <td>Full Name</td>
+                                <td>Address</td>
+                                <td>Contact</td>
+                                <td>Email Address</td>
+                                <td>Legal Experience</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Photos</td>
+                                <td>Ryan Varquez</td>
+                                <td>Brgy. Apopong</td>
+                                <td>0943493232</td>
+                                <td>ryanvarquez@gmail.com</td>
+                                <td>Political Science</td>
+                                <td><button class="method active">View</button><strong> </strong>
+                            </tr>
+
+                            <tr>
+                                <td>Photos</td>
+                                <td>Jv Varquez</td>
+                                <td>Brgy. Apopong</td>
+                                <td>0943493232</td>
+                                <td>ryanvarquez@gmail.com</td>
+                                <td>Political Science</td>
+                                <td><button class="method active">View</button><strong> </strong>
+                            </tr>
+                            <tr>
+                                <td>Photos</td>
+                                <td>Neil Burdo</td>
+                                <td>Brgy. Apopong</td>
+                                <td>0943493232</td>
+                                <td>ryanvarquez@gmail.com</td>
+                                <td>Political Science</td>
+                                <td><button class="method active">View</button><strong> </strong>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            
+            </div>
         </div>
+    </div>
 
-    </section>
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
 
-    <script>
-        const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
-
-
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
-
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
-
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-        
-    }
-});
-    </script>
-
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
