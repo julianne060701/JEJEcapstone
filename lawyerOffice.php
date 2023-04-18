@@ -115,7 +115,7 @@
                 <div class="Appointment">
                     <div class="cardHeader">
                         <h2>Law Offices</h2>
-                        <a href="#" class="btn">Add Law Office</a>
+                        <button class="btn">Add Law Office</button>
                     </div>
 
                     <table>
@@ -136,7 +136,7 @@
                                 <td>Brgy. Apopong</td>
                                 <td>09485344156</td>
                                 <td>jvlaroco@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
+                                <td><button class="method active">Accept</button>
                                     <button class="method deactive">Decline</button></td>
                                 <td><span class="status delivered">Activated</span></td>
                             </tr>
@@ -146,9 +146,9 @@
                                 <td>Brgy. Bula</td>
                                 <td>09485344156</td>
                                 <td>Neil@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
+                                <td><button class="method active">Accept</button>
                                     <button class="method deactive">Decline</button></td>
-                                <td><span class="status return">Deactivated</span></td>
+                                <td><span class="status return">Decline</span></td>
                             </tr>
 
                             <tr>
@@ -156,7 +156,7 @@
                                 <td>Brgy. Mabuhay</td>
                                 <td>09485344156</td>
                                 <td>Esabel@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
+                                <td><button class="method active">Accept</button>
                                     <button class="method deactive">Decline</button></td>
                                 <td><span class="status delivered">Activated</span></td>
                             </tr>
@@ -166,7 +166,7 @@
                                 <td> Brg. Conil</td>
                                 <td>09485344156</td>
                                 <td>Ryan@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
+                                <td><button class="method active">Accept</button>
                                     <button class="method deactive">Decline</button></td>
                                 <td><span class="status delivered">Activated</span></td>
                             </tr>
@@ -176,7 +176,7 @@
                                 <td> Brg. Conil</td>
                                 <td>09485344156</td>
                                 <td>Ryan@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
+                                <td><button class="method active">Accept</button>
                                     <button class="method deactive">Decline</button></td>
                                 <td><span class="status delivered">Activated</span></td>
                             </tr>
@@ -186,9 +186,9 @@
                                 <td>Gensan</td>
                                 <td>09485344156</td>
                                 <td>Julie@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
+                                <td><button class="method active">Accept</button>
                                     <button class="method deactive">Decline</button></td>
-                                <td><span class="status return">Deactivated</span></td>
+                                <td><span class="status return">Decline</span></td>
                             </tr>
                         </tbody>
                     </table>

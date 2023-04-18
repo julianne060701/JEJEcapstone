@@ -26,7 +26,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--redorange);
+    background:url('assets/imgs/lawyerOffice2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -137,7 +137,7 @@ header h2{
 }
 
 .wrapper.active{
-    height: 720px;
+    height: 1000px;
 }
 
 .wrapper .form-box{
@@ -305,3 +305,10 @@ header h2{
     text-decoration: underline;
 }
 
+.error {
+    background: #f59595fb;
+    color: #b92c2c;
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+}

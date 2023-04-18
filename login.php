@@ -9,7 +9,7 @@
 		<h2>Login</h2>
 	</div>
 	
-	<form action="userlogin.php" method="post">
+	<form action="#" method="post">
 		<?php if (isset($_GET['error'])) { ?>
 			<p class="error"><?php echo $_GET['error']; ?> </p>
 		<?php } ?>

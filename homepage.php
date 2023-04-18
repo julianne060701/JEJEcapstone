@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="homepage.css">
     <title>Document</title>
 
-    <style>
-            <?php
-                include "css/homepage.css"
-            ?>
-        </style>
+    <!-- <style> -->
+            <!-- <?php
+                // include "css/homepage.css"
+            // ?> -->
+        <!-- </style> -->
 </head>
 <body>
     
@@ -30,15 +30,18 @@
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="#">
+            <form action="userlogin.php" method="POST" >
+            <?php if (isset($_GET['error'])) { ?>
+			<p class="error"><?php echo $_GET['error']; ?> </p>
+		<?php } ?>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="text" required>
+                    <span class="icon"><ion-icon name="email"></ion-icon></span>
+                    <input type="text" >
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required>  
+                    <span class="icon"><ion-icon name="password"></ion-icon></span>
+                    <input type="password" >  
                     <label>password</label> 
                 </div>
                 <div class="remember-forgot">
@@ -57,39 +60,49 @@
             <form action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="text" required>
+                    <input type="text" >
                     <label>First Name</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="text" required>
+                    <input type="text" >
                     <label>Last Name</label>
                 </div>
                 <div class="input-box">
+                    <span class="icon"><ion-icon name="call"></ion-icon></span>
+                    <input type="text" >  
+                    <label>User Name</label> 
+                </div>
+                <div class="input-box">
                     <span class="icon"><ion-icon name="at"></ion-icon></span>
-                    <input type="email" required>
+                    <input type="email" >
                     <label>Email</label>
+                </div>           
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="call"></ion-icon></span>
+                    <input type="text" >  
+                    <label>Phone Number</label> 
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required>
+                    <input type="password" >
                     <label>Password</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="call"></ion-icon></span>
-                    <input type="text" required>  
-                    <label>Phone Number</label> 
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" >
+                    <label>Confirm Password</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
                     <label class="upload">Upload ID</label> 
-                    <input type="file" required>  
+                    <input type="file" >  
                    
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
                     <label class="upload">Upload Permit</label> 
-                    <input type="file" required>  
+                    <input type="file" >  
                     
                 </div>
                 <div class="remember-forgot">
