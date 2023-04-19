@@ -17,13 +17,19 @@
     
     <header>
         <h2 class="logo"><img src="assets/imgs/law-firm-logo.jpg"alt=""> Law Office General Santos City</h2>
-            <nav class="navigation">
-                <a href="">Home</a>
-                <a href="">About</a>
-                <a href="">Services</a>
-                <a href="">Contact</a>
-                <Button class="btnLogin-popup">Login</Button>
-            </nav>
+        <nav class="navigation">
+    <a href="">Home</a>
+    <a href="">About</a>
+    <Button class="btnLogin-popup">Login</Button>
+    <div class="dropdown">
+        <button class="dropbtn">Register</button>
+        <div class="dropdown-content">
+            <a href="lawyersignup.php">Register as a lawyer</a>
+            <a href="register.php">Register as a client</a>
+        </div>
+    </div>
+</nav>
+
     </header>
 
     <div class="wrapper">
