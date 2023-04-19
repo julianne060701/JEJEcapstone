@@ -117,14 +117,48 @@
             <!-- ======================= Cards ================== -->
             
 
-            <!-- ================ Order Details List ================= -->
+            <!-- ================ pop-up form ================= -->
             <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
                         <h2>Law Offices</h2>
-                        <button class="btn">Add Law Office</button>
-                    </div>
+                        <button class="btn" id="add-law-office-btn">Add Law Office</button>                    
+                        <div class="popup-form" id="popup-form" style="display: none;">
 
+    <h2>Add Law Office</h2>
+    <form action="add_law_office.php" method="POST">
+        <label for="office-name">Office Name:</label>
+        <input type="text" id="office-name" name="office-name" required>
+
+        <label for="office-address">Office Address:</label>
+        <input type="text" id="office-address" name="office-address" required>
+
+        <label for="office-contact">Office Contact:</label>
+        <input type="text" id="office-contact" name="office-contact" required>
+
+        <label for="office-email">Office Email:</label>
+        <input type="email" id="office-email" name="office-email" required>
+
+        <button type="submit">Add</button>
+        <button type="button" id="cancel-btn">Cancel</button>
+    </form>
+</div>
+<script>
+    const addLawOfficeBtn = document.getElementById('add-law-office-btn');
+    const popupForm = document.getElementById('popup-form');
+    const cancelBtn = document.getElementById('cancel-btn');
+
+    addLawOfficeBtn.addEventListener('click', () => {
+        popupForm.style.display = 'block';
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        popupForm.style.display = 'none';
+    });
+</script>
+
+                    </div>
+<!-- end of pop-up form -->
                     <table>
                         <thead>
                             <tr>
@@ -176,7 +210,7 @@
                         </tbody>
                     </table>
                 </div>
-
+                                        
             
             </div>
         </div>
