@@ -145,13 +145,13 @@
                                     {
                                 ?>
                                     <td><?php echo $row['office_id'] ?></td>
-                                    <td><?php echo $row['officeName']; ?></td>
-                                    <td><?php echo $row['address']; ?></td>
-                                    <td><?php echo $row['contact']; ?></td>
-                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['office_address']; ?></td>
+                                    <td><?php echo $row['office_contact']; ?></td>
+                                    <td><?php echo $row['office_email']; ?></td>
                                     <td>
                                         <?php
-                                        if($row['status'] == 0) {
+                                        if($row['office_status'] == 0) {
                                             echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=1" class="method active">Accept</a></p>';
                                         }
                                         else {
@@ -162,7 +162,7 @@
                                     
                                     <td>
                                         <?php 
-                                        if($row['status'] == 1) {
+                                        if($row['office_status'] == 1) {
                                         echo '<span class="status delivered">Active</span>';
                                         } else {
                                             echo '<span class="status pending">Inactive</span>';

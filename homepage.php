@@ -57,52 +57,52 @@
 
         <div class="form-box register">
             <h2>Registration</h2>
-            <form action="#">
+            <form action="userregister.php" method="POST">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="text" >
+                    <input type="text" name="firstname" >
                     <label>First Name</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="text" >
+                    <input type="text" name="lastname">
                     <label>Last Name</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="at"></ion-icon></span>
-                    <input type="text" >  
+                    <input type="text" name="email">  
                     <label>Email</label> 
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="navigate"></ion-icon></span>
-                    <input type="email" >
+                    <input type="text" name="address">
                     <label>Address</label>
                 </div>           
                 <div class="input-box">
                     <span class="icon"><ion-icon name="call"></ion-icon></span>
-                    <input type="text" >  
+                    <input type="text" name="phone">  
                     <label>Phone Number</label> 
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" >
+                    <input type="password" name="password">
                     <label>Password</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" >
+                    <input type="password" name="cfpassword">
                     <label>Confirm Password</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
                     <label class="upload">Upload ID</label> 
-                    <input type="file" >  
+                    <input type="file" name="uploadid">  
                    
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
                     <label class="upload">Upload Permit</label> 
-                    <input type="file" >  
+                    <input type="file" name="uploadpermit">  
                     
                 </div>
                 <div class="remember-forgot">

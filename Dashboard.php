@@ -110,11 +110,17 @@
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Number of Law Office</div>
-                    </div>
 
+                <?php 
+                include "dbconn.php";
+                $sql = "SELECT COUNT(*) as count FROM tbl_offices WHERE office_status = 1";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                echo '<div>';
+                echo '<div class="numbers">' . $row['count'] . '</div>';
+                echo '<div class="cardName">Number of Law Office</div>';
+                echo '</div>';
+                ?>
                     <div class="iconBx">
                         <ion-icon name="business-outline"></ion-icon>
                     </div>
@@ -123,7 +129,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">80</div>
-                        <div class="cardName">Numbe of Attorney</div>
+                        <div class="cardName">Number of Attorney</div>
                     </div>
 
                     <div class="iconBx">

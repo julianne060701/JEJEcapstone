@@ -32,13 +32,12 @@ include "dbconn.php";
             if (mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
                 if ($row['email'] === $email && $row ['password'] === $password) {
-                    //redirect to homepage
                     echo "Login Successfully";
                 }
             }
             
             else {
-                header("Location: login.php?error=Incorrenct email or password!");
+                header("Location: homepage.php?error=Incorrenct email or password!");
                 exit();
             }
         }

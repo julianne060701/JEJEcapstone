@@ -3,30 +3,23 @@ include "dbconn.php";
 
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
     $email = $_POST['email'];
-    $phone = $_POST['phonenumber'];
-    $password = $_POST['password_1'];
-    $usertype = $_POST['user_type'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
 
-    mysqli_autocommit($conn,false);
 
-    $sql1 = "INSERT INTO tbl_userinfo (firstName, lastName, email, phoneNum) VALUES ('$firstname','$lastname','$email', '$phone')";
-    $result1 = mysqli_query($conn, $sql1);
+    $sql = "INSERT INTO tbl_userinfo (firstName, lastName, phoneNum, address) VALUES ('$firstname','$lastname','$phone', '$address')";
+    $result = mysqli_query($conn, $sql);
 
-    $sql2 = "INSERT INTO tbl_usercredentials (userName, passWord) VALUES ('$username', '$password')";
-    $result2 = mysqli_query($conn, $sql2);
+   if ($conn->query($sql) === TRUE) {
+    $user_id = $conn->insert_id;
 
-    $sql3 = "INSERT INTO tbl_usertype (user_type) VALUES ('$usertype')";
-    $result3 = mysqli_query($conn, $sql3);
-
-    if ($result1 && $result2 && $result3) {
-        mysqli_commit($conn);
-        echo "Registered Successfully";
-    } else {
-        mysqli_rollback($conn);
-        echo "Failed";
-    }
-
-    mysqli_close($conn);
+    $sql = "INSERT INTO tbl_cred (user_id, email, password) VALUES ('$user_id', '$email', '$password')";
+    header("Location:homepage.php?=Register Successfully");
+    $result = mysqli_query($conn, $sql);
+}
+else {
+    echo "Error inserting data: " . $conn->error;
+}
 ?>
