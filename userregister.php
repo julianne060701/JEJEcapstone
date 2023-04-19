@@ -10,7 +10,6 @@ include "dbconn.php";
 
 
     $sql = "INSERT INTO tbl_userinfo (firstName, lastName, phoneNum, address) VALUES ('$firstname','$lastname','$phone', '$address')";
-    $result = mysqli_query($conn, $sql);
 
    if ($conn->query($sql) === TRUE) {
     $user_id = $conn->insert_id;

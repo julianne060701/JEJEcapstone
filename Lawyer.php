@@ -1,3 +1,16 @@
+<?php
+include "dbconn.php";
+
+$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
+FROM tbl_userinfo
+JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
+JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
+WHERE tbl_usertype.user_type = 'lawyer'";
+
+$result = mysqli_query($conn, $sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,45 +134,33 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>Profile</td>
+                                <td>Lawyer ID</td>
                                 <td>Full Name</td>
                                 <td>Address</td>
                                 <td>Contact</td>
                                 <td>Email Address</td>
-                                <td>Legal Experience</td>
                                 <td>Action</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Photos</td>
-                                <td>Ryan Varquez</td>
-                                <td>Brgy. Apopong</td>
-                                <td>0943493232</td>
-                                <td>ryanvarquez@gmail.com</td>
-                                <td>Political Science</td>
-                                <td><button class="method active">View</button><strong> </strong>
-                            </tr>
 
                             <tr>
-                                <td>Photos</td>
-                                <td>Jv Varquez</td>
-                                <td>Brgy. Apopong</td>
-                                <td>0943493232</td>
-                                <td>ryanvarquez@gmail.com</td>
-                                <td>Political Science</td>
-                                <td><button class="method active">View</button><strong> </strong>
-                            </tr>
-                            <tr>
-                                <td>Photos</td>
-                                <td>Neil Burdo</td>
-                                <td>Brgy. Apopong</td>
-                                <td>0943493232</td>
-                                <td>ryanvarquez@gmail.com</td>
-                                <td>Political Science</td>
-                                <td><button class="method active">View</button><strong> </strong>
-                            </tr>
+                                <?php 
+
+                                while($row = mysqli_fetch_assoc($result)) 
+                                {
+                                ?>
+                                 <td><?php echo $row['userinfo_id']; ?></td>
+                                 <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
+                                 <td><?php echo $row['address']; ?></td>
+                                 <td><?php echo $row['phoneNum']; ?></td>
+                                 <td><?php echo $row['email']; ?></td>
+                                 <td><button class="method active">View</button><strong> </strong>
+                             </tr>
+                                <?php
+                                }
+                                 ?>
                         </tbody>
                     </table>
                 </div>
