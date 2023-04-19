@@ -14,28 +14,31 @@ include "dbconn.php";
         $password = validate($_POST['password']);
 
         if (empty($email)) {
-            header("Location: homepage.php?error=Email is empty!");
+            header("Location: homepage.php?error=Email is required!");
             exit();
         }
-        elseif(empty($password)) {
-            header("Location: homepage.php?error=Password is empty!");
+        elseif (empty($password)) {
+            header("Location: homepage.php?error=Password is required!");
             exit();
         }
 
         else {
-            $sql = "SELECT email, passWord FROM tbl_userinfo WHERE email = '$email' AND passWord = '$password' UNION
-            SELECT email, passWord FROM tbl_usercredentials WHERE passWord = '$password'";
 
+            $sql = "SELECT email, password FROM tbl_cred WHERE email = '$email' AND password = '$password' UNION
+            SELECT email, password FROM tbl_cred WHERE email = '$email' AND password = '$password'";
+            
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
-                if ($row['email'] === $email && $row ['passWord'] === $password) {
+                if ($row['email'] === $email && $row ['password'] === $password) {
+                    //redirect to homepage
                     echo "Login Successfully";
                 }
             }
+            
             else {
-                header("Location: homepage.php?error=Incorrect email or password!");
+                header("Location: login.php?error=Incorrenct email or password!");
                 exit();
             }
         }

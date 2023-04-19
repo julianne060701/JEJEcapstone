@@ -36,16 +36,16 @@
 		<?php } ?>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="email"></ion-icon></span>
-                    <input type="text" >
+                    <input type="text" name="email">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="password"></ion-icon></span>
-                    <input type="password" >  
+                    <input type="password" name="password">  
                     <label>password</label> 
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Remeber me</label>
+                    <label><input type="checkbox">Remember me</label>
                     <a href="#">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
@@ -69,14 +69,14 @@
                     <label>Last Name</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="call"></ion-icon></span>
+                    <span class="icon"><ion-icon name="at"></ion-icon></span>
                     <input type="text" >  
-                    <label>User Name</label> 
+                    <label>Email</label> 
                 </div>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="at"></ion-icon></span>
+                    <span class="icon"><ion-icon name="navigate"></ion-icon></span>
                     <input type="email" >
-                    <label>Email</label>
+                    <label>Address</label>
                 </div>           
                 <div class="input-box">
                     <span class="icon"><ion-icon name="call"></ion-icon></span>
