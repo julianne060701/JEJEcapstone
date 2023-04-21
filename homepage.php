@@ -22,10 +22,10 @@
     <a href="">About</a>
     <Button class="btnLogin-popup">Login</Button>
     <div class="dropdown">
-        <button class="dropbtn">Register</button>
+        <button class="dropbtn btnLogin-popup">Register <span id="icon-ali"><ion-icon name="caret-down-outline"></ion-icon></span></button>
         <div class="dropdown-content">
-            <a href="lawyersignup.php">Register as a lawyer</a>
-            <a href="register.php">Register as a client</a>
+            <a href="lawyersignup.php">Register as a Lawyer</a>
+            <a href="register.php">Register as a Client</a>
         </div>
     </div>
 </nav>
