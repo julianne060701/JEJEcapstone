@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="myButton">Click me!</button>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Hello, I am a modal!</p>
+    </div>
+  </div>
+
+  <script>
+    const myButton = document.getElementById("myButton");
+    const myModal = document.getElementById("myModal");
+    const closeBtn = myModal.querySelector(".close");
+
+    myButton.addEventListener("click", () => {
+      myModal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      myModal.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
