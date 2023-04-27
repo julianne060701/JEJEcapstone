@@ -1,26 +1,3 @@
-<?php
-include "dbconn.php";
-
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
-FROM tbl_userinfo
-JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
-JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
-WHERE tbl_usertype.user_type = 'client'";
-
-$result = mysqli_query($conn, $sql);
-?>
-
-<?php
-include "dbconn.php";
-
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
-FROM tbl_userinfo
-JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
-JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
-WHERE tbl_usertype.user_type = 'client'";
-
-$result = mysqli_query($conn, $sql);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -176,11 +153,16 @@ $result = mysqli_query($conn, $sql);
                 </div>
 
                 <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Number of Appointment</div>
-                    </div>
-
+                <?php 
+                include "dbconn.php";
+                $sql = "SELECT COUNT(*) as count FROM tbl_appointment";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                echo '<div>';
+                echo '<div class="numbers">' . $row['count'] . '</div>';
+                echo '<div class="cardName">Number of Appointment</div>';
+                echo '</div>';
+                ?>
                     <div class="iconBx">
                         <ion-icon name="list-outline"></ion-icon>
                     </div>
@@ -214,60 +196,30 @@ $result = mysqli_query($conn, $sql);
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Appointment Type</td>
-                                <td>Status</td>
+                                <td>Client Name</td>
+                                <td>Office Name</td>
+                                <td>Time and Date</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Ryan Burdo</td>
-                                <td>Online</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
+                          <?php 
+                            include "dbconn.php";
 
-                            <tr>
-                                <td>Elmer Varquiz</td>
-                                <td>Online</td>
-                                <td><span class="status delivered ">Cpmplete</span></td>
-                            </tr>
+                            $sql = "SELECT tbl_appointment.appointment_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_officeinfo.office_name, tbl_appointment.appointment_timendate
+                            FROM tbl_appointment
+                            JOIN tbl_userinfo ON tbl_appointment.appointment_id = tbl_userinfo.userinfo_id
+                            JOIN tbl_officeinfo ON tbl_appointment.appointment_id = tbl_officeinfo.office_id";
 
-                            <tr>
-                                <td>Neil Mark Luspo</td>
-                                <td>Physical</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Esabel Bang</td>
-                                <td>Physical</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Khytryn Carcillar</td>
-                                <td>Online</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Ryan Burdo</td>
-                                <td>Online</td>
-                                <td><span class="status delivered ">Cpmplete</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Jv Laroco</td>
-                                <td>Physical</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Julie Ann Fernandez</td>
-                                <td>Online</td>
-                                <td><span class="status delivered ">Cpmplete</span></td>
-                            </tr>
+                            $result = mysqli_query($conn, $sql);
+                            while($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                            <td><?php echo $row['firstName'] . ' ' . $row['lastName']?></td>
+                            <td><?php echo $row['office_name']?></td>
+                            <td><?php echo $row['appointment_timendate']?></td>
+                            <?php
+                          }
+                          ?>
                         </tbody>
                     </table>
                 </div>
@@ -279,75 +231,28 @@ $result = mysqli_query($conn, $sql);
                     </div>
 
                     <table>
-                        <tr>
-                            <td width="60px">
+                        <?php
+                        include "dbconn.php";
+
+                        $sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
+                        FROM tbl_userinfo
+                        JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
+                        JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
+                        WHERE tbl_usertype.user_type = 'client'";
+
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)) 
+                                {
+                                ?>
+                                <td width="60px">
                                 <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
                             </td>
-                           <td>Jv Watapampa XD UV</td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Neil Mark Luspo <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Esabel Bang <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Julie Ann Fernandez <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Jv Laroco <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Khytryn Carcillar <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Khytryn Carcillar <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Neil Mark Luspo <br> <span>Philippines</span></h4>
-                            </td>
-                        </tr>
+                                 <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
+                             </tr>
+                                <?php
+                                }
+                                 ?>
+                        
                     </table>
                 </div>
             </div>

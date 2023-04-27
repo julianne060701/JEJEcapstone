@@ -203,9 +203,9 @@ $result = mysqli_query($conn, $sql);
                                     <td>
                                         <?php 
                                         if($row['office_status'] == 1) {
-                                        echo '<span class="status delivered">Active</span>';
+                                        echo '<span class="status delivered">ACTIVE</span>';
                                         } else {
-                                            echo '<span class="status pending">Inactive</span>';
+                                            echo '<span class="status pending">INACTIVE</span>';
                                         }
                                         ?>
                                     </td>

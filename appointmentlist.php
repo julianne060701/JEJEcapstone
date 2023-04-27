@@ -1,11 +1,10 @@
-<?php
+<?php 
 include "dbconn.php";
 
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
-FROM tbl_userinfo
-JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
-JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
-WHERE tbl_usertype.user_type = 'client'";
+$sql = "SELECT tbl_appointment.appointment_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_officeinfo.office_name, tbl_appointment.appointment_timendate
+FROM tbl_appointment
+JOIN tbl_userinfo ON tbl_appointment.appointment_id = tbl_userinfo.userinfo_id
+JOIN tbl_officeinfo ON tbl_appointment.appointment_id = tbl_officeinfo.office_id";
 
 $result = mysqli_query($conn, $sql);
 ?>
@@ -141,12 +140,10 @@ $result = mysqli_query($conn, $sql);
                     <table>
                         <thead>
                         <tr>
-                                <td>Client ID</td>
-                                <td>Full Name</td>
-                                <td>Address</td>
-                                <td>Contact</td>
-                                <td>Email Address</td>
-                                <td>Appointment</td>
+                                <td>Appointment ID</td>
+                                <td>Client Name</td>
+                                <td>Office Name</td>
+                                <td>Time and Date</td>
                                 <td>Action</td>
                             </tr>
                         </thead>
@@ -158,18 +155,15 @@ $result = mysqli_query($conn, $sql);
                                 while($row = mysqli_fetch_assoc($result)) 
                                 {
                                 ?>
-                                 <td><?php echo $row['userinfo_id']; ?></td>
+                                 <td><?php echo $row['appointment_id']; ?></td>
                                  <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
-                                 <td><?php echo $row['address']; ?></td>
-                                 <td><?php echo $row['phoneNum']; ?></td>
-                                 <td><?php echo $row['email']; ?></td>
-                                 <td>Appointment Time/Date</td>
+                                 <td><?php echo $row['office_name']; ?></td>
+                                 <td><?php echo $row['appointment_timendate']; ?></td>
                                  <td><button class="method active">View</button><strong> </strong>
                              </tr>
                                 <?php
                                 }
                                  ?>
-
                         </tbody>
                     </table>
                 </div>
