@@ -123,7 +123,7 @@ $result = mysqli_query($conn, $sql);
 
                 <?php 
                 include "dbconn.php";
-                $sql = "SELECT COUNT(*) as count FROM tbl_offices WHERE office_status = 1";
+                $sql = "SELECT COUNT(*) as count FROM tbl_officeinfo WHERE office_status = 1";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 echo '<div>';

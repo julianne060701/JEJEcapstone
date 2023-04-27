@@ -135,8 +135,7 @@ $result = mysqli_query($conn, $sql);
             <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
-                        <h2>Client</h2>
-                        <a href="#" class="btn">Add Client</a>
+                        <h2>Appointment List</h2>
                     </div>
 
                     <table>
@@ -170,7 +169,6 @@ $result = mysqli_query($conn, $sql);
                                 <?php
                                 }
                                  ?>
-                            </tr>
 
                         </tbody>
                     </table>

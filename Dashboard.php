@@ -9,6 +9,19 @@ WHERE tbl_usertype.user_type = 'client'";
 
 $result = mysqli_query($conn, $sql);
 ?>
+
+<?php
+include "dbconn.php";
+
+$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
+FROM tbl_userinfo
+JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
+JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
+WHERE tbl_usertype.user_type = 'client'";
+
+$result = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -195,7 +208,7 @@ $result = mysqli_query($conn, $sql);
                 <div class="Appointment">
                     <div class="cardHeader">
                         <h2>Recent Appointment</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="appointmentlist.php" class="btn">View All</a>
                     </div>
 
                     <table>
