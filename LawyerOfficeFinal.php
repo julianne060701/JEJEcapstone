@@ -1,8 +1,11 @@
 <?php 
-    include "dbconn.php";
+include "dbconn.php";
 
-    $sql = "SELECT * FROM tbl_offices";
-    $result = mysqli_query($conn, $sql);
+$sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
+FROM tbl_officeinfo
+JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
+
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +31,7 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>Register Office</h2>
-    <form>
+    <form action="registerOffice.php" method="POST">
       <label for="firmName">Firm Name:</label>
       <input type="text" id="firmName" name="firmName" required>
       
@@ -40,7 +43,6 @@
       
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
-      
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -64,6 +66,15 @@
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="appointmentlist.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Appointment List</span>
                     </a>
                 </li>
 
@@ -173,9 +184,10 @@
                     <table>
                         <thead>
                             <tr>
+                                <td>Firm ID</td>
                                 <td>Firm Name</td>
                                 <td>Address</td>
-                                <td>Contact</td>
+                                <td>Contact Number</td>
                                 <td>Email Address</td>
                                 <td>Action</td>
                                 <td>Status</td>

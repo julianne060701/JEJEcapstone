@@ -1,3 +1,15 @@
+<?php
+include "dbconn.php";
+
+$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
+FROM tbl_userinfo
+JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
+JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
+WHERE tbl_usertype.user_type = 'client'";
+
+$result = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lawOffice.css">
 </head>
 
 <body>
@@ -104,107 +116,71 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
                 <div class="user">
                     <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
 
-  
-                <!-- ================= New Clients ================ -->
-                <div id = "page-content-wrapper">
-            <nav class = "navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-                <div class = "d-flex align-items-center"> 
-                    <h2 class = "fs-2 m-0"> Notice Board </h2>
+            <!-- ======================= Cards ================== -->
+            
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="Appointment">
+                    <div class="cardHeader">
+                        <h2>Client</h2>
+                        <a href="#" class="btn">Add Client</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                        <tr>
+                                <td>Client ID</td>
+                                <td>Full Name</td>
+                                <td>Address</td>
+                                <td>Contact</td>
+                                <td>Email Address</td>
+                                <td>Appointment</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                                <?php 
+
+                                while($row = mysqli_fetch_assoc($result)) 
+                                {
+                                ?>
+                                 <td><?php echo $row['userinfo_id']; ?></td>
+                                 <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
+                                 <td><?php echo $row['address']; ?></td>
+                                 <td><?php echo $row['phoneNum']; ?></td>
+                                 <td><?php echo $row['email']; ?></td>
+                                 <td>Appointment Time/Date</td>
+                                 <td><button class="method active">View</button><strong> </strong>
+                             </tr>
+                                <?php
+                                }
+                                 ?>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
 
-                    </ul> 
-
-                </div>
-            </nav>  
-
-                  <!-- Button trigger modal -->
-          <button type="button" class="btn btn-add mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          <i class="fa fa-pen-to-square" style="font-size:20px;float:left;" ></i>New Post 
-          </button>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    
-  
-  <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-      <form>
-            <div class ="label">   
-            <label for="fname">Name:&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-            <input type="text" id="name" name="name"><br><br>
+            
             </div>
-
-            <div class="label">
-            <label for="Date">Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-            <input type="date" id="date" name="date">
-            </div>
-  
-            <div class ="label"> 
-            <label for="ftitle">Title:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
-            <input type="text" id="titile" name="title"><br><br>
-            </div>
-
-            <div class="label">
-            <label for="lname">Content:</label>
-            <textarea id="content" name="content" rows="4" cols="50"></textarea>
-            </div>
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="notice-db">Post</button>
-      </div>
-
-
-     <!-- <div class="modal-footer">
-        <form method="POST" class="btn btn-secondary" data-bs-dismiss="modal" action="noticeBoard.php"> </form>
-      </div> -->
+        </div>
     </div>
-  </div>
-</div>
- 
 
-
-
-        <script>
-            function openForm() {
-                document.getElementById("modal").style.display = "block";
-            }
-
-            function closeForm(){
-                document.getElementById("modal").style.display = "none";
-            }
-        </script>
-                    
-            <style>
-                .col{
-                    padding: 20px;
-                    display: flex;
-                    column-gap: 10px;
-                    row-gap: 10px;
-                    flex-wrap: wrap;
-                }
-                .cont{
-                    background: #ddd;
-                    padding: 20px;
-                    width: 300px;
-                    height: 200px;
-                    border-radius: 10px;
-                    box-shadow: 1px 1px 3px 0px black;
-                }
-                .cont2{
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                }
-            </style>
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
 

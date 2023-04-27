@@ -46,6 +46,15 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
+                    <a href="appointmentlist.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Appointment List</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="LawyerOfficeFinal.php">
                         <span class="icon">
                             <ion-icon name="business-outline"></ion-icon>
@@ -138,7 +147,6 @@ $result = mysqli_query($conn, $sql);
                                 <td>Address</td>
                                 <td>Contact</td>
                                 <td>Email Address</td>
-                                <td>Appointment</td>
                                 <td>Action</td>
                             </tr>
                         </thead>
@@ -155,7 +163,6 @@ $result = mysqli_query($conn, $sql);
                                  <td><?php echo $row['address']; ?></td>
                                  <td><?php echo $row['phoneNum']; ?></td>
                                  <td><?php echo $row['email']; ?></td>
-                                 <td>"Appointment Time"</td>
                                  <td><button class="method active">View</button><strong> </strong>
                              </tr>
                                 <?php

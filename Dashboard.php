@@ -45,6 +45,15 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
+                    <a href="appointmentlist.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Appointment List</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="LawyerOfficeFinal.php">
                         <span class="icon">
                             <ion-icon name="business-outline"></ion-icon>
@@ -124,7 +133,7 @@ $result = mysqli_query($conn, $sql);
 
                 <?php 
                 include "dbconn.php";
-                $sql = "SELECT COUNT(*) as count FROM tbl_offices WHERE office_status = 1";
+                $sql = "SELECT COUNT(*) as count FROM tbl_officeinfo WHERE office_status = 1";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 echo '<div>';
@@ -167,7 +176,7 @@ $result = mysqli_query($conn, $sql);
                 <div class="card">
                 <?php 
                 include "dbconn.php";
-                $sql = "SELECT COUNT(*) as count FROM tbl_offices WHERE office_status = 0";
+                $sql = "SELECT COUNT(*) as count FROM tbl_officeinfo WHERE office_status = 0";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 echo '<div>';
