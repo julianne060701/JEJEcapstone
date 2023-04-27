@@ -1,3 +1,10 @@
+<?php 
+    include "dbconn.php";
+
+    $sql = "SELECT * FROM tbl_offices";
+    $result = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,27 +46,6 @@
   </div>
 </div>
 
-
-    <!-- <div class="regis-Office">
-        <h2 >Register Office</h2>
-        <form action="#" class="register-Office">
-            
-            <div class="reg-office">
-                
-                <label>Firm Name</label>
-                <input type="text" required>
-                <label>Address</label>
-                <input type="text" required>
-
-                <label>Contact</label>
-                <input type="text" required>
-                <label>Email Address</label>
-                <input type="text" required>
-            </div>
-            
-        </form>
-    </div> -->
-
     <div class="container">
         <div class="navigation">
             <ul>
@@ -73,7 +59,7 @@
                 </li>
 
                 <li>
-                    <a href="AdminDashboard.php">
+                    <a href="Dashboard.php">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -82,7 +68,7 @@
                 </li>
 
                 <li>
-                    <a href="Law Office.php">
+                    <a href="LawyerOfficeFinal.php">
                         <span class="icon">
                             <ion-icon name="business-outline"></ion-icon>
                         </span>
@@ -91,7 +77,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="Lawyer.php">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -100,7 +86,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="clientlist.php">
                         <span class="icon">
                             <ion-icon name="reader-outline"></ion-icon>
                         </span>
@@ -108,7 +94,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="noticeboard.php">
                         <span class="icon">
                             <ion-icon name="notifications-outline"></ion-icon>
                         </span>
@@ -197,87 +183,40 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Jv Laroco Firm</td>
-                                <td>Brgy. Apopong</td>
-                                <td>09485344156</td>
-                                <td>jvlaroco@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status delivered">Activated</span></td>
+                        <tr>
+                                <?php
+                                    while($row = mysqli_fetch_assoc($result))
+                                    {
+                                ?>
+                                    <td><?php echo $row['office_id'] ?></td>
+                                    <td><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['office_address']; ?></td>
+                                    <td><?php echo $row['office_contact']; ?></td>
+                                    <td><?php echo $row['office_email']; ?></td>
+                                    <td>
+                                        <?php
+                                        if($row['office_status'] == 0) {
+                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=1" class="method active">Accept</a></p>';
+                                        }
+                                        else {
+                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                        }
+                                        ?>
+                                    </td>
+                                    
+                                    <td>
+                                        <?php 
+                                        if($row['office_status'] == 1) {
+                                        echo '<span class="status delivered">Active</span>';
+                                        } else {
+                                            echo '<span class="status pending">Inactive</span>';
+                                        }
+                                        ?>
+                                    </td>
                             </tr>
-
-                            <tr>
-                                <td>Neil Mark Luspo Firm</td>
-                                <td>Brgy. Bula</td>
-                                <td>09485344156</td>
-                                <td>Neil@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status return">Deactivated</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Esabel Luspo Firm</td>
-                                <td>Brgy. Mabuhay</td>
-                                <td>09485344156</td>
-                                <td>Esabel@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status delivered">Activated</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Khytryn Carcillar Firm</td>
-                                <td>Gensan</td>
-                                <td>09485344156</td>
-                                <td>jvlaroco@gmail.com</td>
-                                <td>
-                                    <button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button>
-                                </td>
-                                <td><span class="status return">Deactivated</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Khytryn Carcillar Firm</td>
-                                <td>Gensan</td>
-                                <td>09485344156</td>
-                                <td>Khytryn@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status delivered">Activated</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Ryan Burdo Firm</td>
-                                <td> Brg. Conil</td>
-                                <td>09485344156</td>
-                                <td>Ryan@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status delivered">Activated</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Jv Laroco Firm</td>
-                                <td> Brg. Conil</td>
-                                <td>09485344156</td>
-                                <td>Ryan@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status delivered">Activated</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Julie Ann Fernandez Firm</td>
-                                <td>Gensan</td>
-                                <td>09485344156</td>
-                                <td>Julie@gmail.com</td>
-                                <td><button class="method active">Accept</button><strong> / </strong>
-                                    <button class="method deactive">Decline</button></td>
-                                <td><span class="status return">Deactivated</span></td>
-                            </tr>
+                                <?php
+                                    }
+                                    ?>  
                         </tbody>
                     </table>
                 </div>
