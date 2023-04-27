@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="lawyerhomepage.php">
+                    <a href="lawyerDashboard.php">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>

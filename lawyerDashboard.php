@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="lawyerhomepage.php">
+                    <a href="lawyerDashboard.php">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -144,7 +144,7 @@ $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 echo '<div>';
                 echo '<div class="numbers">' . $row['count'] . '</div>';
-                echo '<div class="cardName">Number of Attorney</div>';
+                echo '<div class="cardName">Number of Lawyer</div>';
                 echo '</div>';
                 ?>
                     <div class="iconBx">
@@ -153,10 +153,16 @@ $result = mysqli_query($conn, $sql);
                 </div>
 
                 <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Number of Appointment</div>
-                    </div>
+                <?php 
+                include "dbconn.php";
+                $sql = "SELECT COUNT(*) as count FROM tbl_appointment";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                echo '<div>';
+                echo '<div class="numbers">' . $row['count'] . '</div>';
+                echo '<div class="cardName">Number of Appointment</div>';
+                echo '</div>';
+                ?>
 
                     <div class="iconBx">
                         <ion-icon name="list-outline"></ion-icon>
@@ -175,60 +181,33 @@ $result = mysqli_query($conn, $sql);
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Appointment Type</td>
-                                <td>Status</td>
+                                <td>Client Name</td>
+                                <td>Office Name</td>
+                                <td>Time and Date</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Ryan Burdo</td>
-                                <td>Online</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
+                        <?php 
+                            include "dbconn.php";
 
-                            <tr>
-                                <td>Elmer Varquiz</td>
-                                <td>Online</td>
-                                <td><span class="status delivered ">Cpmplete</span></td>
-                            </tr>
+                            $sql = "SELECT tbl_appointment.appointment_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_officeinfo.office_name, tbl_appointment.appointment_timendate
+                            FROM tbl_appointment
+                            JOIN tbl_userinfo ON tbl_appointment.appointment_id = tbl_userinfo.userinfo_id
+                            JOIN tbl_officeinfo ON tbl_appointment.appointment_id = tbl_officeinfo.office_id";
 
+                            $result = mysqli_query($conn, $sql);
+                            while($row = mysqli_fetch_assoc($result)) {
+                            ?>
                             <tr>
-                                <td>Neil Mark Luspo</td>
-                                <td>Physical</td>
-                                <td><span class="status pending">Pending</span></td>
+                            <td><?php echo $row['firstName'] . ' ' . $row['lastName']?></td>
+                            <td><?php echo $row['office_name']?></td>
+                            <td><?php echo $row['appointment_timendate']?></td>
                             </tr>
-
-                            <tr>
-                                <td>Esabel Bang</td>
-                                <td>Physical</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Khytryn Carcillar</td>
-                                <td>Online</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Ryan Burdo</td>
-                                <td>Online</td>
-                                <td><span class="status delivered ">Cpmplete</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Jv Laroco</td>
-                                <td>Physical</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Julie Ann Fernandez</td>
-                                <td>Online</td>
-                                <td><span class="status delivered ">Cpmplete</span></td>
-                            </tr>
+                            <?php
+                          }
+                          ?>
+                        </tbody>
                         </tbody>
                     </table>
                 </div>

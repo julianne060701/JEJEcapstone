@@ -214,9 +214,11 @@
                             $result = mysqli_query($conn, $sql);
                             while($row = mysqli_fetch_assoc($result)) {
                             ?>
+                            <tr>
                             <td><?php echo $row['firstName'] . ' ' . $row['lastName']?></td>
                             <td><?php echo $row['office_name']?></td>
                             <td><?php echo $row['appointment_timendate']?></td>
+                            </tr>
                             <?php
                           }
                           ?>
