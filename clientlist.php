@@ -168,7 +168,6 @@ $result = mysqli_query($conn, $sql);
                                 <?php
                                 }
                                  ?>
-                            </tr>
 
                         </tbody>
                     </table>
