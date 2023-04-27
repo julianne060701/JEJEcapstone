@@ -155,7 +155,7 @@ $result = mysqli_query($conn, $sql);
                                 while($row = mysqli_fetch_assoc($result)) 
                                 {
                                 ?>
-                                 <td><?php echo $row['appointment_id']; ?></td>
+                                 <td><?php echo "REF" . ' ' . $row['appointment_id']; ?></td>
                                  <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
                                  <td><?php echo $row['office_name']; ?></td>
                                  <td><?php echo $row['appointment_timendate']; ?></td>
