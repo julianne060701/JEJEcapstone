@@ -92,7 +92,7 @@ $result = mysqli_query($conn, $sql);
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Lawyer</span>
+                        <span class="title">Lawyer List</span>
                     </a>
                 </li>
 
@@ -125,7 +125,7 @@ $result = mysqli_query($conn, $sql);
                 
 
                 <li>
-                    <a href="#">
+                    <a href="homepage.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>

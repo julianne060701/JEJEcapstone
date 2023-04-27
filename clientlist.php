@@ -68,7 +68,7 @@ $result = mysqli_query($conn, $sql);
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Lawyer</span>
+                        <span class="title">Lawyer List</span>
                     </a>
                 </li>
 
@@ -99,7 +99,7 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="login.php">
+                    <a href="homepage.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -136,7 +136,6 @@ $result = mysqli_query($conn, $sql);
                 <div class="Appointment">
                     <div class="cardHeader">
                         <h2>Client</h2>
-                        <a href="#" class="btn">Add Client</a>
                     </div>
 
                     <table>
