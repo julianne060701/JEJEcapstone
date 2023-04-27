@@ -25,31 +25,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<nav class="navbar navbar-expand-lg ">
-							<a class="navbar-brand cus-a" href="#">Lawyer Management System</a>
+							
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav ml-auto ">
-									<li class="active">
-										<a class="nav-link cus-a" href="index.php">Home <span class="sr-only">(current)</span></a>
-									</li>
-									<li class="">
-										<a class="nav-link cus-a" href="lawyers.php">Lawyers</a><!--lawyers.html page-->
-									</li>
-									<li class="">
-										<a class="nav-link cus-a" href="#">About Us</a>
-									</li>
-									<li class="">
-										<a class="nav-link cus-a" href="login.php">Login</a>
-									</li>
-									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle cus-a" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											Register
-										</a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<a class="dropdown-item" href="lawyer_register.php">Register as a lawyer</a><!--redirect lawyer register page-->
-											<a class="dropdown-item" href="user_register.php">Register as a user</a><!--redirect user register page-->
-
-										</div>
-									</li>
+								<ul class="navbar-nav ml-auto ">									
 
 
 								</ul>
@@ -75,6 +53,10 @@
 									<input type="text" class="form-control" id="first_Name" name="first_Name" placeholder="first name">
 								</div>
 								<div class="form-group col-md-6">
+									<label for="mname">Middle Name</label>
+									<input type="text" class="form-control" id="mname" name="middle_name" placeholder="middle name">
+								</div>
+								<div class="form-group col-md-6">
 									<label for="lname">Last Name</label>
 									<input type="text" class="form-control" id="lname" name="last_Name" placeholder="last name">
 								</div>
@@ -86,14 +68,22 @@
 							</div>
 							<div class="form-group">
 								<label for="email">Email</label>
-								<input type="email" class="form-control" id="email" name="email" placeholder="email address">
+								<input type="email" class="form-control" id="email" name="email" placeholder="send verification email address">
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>
 								<input type="password" class="form-control" id="password" name="password" placeholder="password">
 							</div>
 							<div class="form-group">
-								<label for="num">Image</label>
+								<label for="otp">OTP</label>
+								<input type="OTP" class="form-control" id="OTP" name="OTP" placeholder="OTP">
+							</div>
+							<div class="form-group">
+								<label for="num">Upload your Lawyer ID</label>
+								<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+							</div>.
+							<div class="form-group">
+								<label for="num">Upload Business permit</label>
 								<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
 							</div>.
 							<div class="form-row"><label for="edu"><small>Put Your Last Education</small></label></div>
@@ -141,7 +131,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="form-row"><label for="edu"><small>Put Your chamber Location </small></label></div>
+							<div class="form-row"><label for="edu"><small>Put Your Current Location </small></label></div>
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="address">Full Address</label>
@@ -166,17 +156,7 @@
 									<input type="text" class="form-control" id="zip" name="zip_code" placeholder="zip code">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="practise">Length of practise</label>
-								<select id="practise" name="practise_Length" class="form-control">
-									<option value=" " selected>Choose...</option>
-									<option value="1-5 years">1-5 years</option>
-									<option value="6-10 years">6-10 years</option>
-									<option value="11-15 years">11-15 years</option>
-									<option value="16-20 years">16-20 years</option>
-									<option value="Most Senior">Most Senior</option>
-								</select>
-							</div>
+							
 							<div class="form-group">
 								<!--a lawyer can choose 5 category at max-->
 								<label for="speciality">Types of case handle</label>
@@ -307,11 +287,7 @@
 		</section>
 		<footer class ="bg-success">
 			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h5>All rights reserved 2022</h5>
-					</div>
-				</div>
+			
 			</div>
 		</footer>
 

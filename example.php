@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -96,4 +96,85 @@
 		});
 	</script>
 </body>
-</html>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Appointment Booking System</title>
+	<style>
+		.booked {
+			background-color: red;
+			color: white;
+		}
+		
+		.available {
+			background-color: green;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Appointment Booking System</h1>
+	
+	<form>
+		<label for="date">Select a date:</label>
+		<input type="date" id="date" name="date" required>
+		
+		<label for="time">Select a time:</label>
+		<input type="time" id="time" name="time" required>
+		
+		<button type="submit">Book Appointment</button>
+	</form>
+	
+	<script>
+		// array of booked dates and times
+		const bookedDates = [
+			{ date: "2023-05-01", time: "10:00" },
+			{ date: "2023-05-01", time: "11:00" },
+			{ date: "2023-05-02", time: "13:00" },
+			{ date: "2023-05-03", time: "14:00" },
+		];
+		
+		// function to check if a date and time is available
+		function isAvailable(date, time) {
+			for (let i = 0; i < bookedDates.length; i++) {
+				if (bookedDates[i].date === date && bookedDates[i].time === time) {
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		// add event listener to form submission
+		document.querySelector('form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+			// get selected date and time from form
+			const selectedDate = document.querySelector('#date').value;
+			const selectedTime = document.querySelector('#time').value;
+			
+			// check if date and time is available
+			if (isAvailable(selectedDate, selectedTime)) {
+				alert('Appointment booked for ' + selectedDate + ' at ' + selectedTime);
+			} else {
+				alert('This date and time is already booked. Please select a different date or time.');
+			}
+		});
+		
+		// loop through all date inputs and add color based on availability
+		const dateInputs = document.querySelectorAll('input[type="date"]');
+		for (let i = 0; i < dateInputs.length; i++) {
+			if (isAvailable(dateInputs[i].value, "00:00")) {
+				dateInputs[i].classList.add('available');
+			} else {
+				dateInputs[i].classList.add('booked');
+			}
+		}
+	</script>
+</body>
+</html> -->
+
+
+
+

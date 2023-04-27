@@ -1,0 +1,275 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+    header{
+        width: 100%;
+        text-align: center;
+        font-size: 3em;
+        font-weight: 700;
+        
+    }
+
+    main{
+        background-color: brown;
+        margin: 50px 0px 0px 0px;
+        padding: 20px 100px;
+        
+    }
+
+    main .input-box label, input{
+
+        margin-right: 10px;
+
+    }
+
+    main .input-box,.DatePicker label{
+        font-weight: 600;
+    }
+
+    .DatePicker{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    textarea{
+        resize: none;
+        margin: 10px 40px;
+    }
+
+    .textArea{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+</style>
+<body>
+	<header>
+		SET APPOINTMENT
+	</header>
+    <main>
+        <div class="input-box">
+            <label >First name:</label>
+            <input type="text" name="First name"> 
+            <label >Middle name:</label>
+            <input type="text" name="Middle name">
+            <label >Last name:</label>
+            <input type="text" name="Last name">
+            <label >Contact Number:</label>
+            <input type="text" name="Last name">
+        </div>
+        <br><br>
+        <div class="DatePicker">
+
+                    <div class="date">
+                        <label>Date of appointment</label>
+                        <input type="date">
+                    </div>
+                    
+                    
+                    <div class="radiobtn">
+                        <label>Option 1</label>
+                        <input type="radio">
+                        <label>Option 2</label>
+                        <input type="radio">
+                        <label>Option 3</label>
+                        <input type="radio">
+                        <label>Option 4</label>
+                        <input type="radio">
+                    </div> 
+        </div>
+        <div class="textArea">
+            <textarea name="" id="" cols="100" rows="10"></textarea>
+        </div>
+        
+
+
+    </main>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Date Picker</title>
+	<style>
+
+        @me
+		.date-picker {
+			position: relative;
+			display: inline-block;
+		}
+		
+		.date-picker input {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 16px;
+			font-family: Arial, sans-serif;
+			outline: none;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		
+		.date-picker .calendar {
+			position: absolute;
+			top: 40px;
+			left: 0;
+			background: #fff;
+			border: 1px solid #ccc;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			border-radius: 5px;
+			z-index: 1;
+			display: none;
+		}
+		
+		.date-picker .calendar.active {
+			display: block;
+		}
+		
+		.date-picker .calendar table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+		
+		.date-picker .calendar td,
+		.date-picker .calendar th {
+			padding: 5px;
+			text-align: center;
+		}
+		
+		.date-picker .calendar th {
+			font-weight: bold;
+			border-bottom: 1px solid #ccc;
+		}
+		
+		.date-picker .calendar td:not(.disabled):hover {
+			background: #eee;
+			cursor: pointer;
+		}
+		
+		.date-picker .calendar td.disabled {
+			color: #ccc;
+			cursor: default;
+		}
+	</style>
+</head>
+<body>
+	<div class="date-picker">
+		<input type="text" placeholder="Select a date">
+		<div class="calendar">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="7"></th>
+					</tr>
+					<tr>
+						<th>Sun</th>
+						<th>Mon</th>
+						<th>Tue</th>
+						<th>Wed</th>
+						<th>Thu</th>
+						<th>Fri</th>
+						<th>Sat</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script>
+		var datePicker = document.querySelector('.date-picker');
+		var input = datePicker.querySelector('input');
+		var calendar = datePicker.querySelector('.calendar');
+		var tbody = calendar.querySelector('tbody');
+
+		function generateCalendar(year, month) {
+			var calendarBody = '';
+			var date = new Date(year, month);
+
+			while (date.getMonth() === month) {
+				var day = date.getDay();
+				if (day === 0) {
+					calendarBody += '<tr>';
+				}
+				if (day !== 1 && day !== 0) {
+					calendarBody += '<td class="disabled">';
+				} else {
+					calendarBody += '<td>';
+				}
+
+				calendarBody += date.getDate() + '</td>';
+
+				if (day === 6) {
+					calendarBody += '</tr>';
+				}
+
+				date.setDate(date.getDate() + 1);
+			}
+
+			tbody.innerHTML = calendarBody;
+			calendar.querySelector('th').innerHTML = year + ' - ' + (month + 1);
+		}
+
+		function toggleCalendar() {
+			calendar.classList.toggle('active');
+		}
+
+		input.addEventListener('click', toggleCalendar)
+        function toggleCalendar() {
+        calendar.classList.toggle('active');
+    }
+
+    input.addEventListener('click', toggleCalendar);
+
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+
+    generateCalendar(year, month);
+
+    var prevMonth = calendar.querySelector('.prev-month');
+    var nextMonth = calendar.querySelector('.next-month');
+
+    prevMonth.addEventListener('click', function() {
+        month--;
+        if (month < 0) {
+            year--;
+            month = 11;
+        }
+        generateCalendar(year, month);
+    });
+
+    nextMonth.addEventListener('click', function() {
+        month++;
+        if (month > 11) {
+            year++;
+            month = 0;
+        }
+        generateCalendar(year, month);
+    });
+
+    calendar.addEventListener('click', function(e) {
+        if (e.target.tagName.toLowerCase() === 'td' && !e.target.classList.contains('disabled')) {
+            var selectedDate = new Date(year, month, e.target.innerHTML);
+            input.value = selectedDate.toLocaleDateString();
+            toggleCalendar();
+        }
+    });
+</script>
+
+</body>
+</html>

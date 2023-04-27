@@ -38,13 +38,7 @@
 		<label>Confirm password</label>
 		<input type="password" name="password_2" id="cfpassword" required onblur="validateConfirmpassword()">
 	</div>
-	<div class="input-group">
-    <label>Account type</label>
-    <select id="user_type" name="user_type">
-        <option value="client">Client</option>
-        <option value="lawyer">Lawyer</option>
-    </select>
-</div>
+	
 
 <!-- valid name -->
 <script>
