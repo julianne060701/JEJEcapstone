@@ -34,7 +34,7 @@
                 </li>
 
                 <li>
-                    <a href="lawyerOffice.php">
+                    <a href="LawyerOfficeFinal.php">
                         <span class="icon">
                             <ion-icon name="business-outline"></ion-icon>
                         </span>
