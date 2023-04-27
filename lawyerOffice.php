@@ -18,6 +18,33 @@
 </head>
 
 <body>
+
+
+
+
+<!-- The modal -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Register Office</h2>
+    <form>
+      <label for="firmName">Firm Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" required></textarea>
+      
+      <label for="contactNumber">Contact Number:</label>
+      <input type="tel" id="contactNumber" name="contactNumber" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
@@ -122,40 +149,9 @@
                 <div class="Appointment">
                     <div class="cardHeader">
                         <h2>Law Offices</h2>
-                        <button class="btn" id="add-law-office-btn">Add Law Office</button>                    
-                        <div class="popup-form" id="popup-form" style="display: none;">
+                        <button  id="registerBtn" class="btn" >Add Law Office</button>                    
+                    
 
-    <h2>Add Law Office</h2>
-    <form action="add_law_office.php" method="POST">
-        <label for="office-name">Office Name:</label>
-        <input type="text" id="office-name" name="office-name" required>
-
-        <label for="office-address">Office Address:</label>
-        <input type="text" id="office-address" name="office-address" required>
-
-        <label for="office-contact">Office Contact:</label>
-        <input type="text" id="office-contact" name="office-contact" required>
-
-        <label for="office-email">Office Email:</label>
-        <input type="email" id="office-email" name="office-email" required>
-
-        <button type="submit">Add</button>
-        <button type="button" id="cancel-btn">Cancel</button>
-    </form>
-</div>
-<script>
-    const addLawOfficeBtn = document.getElementById('add-law-office-btn');
-    const popupForm = document.getElementById('popup-form');
-    const cancelBtn = document.getElementById('cancel-btn');
-
-    addLawOfficeBtn.addEventListener('click', () => {
-        popupForm.style.display = 'block';
-    });
-
-    cancelBtn.addEventListener('click', () => {
-        popupForm.style.display = 'none';
-    });
-</script>
 
                     </div>
 <!-- end of pop-up form -->
