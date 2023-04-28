@@ -24,7 +24,7 @@
     <div class="dropdown">
         <button class="dropbtn btnLogin-popup">Register <span id="icon-ali"><ion-icon name="caret-down-outline"></ion-icon></span></button>
         <div class="dropdown-content">
-            <a href="lawyersignup.php">Register as a Lawyer</a>
+            <a href="lawRegister.php">Register as a Lawyer</a>
             <a href="register.php">Register as a Client</a>
         </div>
     </div>
@@ -56,7 +56,7 @@
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <div class="login-register">
-                    <p>Dont have an account?<a href="#" class="register-link">Register</a></p>
+                    <p><a href="#" class="register-link"></a></p>
                 </div>
             </form>
         </div>
