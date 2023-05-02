@@ -144,7 +144,7 @@ $result = mysqli_query($conn, $sql);
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input type="text" placeholder="Search here" id="search-input">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -165,7 +165,7 @@ $result = mysqli_query($conn, $sql);
                         <button id="registerBtn" class="btn">Register</button>
                     </div>
                     
-                    <table>
+                    <table id="lawoffice-table">
                         <thead>
                             <tr>
                                 <td>Firm ID</td>
@@ -221,6 +221,26 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
+    <!-- search script -->
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const lawofficeTable = document.getElementById('lawoffice-table');
+
+        searchInput.addEventListener('keyup', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const rows = lawofficeTable.getElementsByTagName('tr');
+  
+        for (let i = 0; i < rows.length; i++) {
+        const fullName = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
+    
+        if (fullName.includes(searchTerm)) {
+        rows[i].style.display = '';
+        } else {
+        rows[i].style.display = 'none';
+        }
+     }
+    });
+    </script>
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
 

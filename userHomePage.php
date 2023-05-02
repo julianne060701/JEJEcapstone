@@ -39,9 +39,9 @@
       <tr>
       <td><img src="https://picsum.photos/50" alt="Profile Picture"></td>
       <td><?php echo $row['office_name']?></td>
-      <td><?php echo $row['office_email']?></td>
-      <td><?php echo $row['office_address']?></td>
-      <td><?php echo $row['office_contact']?></td>
+      <td><ion-icon name="mail-outline"></ion-icon><?php echo $row['office_email']?></td>
+      <td><ion-icon name="navigate"></ion-icon><?php echo $row['office_address']?></td>
+      <td><ion-icon name="call"></ion-icon><?php echo $row['office_contact']?></td>
       <td><button>View Profile</button></td>
       </tr>
       <?php
