@@ -17,13 +17,13 @@
     
     <div class="search">
         <label>
-            <input type="text" placeholder="Search here">
+            <input type="text" placeholder="Search here" id="search-input">
             <ion-icon name="search-outline"></ion-icon>
         </label>
     </div>
 
     <!-- Table with Picture, User Details and Action -->
-    <table class="table">
+    <table class="table" id="office-table">
     
     <?php 
     include "dbconn.php";
@@ -50,6 +50,25 @@
         </tbody>
       </table>
     </body>
+    <script>
+      const searchInput = document.getElementById('search-input');
+      const officeTable = document.getElementById('office-table');
+
+      searchInput.addEventListener('keyup', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const rows =officeTable.getElementsByTagName('tr');
+
+        for (let i = 0; i < rows.length; i++) {
+          const fullName = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
+
+          if(fullName.includes(searchTerm)) {
+            rows[i].style.display = '';
+          }else {
+            rows[i].style.display = 'none';
+          }
+        }
+      });
+    </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </html>
