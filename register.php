@@ -19,11 +19,11 @@
 		<input type="text" name="lastname" id="lastname" value="" required onblur="validateLastname()">
 	</div>
 	<div class="input-group">
-		<label>Username</label>
+		<label>Email</label>
 		<input type="text" name="username" id="username" value="" required onblur="validateUsername()">
 	</div>
 	<div class="input-group">
-		<label>Email</label>
+		<label>Address</label>
 		<input type="email" name="email" id="email" value="" required onblur="validateEmail()">
 	</div>
     <div class="input-group">
@@ -85,8 +85,8 @@
 
 <!-- validate username -->
 <script>
-	function validateUsername() {
-		var usernameInput = document.getElementById("username");
+	function validateEmail() {
+		var usernameInput = document.getElementById("email");
 		var usernameValue =usernameInput.value;
 
 		if (usernameValue == "") {
@@ -100,8 +100,8 @@
 </script>
 
 <script>
-	function validateEmail() {
-		var emailInput =document.getElementById("email");
+	function validateUsername() {
+		var emailInput =document.getElementById("username");
 		var emailValue =emailInput.value;
 		var format = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
