@@ -22,6 +22,9 @@ $result = mysqli_query($conn, $sql);
 </head>
 
 <body>
+
+    
+  
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
@@ -53,7 +56,7 @@ $result = mysqli_query($conn, $sql);
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="lawyerappointment.php">
                         <span class="icon">
                             <ion-icon name="reader-outline"></ion-icon>
                         </span>
@@ -117,26 +120,36 @@ $result = mysqli_query($conn, $sql);
                 </div>
             </div>
 
-        
-                <!-- ================ Table List ================= -->
-                <div class="details">
+           
+             <!-- ================ Table List ================= -->
+             <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
-                        <h2>Appointment List</h2>
+                        <h2>Secretary List</h2>
+                        <button id="registerBtn" class="btn">Add Secretary</button>
                     </div>
                     
                     <table id="lawoffice-table">
                         <thead>
                             <tr>
-                                <td>Appointment ID</td>
-                                <td>Client Name</td>
+                             
+                                <td>Secretary Name</td>
+                                <td>Address</td>
                                 <td>Contact Number</td>
                                 <td>Email Address</td>
-                                <td>Date/Time</td>
                                 <td>Action</td>
                                 <td>Status</td>
                             </tr>
                         </thead>
+
+                        <tbody>
+                    
+
+            
+            </div>
+        </div>
+    </div>
+            
 
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>

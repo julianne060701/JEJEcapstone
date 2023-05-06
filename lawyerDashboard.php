@@ -19,12 +19,40 @@ $result = mysqli_query($conn, $sql);
     <title>Admin Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      /* Add your existing CSS styles here */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+</style>
 </head>
 
 <body>
+    
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
+            
             <ul>
                 <li>
                     <a href="#">
@@ -62,7 +90,7 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="lawyerSecretary.php">
                         <span class="icon">
                             <ion-icon name="reader-outline"></ion-icon>
                         </span>
@@ -111,10 +139,14 @@ $result = mysqli_query($conn, $sql);
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
-
-                <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
-                </div>
+                <button class="dropbtn">
+                <img class="profile" src="assets/imgs/customer01.jpg" alt="Profile Picture">
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Homepage</a>
+            <a href="lawyerDashboard.php">Manage Profile</a>
+            <a href="homepage.php">Log Out</a>
+          </div>
             </div>
 
             <!-- ======================= Cards ================== -->

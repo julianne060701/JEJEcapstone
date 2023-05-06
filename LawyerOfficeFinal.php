@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $sql);
 <!-- Button to trigger the modal -->
 
 
-<!-- The modal -->
+<!-- The popup -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -43,7 +43,12 @@ $result = mysqli_query($conn, $sql);
       
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
-      <button type="submit">Submit</button>
+
+	<label for="num">Upload Lawyer ID</label>
+	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+    <label for="num">Upload Business Permit</label>
+	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+    <button type="submit">Submit</button>
     </form>
   </div>
 </div>
@@ -157,7 +162,7 @@ $result = mysqli_query($conn, $sql);
             <!-- ======================= Cards ================== -->
             
 
-            <!-- ================ Order Details List ================= -->
+            <!-- ================ Table List ================= -->
             <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
