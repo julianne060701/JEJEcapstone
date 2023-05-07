@@ -93,11 +93,8 @@
 									<input type="text" class="form-control" id="institute" name="university_College" placeholder="Institute name">
 								</div>
 								<div class="form-group col-md-3">
-									<label for="degree">Degree</label>
-									<select id="degree" name="degree" class="form-control">
-										<option value=" " selected>Choose...</option>
-										<option value="LLB">LLB</option>
-										<option value="LLM">LLM</option>
+										<label for="degree">Degree</label>
+									<input type="text" class="form-control" id="degree" name="degree" placeholder="degree">
 									</select>
 								</div>
 								<div class="form-group col-md-3">
@@ -127,7 +124,6 @@
 										<option value="2016">2020</option>
 										<option value="2017">2021</option>
 										<option value="2018">2022</option>
-										<option value="2019">2023</option>
 									</select>
 								</div>
 							</div>
@@ -139,17 +135,8 @@
 								</div>
 								<div class="form-group col-md-3">
 									<label for="city">City</label>
-									<select id="city" name="city" class="form-control">
-										<option value=" " selected>Choose...</option>
-										<option value="Dhaka">Dhaka</option>
-										<option value="Chittagong">Chittagong</option>
-										<option value="Sylhet">Sylhet</option>
-										<option value="Barishal">Barishal</option>
-										<option value="Khulna">Khulna</option>
-										<option value="Mymensingh">Mymensingh</option>
-										<option value="Rajshahi">Rajshahi</option>
-										<option value="Rangpur"></option>
-								</select>
+									<input type="text" class="form-control" id="city" name="city" placeholder="city">
+														
 								</div>
 								<div class="form-group col-md-3">
 									<label for="zip">Zip code</label>

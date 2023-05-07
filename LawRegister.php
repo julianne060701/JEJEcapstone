@@ -60,14 +60,33 @@
                 <input  placeholder="" type="file" name="permit" class="file input">
             </label>
         </div> 
-            
-        </div> 
+
+        <div class="flex">
         <label>
-            <input required="" placeholder="" type="text" name="address" class="input" style="width: 400px;">
-            <span>Full Address: City, Barangay, Street, Block, Unit #, Zip Code</span>
-        </label>
-            
-        </div>   
+            <input required="" placeholder="" type="text" class="input"  style="width: 180px;">
+            <span>Institute Name</span>
+        </label> 
+        
+        <label>
+            <input required="" placeholder="" type="text" class="input"  style="width: 80px;">
+            <span>Degree</span>
+        </label> 
+
+        <label>
+            <input required="" placeholder="" type="text" class="input"  style="width: 80px;">
+            <span>Passing year</span>
+        </label> 
+        </div>
+
+        <label>
+            <input required="" placeholder="" type="text" class="input"  style="width: 400px;">
+            <span>Speciality</span>
+        </label> 
+        
+         
+       
+        
+        </div>     
         <button class="submit">Submit</button>
         <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
     </form>

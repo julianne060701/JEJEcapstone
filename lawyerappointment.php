@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Lawyer Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="LawyerOfficeFinal.css">
 </head>
@@ -88,12 +88,21 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="login.php">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
+                    <?php
+                    session_start(); 
+                    if(isset($_GET['logout'])) { 
+                         session_unset();
+                         session_destroy();
+                         header("Location: homepage.php?logout");
+                         exit(); 
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
