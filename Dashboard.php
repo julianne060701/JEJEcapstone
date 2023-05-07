@@ -88,12 +88,21 @@
                 </li>
 
                 <li>
-                    <a href="homepage.php">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
+                    <?php
+                    session_start(); 
+                    if(isset($_GET['logout'])) { 
+                         session_unset();
+                         session_destroy();
+                         header("Location: homepage.php?logout");
+                         exit(); 
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
@@ -263,6 +272,7 @@
 
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
+
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
