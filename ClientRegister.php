@@ -12,7 +12,7 @@
     <form class="form" action="lawyerregister.php" method="POST">
         
         
-        <p class="title"> Lawyer Register </p>
+        <p class="title">Register </p>
             <div class="flex">
             <label>
                 <input required="" placeholder="" type="text" name="firstname" class="input">
@@ -49,40 +49,8 @@
         <label>
             <input required="" placeholder="" type="password" name="cfpassword" class="input" style="width: 400px;">
             <span>Confirm password</span>
-        </label>
-        <div class="flex-file">
-            <label>
-                <p style="width: 200px;">Upload your Lawyer ID</p>
-                <input  placeholder="" type="file" name="id" class="file input" width="10px">
-            </label>
-            <label>
-                <p style="width: 200px;">Upload Business permit</p>
-                <input  placeholder="" type="file" name="permit" class="file input">
-            </label>
-        </div> 
-
-        <div class="flex">
-        <label>
-            <input required="" placeholder="" type="text" class="input"  style="width: 180px;">
-            <span>Institute Name</span>
         </label> 
-        
-        <label>
-            <input required="" placeholder="" type="text" class="input"  style="width: 80px;">
-            <span>Degree</span>
-        </label> 
-
-        <label>
-            <input required="" placeholder="" type="text" class="input"  style="width: 80px;">
-            <span>Passing year</span>
-        </label> 
-        </div>
-
-        <label>
-            <input required="" placeholder="" type="text" class="input"  style="width: 400px;">
-            <span>Speciality</span>
-        </label> 
-     
+                          
         </div>     
         <button class="submit"><a href="OTP.php">Submit</a> </button>
         <p class="signin">Already have an acount ? <a href="homepage.php">Signin</a> </p>

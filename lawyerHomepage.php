@@ -12,7 +12,7 @@
       .dropdown-content {
     display: none;
     position: absolute;
-    transform: translateX(100px);
+    transform: translateX(3px);
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -102,21 +102,6 @@
           }
         }
       });
-    </script>
-
-     <!-- script logout -->
-     <script>
-        var timer;
-        function resetTimer() {
-            clearTimeout(timer);
-            timer =setTimeout(logout, 5000);
-        }
-        function logout() {
-            window.location.href = "?logout";
-        }
-        resetTimer();
-        document.addEventListener("mousemove", resetTimer);
-        document.addEventListener("keypress", resetTimer);
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

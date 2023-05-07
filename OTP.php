@@ -22,7 +22,7 @@
     <input placeholder="" type="tel" maxlength="1">
     <input placeholder="" type="tel" maxlength="1">
   </div>
-        <a class="validate" href="#">Verify</a>
+        <a class="validate" href="homepage.php">Verify</a>
 <p class="resend">You don't receive the code ?<a class="resend-action">resend</a></p>
 
 </form>
