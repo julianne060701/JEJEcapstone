@@ -1,3 +1,5 @@
+<!-- ClientRegister.php -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +54,7 @@
         </label> 
                           
         </div>     
-        <button class="submit"><a href="OTP.php">Submit</a> </button>
+        <button class="submit"><a href="OTP.php">Next</a> </button>
         <p class="signin">Already have an acount ? <a href="homepage.php">Signin</a> </p>
     </form>
 </body>

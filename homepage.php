@@ -61,7 +61,7 @@
             </form>
         </div>
 
-        <!-- <div class="form-box register">
+        <div class="form-box register">
             <h2>Registration</h2>
             <form action="userregister.php" method="POST">
                 <div class="input-box">
@@ -119,7 +119,7 @@
                     <p>Already have an account?<a href="#" class="Login-link">Login</a></p>
                 </div>
             </form>
-        </div> -->
+        </div>
     </div>
 </body>
 <script src="assets/js/script.js"></script>
