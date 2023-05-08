@@ -7,12 +7,55 @@
     <title>Admin Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Notice Board Styles */
+.container #content {
+  margin: 20px auto;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.container #content h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.container #content hr {
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.container #content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.container #content input[type="submit"] {
+  background-color: #008CBA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.container #content input[type="submit"]:hover {
+  background-color: #007A8D;
+}
+
+    </style>
 </head>
+
 <body>
 
-<style>
-    
-    </style>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
@@ -111,57 +154,35 @@
             </div>
         </div>
 
-        <!-- ================= New Clients ================ -->
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
-                <div class="d-flex align-items-center">
-                <h2 class = "fs-2 m-0"> Notice Board </h2>
-    </div>
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-        <button type="button" class="btn btn-add mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          <i class="fa fa-pen-to-square" style="font-size:20px;float:left;"></i>New Post 
-        </button>
-      </li>
-    </ul> 
-  </nav>  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">New Notice</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="name">Name:</label>
-              <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="date">Date:</label>
-              <input type="date" class="form-control" id="date" name="date" required>
-            </div>
-            <div class="form-group">
-              <label for="title">Title:</label>
-              <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-            <div class="form-group">
-              <label for="content">Content:</label>
-              <textarea class="form-control" id="content" name="content" rows="4" cols="50" required></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ================= End New Clients ================ --> 
+        <!-- ================= Notice Board================ -->
+<div class="container">
+	<div id="content" align="center">
+		<form action="#" method="post">
+		<h1>Notice Board</h1><hr/>
+		
+		<textarea type="text" name="message" class="ed" rows="5" class="form-control"></textarea><br/><br/>
+		<input type="submit" class="btn btn-primary" value="Send" id="button1">
+		</form>
+	</div><hr/>
+    <h2>History</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    //  connect database
+    ?>
+  </tbody>
+</table>
+</body>
+</html>
+
+    
+<!-- ================= Notice Board ================ --> 
 <!-- =============== Scripts ================ -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

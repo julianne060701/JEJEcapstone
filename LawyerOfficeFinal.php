@@ -52,7 +52,7 @@ $result = mysqli_query($conn, $sql);
     </form>
   </div>
 </div>
-
+<!-- end popup -->
     <div class="container">
         <div class="navigation">
             <ul>
