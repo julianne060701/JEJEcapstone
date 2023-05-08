@@ -42,7 +42,7 @@
             <img class="profile" src="https://picsum.photos/50" alt="Profile Picture">
           </button>
           <div class="dropdown-content">
-            <a href="#">Manage Profile</a>
+            <a href="editProfile.php">Manage Profile</a>
             <a href="lawyerDashboard.php">Manage Dashboard</a>
             <a href="homepage.php">Log Out</a>
           </div>
