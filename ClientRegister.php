@@ -11,8 +11,7 @@
 </head>
 
 <body>
-
-<img src="assets\imgs\among.gif" alt="Giphy GIF" style="position: absolute; top: 200px; right: 100px; width: 300px; height: 300px;">
+    <img src="assets\imgs\among.gif" alt="Giphy GIF" style="position: absolute; top: 200px; right: 100px; width: 300px; height: 300px;">
     <form class="form" action="lawyerregister.php" method="POST">
         
         
@@ -36,7 +35,7 @@
             </label>
     
             <label>
-                <input required="" placeholder="" type="number" name="contactnum" class="input-number input">
+                <input required="" placeholder="" type="number" name="phonenumber" class="input-number input">
                 <span>Contact Number</span>
             </label>
         </div> 
@@ -59,7 +58,7 @@
         </div> 
             
         <label>
-            <input required="" placeholder="" type="password" name="password" class="input" style="width: 400px;">
+            <input required="" placeholder="" type="password" name="password_1" class="input" style="width: 400px;">
             <span>Password</span>
         </label>
         <label>
