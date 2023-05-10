@@ -2,6 +2,7 @@
 include "dbconn.php";
 
 $firstname = $_POST['firstname'];
+$middlename = $_POST['middlename'];
 $lastname = $_POST['lastname'];
 $email = $_POST['username'];
 $address = $_POST['email'];
@@ -9,7 +10,7 @@ $phone = $_POST['phonenumber'];
 $password = $_POST['password_1'];
 
 // Insert user information in tbl_userinfo table
-$sql = "INSERT INTO tbl_userinfo (firstName, lastName, phoneNum, address) VALUES ('$firstname','$lastname','$phone', '$address')";
+$sql = "INSERT INTO tbl_userinfo (firstName, middlename, lastName, phoneNum, address) VALUES ('$firstname','$middlename' ,'$lastname','$phone', '$address')";
 
 if ($conn->query($sql) === TRUE) {
     $user_id = $conn->insert_id;

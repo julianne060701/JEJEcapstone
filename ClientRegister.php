@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form class="form" action="lawyerregister.php" method="POST">
+    <form class="form" action="userregister.php" method="POST">
         
         
         <p class="title">Register </p>
@@ -34,7 +34,7 @@
             </label>
     
             <label>
-                <input required="" placeholder="" type="number" name="contactnum" class="input-number input">
+                <input required="" placeholder="" type="number" name="phonenumber" class="input-number input">
                 <span>Contact Number</span>
             </label>
         </div> 
@@ -45,7 +45,7 @@
         </label> 
             
         <label>
-            <input required="" placeholder="" type="password" name="password" class="input" style="width: 400px;">
+            <input required="" placeholder="" type="password" name="password_1" class="input" style="width: 400px;">
             <span>Password</span>
         </label>
         <label>
