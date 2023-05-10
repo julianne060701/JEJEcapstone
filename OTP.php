@@ -8,23 +8,39 @@
     <link rel="stylesheet" href="otp.css">
 </head>
 <body>
+<?php
+    include 'dbconn.php';
 
-<form class="form">
+    if(isset($_POST['validate'])){
+      $otp = $_POST['otp'];
+      
+      $sql = "UPDATE tbl_cred SET email_verified_at = NOW() WHERE email = '$email' AND otp = '$otp'";
+      $result = mysqli_query($conn, $sql);
+
+      if (mysqli_affected_rows($conn) == 0) {
+        die("OTP Verification Failed");
+      }
+      header("homepage.php?msg= You can login now!");
+      exit();
+    }
+?>
+<form class="form" name="OTP" method="POST">
   <span class="close">X</span>
 
   <div class="info">
   <span class="title">OTP Verification</span>
-<p class="description">Please enter the code we have sent you. </p>
+  <p class="description">Please enter the code we have sent you. </p>
    </div>
     <div class="inputs">
-    <input placeholder="" type="tel" maxlength="1">
-    <input placeholder="" type="tel" maxlength="1">
-    <input placeholder="" type="tel" maxlength="1">
-    <input placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="1">
   </div>
-        <a class="validate" href="homepage.php">Verify</a>
-<p class="resend">You don't receive the code ?<a class="resend-action">resend</a></p>
-
+    <button type="submit" name="validate" class="validate">Verify</button>
+    <p class="resend">You didn't receive the code? <a class="resend-action" href="#">Resend</a></p>
 </form>
 
 </body>
