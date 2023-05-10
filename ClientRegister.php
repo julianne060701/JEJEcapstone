@@ -12,7 +12,7 @@
 
 <body>
     <style>body{
-        background: url("assets/imgs/lawyerOffice2.jpg") no-repeat center center fixed;
+        background: url("assets/images/slider/main.jpg") no-repeat center center fixed;
         background-size: cover;
     }
     </style>
