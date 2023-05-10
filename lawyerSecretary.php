@@ -1,14 +1,13 @@
-<?php
+<?php 
 include "dbconn.php";
 
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_userinfo.address, tbl_userinfo.phoneNum, tbl_usertype.user_type, tbl_cred.email
-FROM tbl_userinfo
-JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
-JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
-WHERE tbl_usertype.user_type = 'client'";
+$sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
+FROM tbl_officeinfo
+JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
 
 $result = mysqli_query($conn, $sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,17 +15,55 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lawyer Dashboard</title>
+    <title>Admin Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="LawyerOfficeFinal.css">
 </head>
 
 <body>
-
-    
-  
     <!-- =============== Navigation ================ -->
-    <div class="container">
+
+<!-- Button to trigger the modal -->
+
+
+<!-- The popup -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Add Secretary Account</h2>
+    <form action="registerOffice.php" method="POST">
+      <label for="firmName">First Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+      
+      <label for="firmName">Middle Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+
+      <label for="firmName">Last Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" required></textarea>
+      
+      <label for="contactNumber">Contact Number:</label>
+      <input type="tel" id="contactNumber" name="contactNumber" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="password2">Confirm Password:</label>
+      <input type="password2" id="password2" name="password2" required>
+
+
+	
+    <button type="submit">Add</button>
+    </form>
+  </div>
+</div>
+<!-- end popup -->
+  <div class="container">
         <div class="navigation">
             <ul>
                 <li>
@@ -97,18 +134,11 @@ $result = mysqli_query($conn, $sql);
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
-                    <?php
-                    session_start(); 
-                    if(isset($_GET['logout'])) { 
-                         session_unset();
-                         session_destroy();
-                         header("Location: homepage.php?logout");
-                         exit(); 
-                        }
-                    ?>
+                
                 </li>
             </ul>
         </div>
+
 
         <!-- ========================= Main ==================== -->
         <div class="main">
@@ -119,7 +149,7 @@ $result = mysqli_query($conn, $sql);
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input type="text" placeholder="Search here" id="search-input">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -129,8 +159,10 @@ $result = mysqli_query($conn, $sql);
                 </div>
             </div>
 
-           
-             <!-- ================ Table List ================= -->
+            <!-- ======================= Cards ================== -->
+            
+
+            <!-- ================ Table List ================= -->
              <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
@@ -158,8 +190,26 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
-            
+    <!-- search script -->
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const lawofficeTable = document.getElementById('lawoffice-table');
 
+        searchInput.addEventListener('keyup', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const rows = lawofficeTable.getElementsByTagName('tr');
+  
+        for (let i = 0; i < rows.length; i++) {
+        const fullName = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
+    
+        if (fullName.includes(searchTerm)) {
+        rows[i].style.display = '';
+        } else {
+        rows[i].style.display = 'none';
+        }
+     }
+    });
+    </script>
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
 
