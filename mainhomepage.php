@@ -162,7 +162,7 @@
   </div>
 </div>
 
-<!-- end popup -->
+end popup
 <section class="slider">
     <div class="container">
         <div class="row">

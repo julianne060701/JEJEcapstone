@@ -11,6 +11,8 @@
 </head>
 
 <body>
+
+<img src="assets\imgs\among.gif" alt="Giphy GIF" style="position: absolute; top: 200px; right: 100px; width: 300px; height: 300px;">
     <form class="form" action="lawyerregister.php" method="POST">
         
         
@@ -39,10 +41,22 @@
             </label>
         </div> 
                 
+        <div class="flex">       
         <label>
-            <input required="" placeholder="" type="email" name="email" class="input"  style="width: 400px;">
-            <span>Email</span>
+            <input required="" placeholder="" type="email" name="email" class="input">
+            <span>Email </span>
         </label> 
+        <button id="myButton" class="myClass" style="color: red;" onclick="alert('Check your email')">Send OTP</button>
+        </div>
+            
+
+        <div class="flex">       
+        <label>
+            <input required="" placeholder="" type="otp" name="otp" class="input">
+            <span>OTP </span>
+        </label> 
+        <button id="myButton" class="myClass" style="color: red;" onclick="alert('Verified')">Verify</button>
+        </div> 
             
         <label>
             <input required="" placeholder="" type="password" name="password" class="input" style="width: 400px;">

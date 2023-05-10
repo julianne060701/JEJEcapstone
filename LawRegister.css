@@ -6,6 +6,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 40px 0px 100px 0px;
+    background-color: aqua;
 }
 
 .form {
@@ -81,7 +82,7 @@ gap: 30px;
 
 .flex-file {
 display: flex;
-width: 100%;
+width: 50%;
 gap: 25px;
 float: left;
 

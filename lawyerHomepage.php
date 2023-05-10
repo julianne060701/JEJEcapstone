@@ -4,7 +4,7 @@
     <title>Client_HomePage</title>
     <link rel="stylesheet" href="userHome.css">
     <style>
-      /* Add your existing CSS styles here */
+      /* Profile dropdown*/
       .dropdown {
         position: relative;
         display: inline-block;
