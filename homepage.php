@@ -21,9 +21,6 @@
         <!-- </style> -->
 </head>
 <body>
-     <img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Giphy GIF" style="position: center">
-     <img src="assets\imgs\giphy.gif" alt="Giphy GIF" style="position: absolute; top: 200px; right: 50px; width: 300px; height: 300px;">
-     <img src="assets\imgs\among.gif" alt="Giphy GIF" style="position: absolute; top: 200px; right: 400px; width: 300px; height: 300px;">
     <header>
         <h2 class="logo"><img src="assets/imgs/law-firm-logo.jpg"alt=""> Law Office General Santos City</h2>
         <nav class="navigation">
