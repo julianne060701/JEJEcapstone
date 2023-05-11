@@ -34,11 +34,8 @@ include "dbconn.php";
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-        if($result->email_verified_at == null){
-            header("Location: OTP.php?msg= OTP Verification");
-            exit();
-        }
-        elseif ($row['userType'] === 'lawyer') {
+     
+        if ($row['userType'] === 'lawyer') {
             header("Location: lawyerDashboard.php?Login Successfully");
             exit();
         } elseif ($row['userType'] === 'client') {
