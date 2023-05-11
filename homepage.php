@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="slider-content">
-                    <h2>Connecting You to Top Law Firms in General Santos City - Schedule Your Legal Consultation Today!</h2>
+                    <h2>Connecting You to Top Law Firms in General Santos City - Schedule Your Legal Consultation Today!!!!!</h2>
                     <p>Welcome to our appointment service portal connecting you to the best law offices in General Santos City 
                         - where you can easily schedule and book legal consultations for efficient and effective solutions to your legal needs. </p>
                  
