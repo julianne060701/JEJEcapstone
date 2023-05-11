@@ -1,11 +1,6 @@
 <?php
 include "dbconn.php";
 
-      use PHPMailer\PHPMailer\PHPMailer;
-      use PHPMailer\PHPMailer\SMTP;
-      use PHPMailer\PHPMailer\Exception;
-      require 'vendor/autoload.php';
-
    if (isset($_POST['firstname']) && isset($_POST['middlename']) && isset($_POST['lastname']) && isset($_POST['phonenumber'])
    && isset($_POST['email']) && isset($_POST['password_1']) && isset($_POST['cfpassword'])) {
       
@@ -25,27 +20,6 @@ include "dbconn.php";
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $cfpassword = validate($_POST['cfpassword']);
         $regex = '/^[a-zA-Z ]*$/';
-        $mail = new PHPMailer(true);
-
-        $name = $firstname . $middlename . $lastname;
-
-        //OTP
-        $mail->SMTPDebug = 0;
-        $mail->isSMTP();   
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'legaleas3@gmail.com';
-        $mail->Password = 'jccfqxsnjttnhtwo';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-        $mail->setFrom('legaleas3@gmail.com', 'legalease.com');
-        $mail->addAddress($email, $name);
-        $mail->isHTML(true);
-        $otp = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-        $mail->Subject = 'OTP verification';
-        $mail->Body    = '<p>Your OTP code is: <b style="font-size: 30px;">' . $otp . '</b></p>';
-        $mail->send();
-  
 
       if (empty($firstname)) {
          header("Location: ClientRegister.php?error= First Name cannot be empty!");
