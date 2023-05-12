@@ -2,16 +2,13 @@
 include "dbconn.php";
 
 $sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.middlename, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum
-, tbl_status.status
 FROM tbl_userinfo
 JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
 JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
 JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
-JOIN tbl_status ON tbl_userinfo.userinfo_id = tbl_status.user_id
 WHERE tbl_usertype.user_type = 'secretary'";
 
 $result = mysqli_query($conn, $sql);
-
 
 session_start(); 
 if(isset($_GET['logout'])) { 
@@ -221,11 +218,11 @@ if(isset($_GET['logout'])) {
 
                                 while($row = mysqli_fetch_assoc($result)){
                                     ?>
-                                    <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>      
+                                    <td><?php echo $row['firstName'] . ' ' . $row['middlename'] . ' ' . $row['lastName'];?></td>
                                     <td><?php echo $row['address']; ?></td>
                                     <td><?php echo $row['phoneNum']; ?></td>
                                     <td><?php echo $row['email']; ?></td>
-                                    
+
                             </tr>
                             <?php
                                 }

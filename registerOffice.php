@@ -11,6 +11,7 @@
       if($conn->query($sql) === TRUE) {
         $office_id = $conn->insert_id;
 
+        
         $sql = "INSERT INTO tbl_officecred(office_id, office_address, office_contact) VALUES ('$office_id', '$address', '$contactNumber')";
         header("Location: LawyerOfficeFinal.php?=Register Successfully!");
         $result = mysqli_query($conn, $sql);

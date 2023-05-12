@@ -20,38 +20,31 @@ include "dbconn.php";
             header("Location: homepage.php?error=Password cannot be empty!");
             exit();
         } else {
-            $sql = "SELECT tbl_cred.user_id, tbl_cred.email, tbl_cred.password, tbl_usertype.user_id, tbl_usertype.user_type AS userType
-            FROM tbl_cred
-            INNER JOIN tbl_usertype ON tbl_cred.user_id = tbl_usertype.user_id
-            WHERE tbl_cred.email = '$email' AND tbl_cred.password = '$password' AND (tbl_usertype.user_type = 'lawyer' OR tbl_usertype.user_type = 'client')
-            UNION
-            SELECT tbl_useradmin.adminID, tbl_useradmin.userName AS email, tbl_useradmin.passWord AS password, NULL, 'admin' AS userType
-            FROM tbl_useradmin
-            INNER JOIN tbl_cred ON tbl_useradmin.adminID = tbl_cred.user_id
-            WHERE tbl_useradmin.userName = '$email' AND tbl_useradmin.passWord = '$password'";
 
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
+             // check if credentials are okay, and email is verified
+             $sql = "SELECT * FROM tbl_cred WHERE email = '" . $email . "'";
+             $result = mysqli_query($conn, $sql);
      
-        if ($row['userType'] === 'lawyer') {
-            header("Location: lawyerDashboard.php?Login Successfully");
-            exit();
-        } elseif ($row['userType'] === 'client') {
-            header("Location: userHomePage.php?Login Successfully");
-            exit();
-        } elseif ($row['userType'] === 'admin') {
-            header("Location: Dashboard.php?Login Successfully");
-            exit();
+             if (mysqli_num_rows($result) == 0)
+             {
+                 header("Location:homepage.php?error= Email is not found.");
+             }
+     
+             $user = mysqli_fetch_object($result);
+     
+             if (!password_verify($password, $user->password))
+             {
+                 header("Location: homepage.php?error=Incorrect password");
+                 exit();
+             }
+     
+             if ($user->email_verified_at == null)
+             {
+                 die("Please verify your email <a href='OTP.php?email=" . $email . "'>from here</a>");
+             }
+     
+             header("Location: Dashboard.php");
+             exit();
         }
-    } else {
-        header("Location: homepage.php?error=Incorrect email or password!");
-        exit();
-    }
-}  
-} else {
-    header("Location: homepage.php?");
-    exit();
 }
 ?>
