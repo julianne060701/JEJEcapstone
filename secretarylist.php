@@ -221,9 +221,11 @@ if(isset($_GET['logout'])) {
 
                                 while($row = mysqli_fetch_assoc($result)){
                                     ?>
-                                    <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
+                                    <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>      
+                                    <td><?php echo $row['address']; ?></td>
+                                    <td><?php echo $row['phoneNum']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
                                     
-                                 
                             </tr>
                             <?php
                                 }
