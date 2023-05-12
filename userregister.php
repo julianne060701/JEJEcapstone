@@ -48,24 +48,28 @@ include "dbconn.php";
       elseif (empty($email)) {
          header("Location: ClientRegister.php?error= Email cannot be empty!");
          exit();
-      }   
+      }
+      elseif (!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)){
+         header("Location: ClientRegister.php?error= Email address must contain @");
+         exit();
+      }
       elseif (empty($password)) {
          header("Location: ClientRegister.php?error= Password cannot be empty!");
          exit();
       }
       elseif ($cfpassword != $password) {
-         header("Location: ClientRegister.php?error= Password and Confirm Password should be the same");
+         header("Location: ClientRegister.php?error= Password and confirm password is not match");
          exit();
       }else {
 
             // Insert user information in tbl_userinfo table
-            $sql = "INSERT INTO tbl_userinfo (firstName, middlename, lastName, phoneNum, address) VALUES ('$firstname','$middlename' ,'$lastname','$phonenumber', '$address')";
+            $sql = "INSERT INTO tbl_userinfo (firstName, middlename, lastName, phoneNum) VALUES ('$firstname','$middlename' ,'$lastname','$phonenumber')";
 
             if ($conn->query($sql) === TRUE) {
                 $user_id = $conn->insert_id;
 
                 // Insert user credentials in tbl_cred table
-                $sql = "INSERT INTO tbl_cred (user_id, email, password, otp, email_verified_at) VALUES ('$user_id', '$email', '$encrypted_password', '$otp', NULL)";
+                $sql = "INSERT INTO tbl_cred (user_id, email, password) VALUES ('$user_id', '$email', '$encrypted_password'";
                 if ($conn->query($sql) === TRUE) {
                     // Insert user type in tbl_usertype table
                     $sql = "INSERT INTO tbl_usertype (user_id, user_type) VALUES ('$user_id', 'client')";

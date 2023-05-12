@@ -48,7 +48,7 @@
                 
         <div class="flex">       
         <label>
-            <input placeholder="" type="email" name="email" class="input" style="width: 410px">
+            <input placeholder="" type="text" name="email" class="input" style="width: 410px">
             <span>Email </span>
         </label> 
         </div>

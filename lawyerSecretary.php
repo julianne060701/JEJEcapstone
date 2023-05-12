@@ -1,13 +1,15 @@
-<?php 
+<?php
 include "dbconn.php";
 
-$sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
-FROM tbl_officeinfo
-JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
+$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.middlename, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum
+FROM tbl_userinfo
+JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
+JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
+JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
+WHERE tbl_usertype.user_type = 'secretary'";
 
 $result = mysqli_query($conn, $sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +17,9 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Lawyer Dashboard</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="LawyerOfficeFinal.css">
+    <link rel="stylesheet" href="lawyerSecretary.css">
 </head>
 
 <body>
@@ -31,34 +33,37 @@ $result = mysqli_query($conn, $sql);
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>Add Secretary Account</h2>
-    <form action="registerOffice.php" method="POST">
-      <label for="firmName">First Name:</label>
-      <input type="text" id="firmName" name="firmName" required>
+    <form action="addsecretary.php" method="POST">
+    <?php if (isset($_GET['error'])) { ?>
+			<p class="error"><?php echo $_GET['error']; ?> </p>
+		<?php } ?>
+        <div>
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname">
       
-      <label for="firmName">Middle Name:</label>
-      <input type="text" id="firmName" name="firmName" required>
+      <label for="middlename">Middle Name: (OPTIONAL)</label>
+      <input type="text" id="middlename" name="middlename">
 
-      <label for="firmName">Last Name:</label>
-      <input type="text" id="firmName" name="firmName" required>
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname">
 
       <label for="address">Address:</label>
-      <textarea id="address" name="address" required></textarea>
+      <textarea id="address" name="address"></textarea>
       
       <label for="contactNumber">Contact Number:</label>
-      <input type="tel" id="contactNumber" name="contactNumber" required>
+      <input type="tel" id="contactNumber" name="contactNumber">
       
       <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="text" id="email" name="email">
 
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
+      <input type="password" id="password" name="password">
 
       <label for="password2">Confirm Password:</label>
-      <input type="password2" id="password2" name="password2" required>
+      <input type="password" id="password2" name="password2">
 
-
-	
-    <button type="submit">Add</button>
+    <button type="submit" class="submit" name="add">Add</button>
+    </div>
     </form>
   </div>
 </div>
@@ -84,14 +89,6 @@ $result = mysqli_query($conn, $sql);
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Lawyer</span>
-                    </a>
-                </li>
                 <li>
                     <a href="lawyerappointment.php">
                         <span class="icon">
@@ -128,13 +125,21 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
+                <?php
+                    session_start(); 
+                    if(isset($_GET['logout'])) { 
+                         session_unset();
+                         session_destroy();
+                         header("Location: homepage.php?logout");
+                         exit(); 
+                        }
+                    ?>
                     <a href="?logout" onclick="logout(event)">
                          <span class="icon">
                              <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
-                
                 </li>
             </ul>
         </div>
@@ -178,15 +183,27 @@ $result = mysqli_query($conn, $sql);
                                 <td>Address</td>
                                 <td>Contact Number</td>
                                 <td>Email Address</td>
-                                <td>Action</td>
-                                <td>Status</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                    
+                            <tr>
+                                <?php
+                                
 
-            
+                                while($row = mysqli_fetch_assoc($result)){
+                                    ?>
+                                    <td><?php echo $row['firstName'] . ' ' . $row['middlename'] . ' ' . $row['lastName'];?></td>
+                                    <td><?php echo $row['address']; ?></td>
+                                    <td><?php echo $row['phoneNum']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+
+                            </tr>
+                            <?php
+                                }
+                                ?>
+                        </tbody>
+   
             </div>
         </div>
     </div>

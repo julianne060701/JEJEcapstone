@@ -9,7 +9,12 @@
 </head>
 
 <body>
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Giphy GIF" style="position: absolute; top: 0; left: 0; width: 300px; height: 300px;">
+<body>
+    <style>body{
+        background: url("assets/images/slider/main.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+    </style>
     <form class="form" action="lawyerregister.php" method="POST">
         
         

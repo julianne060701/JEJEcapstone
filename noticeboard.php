@@ -95,7 +95,14 @@
                     <span class="title">Law Office</span>
                 </a>
             </li>
-
+            <li>
+                    <a href="secretarylist.php">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </span>
+                        <span class="title">Secretary List</span>
+                    </a>
+                </li>
             <li>
                 <a href="Lawyer.php">
                     <span class="icon">

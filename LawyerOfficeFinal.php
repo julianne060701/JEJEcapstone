@@ -100,7 +100,14 @@ $result = mysqli_query($conn, $sql);
                         <span class="title">Lawyer List</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="secretarylist.php">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </span>
+                        <span class="title">Secretary List</span>
+                    </a>
+                </li>
                 <li>
                     <a href="clientlist.php">
                         <span class="icon">
