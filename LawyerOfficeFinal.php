@@ -2,10 +2,9 @@
 include "dbconn.php";
 
 $sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
-, tbl_status.status
+
 FROM tbl_officeinfo
-JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id
-JOIN tbl_status ON tbl_officeinfo.office_id = tbl_status.office_id";
+JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
 
 $result = mysqli_query($conn, $sql);
 ?>
@@ -205,7 +204,7 @@ $result = mysqli_query($conn, $sql);
                                     <td><?php echo $row['office_email']; ?></td>
                                     <td>
                                         <?php
-                                        if($row['status'] == 0) {
+                                        if($row['office_status'] == 0) {
                                             echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=1" class="method active">Accept</a></p>';
                                         }
                                         else {
@@ -216,7 +215,7 @@ $result = mysqli_query($conn, $sql);
                                     
                                     <td>
                                         <?php 
-                                        if($row['status'] == 1) {
+                                        if($row['office_status'] == 1) {
                                         echo '<span class="status delivered">ACTIVE</span>';
                                         } else {
                                             echo '<span class="status pending">INACTIVE</span>';

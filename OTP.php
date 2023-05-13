@@ -11,19 +11,25 @@
 <?php
     include 'dbconn.php';
 
-    if(isset($_POST['validate'])){
-      $otp = $_POST['otp'];
-      
-      $sql = "UPDATE tbl_cred SET email_verified_at = NOW() WHERE email = '$email' AND otp = '$otp'";
-      $result = mysqli_query($conn, $sql);
-
-      if (mysqli_affected_rows($conn) == 0) {
-        die("OTP Verification Failed");
-      }
-      header("homepage.php?msg= You can login now!");
-      exit();
+    if (isset($_POST["verify_email"]))
+    {
+        $email = $_POST["email"];
+        $otp = $_POST["otp"];
+ 
+        // mark email as verified
+        $sql = "UPDATE tbl_cred SET email_verified_at = NOW() WHERE email = '" . $email . "' AND OTP = '" . $otp . "'";
+        $result  = mysqli_query($conn, $sql);
+ 
+        if (mysqli_affected_rows($conn) == 0)
+        {
+            die("Verification code failed.");
+        }
+ 
+        header("Location: homepage.php?msg= You can login now");
+        exit();
     }
 ?>
+
 <form class="form" name="OTP" method="POST">
   <span class="close">X</span>
 
@@ -32,18 +38,14 @@
   <p class="description">Please enter the code we have sent you. </p>
    </div>
     <div class="inputs">
-    <input name="otp" placeholder="" type="tel" maxlength="1">
-    <input name="otp" placeholder="" type="tel" maxlength="1">
-    <input name="otp" placeholder="" type="tel" maxlength="1">
-    <input name="otp" placeholder="" type="tel" maxlength="1">
-    <input name="otp" placeholder="" type="tel" maxlength="1">
-    <input name="otp" placeholder="" type="tel" maxlength="1">
+    <input name="otp" placeholder="" type="tel" maxlength="6" required>
+    <input type="hidden" name="email" value="<?php echo $_GET['email']; ?>">
   </div>
-    <button type="submit" name="validate" class="validate">Verify</button>
+    <button type="submit" name="verify_email" class="validate">Verify</button>
     <p class="resend">You didn't receive the code? <a class="resend-action" href="#">Resend</a></p>
 </form>
-
 </body>
+
 </html>
 
 
