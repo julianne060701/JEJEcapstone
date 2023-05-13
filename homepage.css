@@ -116,7 +116,8 @@ header h2{
 }
 
 .wrapper{
-    position: relative;
+    float: left;
+    right: 50%;
     width: 400px;
     height: 400px;
     background: white;

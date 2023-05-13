@@ -38,6 +38,10 @@ $result = mysqli_query($conn, $sql);
 			<p class="error"><?php echo $_GET['error']; ?> </p>
 		<?php } ?>
         <div>
+
+        <label for="lawoffice">Firm Name:</label>
+      <input type="text" id="firmname" name="firmname">
+
       <label for="firstname">First Name:</label>
       <input type="text" id="firstname" name="firstname">
       
