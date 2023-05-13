@@ -32,13 +32,18 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
-	<script type='text/javascript'>
-		$( document ).ready(function() {
-			$('.form-group').addClass('fade-in');
-			$('#datetimepicker1').datetimepicker();
+	<!-- Calenday Disable -->
+     <script type='text/javascript'>
+	$(document).ready(function() {
+		$('.form-group').addClass('fade-in');
+		$('#datetimepicker1').datetimepicker({
+			daysOfWeekDisabled: [0], // Disable Sundays
+			format: 'YYYY-MM-DD',
+			disabledDates: ['2023-05-o1', '2023-06-01', '2023-06-05'] // List of holidays
 		});
-	</script>
-    
+	});
+</script>
+
 </head>
 <body>
 
@@ -72,8 +77,8 @@
                <div class="form-group">
                   <label class="control-label">Contact Number</label>
                   <input type="text" class="form-control" name="contact" id="contact">
-               </div>
-            </div>
+   </div>
+   </div>
             </div>
             <div class='col-md-6'>
                <div class="form-group">
@@ -86,19 +91,15 @@
                   </div>
                </div>
             </div>
-         
 
-         <div class="col-md-12">
-    <div class="form-group">
-        <label class="control-label">Purpose</label>
-        <textarea class="form-control" name="purpose" rows="4" cols="50" ></textarea>
-    </div>
+            <div class="col-md-12">
+<div class="form-group">
+    <label class="control-label">Purpose</label>
+    <textarea class="form-control" name="purpose" rows="4" cols="50" ></textarea>
 </div>
-
-         <input type="submit" class="btn btn-primary" value="Submit">
-      </div>
-   </div>
+<input type="submit" class="btn btn-primary" value="Submit">
+  </div>
+  </div>
 </div>
-		
 </body>
 </html>

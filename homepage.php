@@ -27,7 +27,7 @@
         <nav class="navigation">
     <a href="">Home</a>
     <a href="">About</a>
-    <Button class="btnLogin-popup">Login</Button>
+    <Button class="btnLogin-popup" onclick="openPopup()">Login</Button>
     <div class="dropdown">
         <button class="dropbtn btnLogin-popup">Register <span id="icon-ali"><ion-icon name="caret-down-outline"></ion-icon></span></button>
         <div class="dropdown-content">
@@ -177,7 +177,7 @@
         </div>
     </footer>
 <!-- popup login -->
-<div class="wrapper">
+<div class="wrapper" id="login-popup">
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         <div class="form-box login">
             <h2>Login</h2>
