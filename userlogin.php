@@ -1,50 +1,58 @@
 <?php
+session_start();
 include "dbconn.php";
 
-    if (isset($_POST['email']) && isset($_POST['password'])) {
+if (isset($_POST['email']) && isset($_POST['password'])) {
 
-        function validate($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+    function validate($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 
-        $email = validate($_POST['email']);
-        $password = validate($_POST['password']);
+    $email = validate($_POST['email']);
+    $password = validate($_POST['password']);
+    
+    if (empty($email)) {
+        header("Location: homepage.php?error=Email cannot be empty!");
+    } elseif (empty($password)) {
+        header("Location: homepage.php?error=Password cannot be empty!");
+    } else {
+        $stmt = mysqli_prepare($conn, "SELECT tbl_cred.user_id, tbl_cred.email, tbl_cred.password, tbl_usertype.user_type AS userType
+            FROM tbl_cred
+            INNER JOIN tbl_usertype ON tbl_cred.user_id = tbl_usertype.user_id
+            WHERE tbl_cred.email = ? AND tbl_usertype.user_type IN ('lawyer', 'client')
+            UNION
+            SELECT tbl_useradmin.adminID, tbl_useradmin.userName as email, tbl_useradmin.passWord AS password, 'admin' AS userType
+            FROM tbl_useradmin
+            INNER JOIN tbl_cred ON tbl_useradmin.adminID = tbl_cred.user_id
+            WHERE tbl_useradmin.userName = ?");
+
+        mysqli_stmt_bind_param($stmt, "ss", $email, $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
         
-        if (empty($email)) {
-            header("Location: homepage.php?error=Email cannot be empty!");
-            exit();
-        } elseif (empty($password)) {
-            header("Location: homepage.php?error=Password cannot be empty!");
-            exit();
-        } else {
+            if(password_verify($password, $row['password'])) {
+                $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['userType'] = $row['userType'];
 
-             // check if credentials are okay, and email is verified
-             $sql = "SELECT * FROM tbl_cred WHERE email = '" . $email . "'";
-             $result = mysqli_query($conn, $sql);
-     
-             if (mysqli_num_rows($result) == 0)
-             {
-                 header("Location:homepage.php?error= Email is not found.");
-             }
-     
-             $user = mysqli_fetch_object($result);
-     
-             if (!password_verify($password, $user->password))
-             {
-                 header("Location: homepage.php?error=Incorrect password");
-                 exit();
-             }
-     
-             if ($user->email_verified_at == null)
-             {
-                 die("Please verify your email <a href='OTP.php?email=" . $email . "'>from here</a>");
-             }
-     
-             header("Location: Dashboard.php");
-             exit();
-        }
+                if($row['userType'] === 'lawyer') {
+                    header("Location: lawyerDashboard.php?message=Login Successful");
+                } elseif($row['userType'] === 'client') {
+                    header("Location: userHomePage.php?message=Login Successful");
+                } elseif($row['userType'] === 'admin') {
+                    header("Location: Dashboard.php?message=Login Successful");
+                }
+            } else {
+                header("Location: homepage.php?error=Incorrect email or password");
+            }
+        } else {
+            header("Location: homepage.php?error=Incorrect email or password");
+        }    
+    }  
 }
 ?>
