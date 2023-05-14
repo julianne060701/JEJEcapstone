@@ -101,8 +101,7 @@
                   <div class="form-group">
                      <label class="control-label">Appointment Time</label>
                      <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" name="start_datetime"
-                     id="start_datetime" required/>
+                        <input type='text' class="form-control" />
                         <span class="input-group-addon">
                            <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -114,7 +113,7 @@
 
             <div class='col-md-6'>
                <div class="form-group">
-                  <label class="control-label">Appointment Time second</label>
+               <label class="control-label">Appointment Time</label>
                   <input type="datetime-local" class="form-control form-control-sm rounded-0" name="start_datetime"
                      id="start_datetime" required>
                </div>
