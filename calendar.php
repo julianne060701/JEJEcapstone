@@ -72,19 +72,18 @@
                   </div>
                </div>
             </div>
+
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Email</label>
-                     <input type="text" class="form-control" name="email" id="email">
+                     <input type="text" class="form-control" name="fname" id="fname">
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-md-6">
-                     <div class="form-group">
-                        <label class="control-label">Contact Number</label>
-                        <input type="text" class="form-control" name="contact" id="contact">
-                     </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label class="control-label">Contact Number</label>
+                     <input type="text" class="form-control" name="lname" id="lname">
                   </div>
                </div>
             </div>
@@ -110,16 +109,18 @@
                </div>
             </div>
 
-
+            <div class="row">
             <div class='col-md-6'>
                <div class="form-group">
                <label class="control-label">Appointment Time</label>
                   <input type="datetime-local" class="form-control form-control-sm rounded-0" name="start_datetime"
                      id="start_datetime" required>
                </div>
-
+            </div>
             </div>
 
+
+            <div class="row">
             <div class="col-md-12">
                <div class="form-group">
                   <label class="control-label">Purpose</label>
