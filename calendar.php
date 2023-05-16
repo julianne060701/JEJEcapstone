@@ -38,22 +38,9 @@
    <script type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
-   <!-- Calenday Disable -->
-   <script type='text/javascript'>
-      $(document).ready(function () {
-         $('.form-group').addClass('fade-in');
-         $('#datetimepicker1').datetimepicker({
-            daysOfWeekDisabled: [0], // Disable Sundays
-            format: 'YYYY-MM-DD',
-            disabledDates: ['2023-05-o1', '2023-06-01', '2023-06-05'] // List of holidays
-         });
-      });
-   </script>
-
 </head>
 
 <body>
-
    <div class="container">
       <div class="panel panel-primary">
          <div class="panel-heading">Schedule an Appointment</div>
@@ -96,40 +83,41 @@
                   </div>
                </div>
 
-               <div class='col-md-6'>
+
+               <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Appointment Time</label>
-                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                           <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                     </div>
+                     <input type="datetime-local" class="form-control form-control-sm rounded-0" name="start_datetime"
+                        id="start_datetime" required>
                   </div>
                </div>
             </div>
 
             <div class="row">
-            <div class='col-md-6'>
-               <div class="form-group">
-               <label class="control-label">Appointment Time</label>
-                  <input type="datetime-local" class="form-control form-control-sm rounded-0" name="start_datetime"
-                     id="start_datetime" required>
+               <div class="col-md-12">
+                  <div class="form-group">
+                     <label class="control-label">Purpose</label>
+                     <textarea class="form-control" name="purpose" rows="4" cols="50"></textarea>
+                  </div>
+                  <input type="submit" class="btn btn-primary" value="Submit">
                </div>
-            </div>
-            </div>
-
-
-            <div class="row">
-            <div class="col-md-12">
-               <div class="form-group">
-                  <label class="control-label">Purpose</label>
-                  <textarea class="form-control" name="purpose" rows="4" cols="50"></textarea>
-               </div>
-               <input type="submit" class="btn btn-primary" value="Submit">
             </div>
          </div>
       </div>
+   </div>
 </body>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+         $('.form-group').addClass('fade-in');
+         var startDatetime = document.getElementById('start_datetime');
+         startDatetime.addEventListener('input', function () {
+            var selectedDate = new Date(startDatetime.value);
+            if (selectedDate.getDay() === 0) {
+               alert('Sundays are not allowed for appointments. Please select a different day.');
+               startDatetime.value = '';
+            }s
+         });
+      });
+   </script>
 
 </html>
