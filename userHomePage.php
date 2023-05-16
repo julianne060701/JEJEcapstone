@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Client_HomePage</title>
+    <title>User_HomePage</title>
     <link rel="stylesheet" href="userHome.css">
+    <style>
+      /* Profile dropdown*/
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+    display: none;
+    position: absolute;
+    transform: translateZ(300px);
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+</style>
   </head>
   <body>
     <!-- Fixed Header with Navigation -->
     <div class="header">
       <h1>Homepage</h1>
       <div class="nav">
-        <a href="#"><ion-icon name="notifications-outline"></ion-icon>Notifacation</a>
-        <a href="#"><img class="profile" src="https://picsum.photos/50" alt="Profile Picture"></a>
-        
+        <a href="#"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <img class="profile" src="https://picsum.photos/50" alt="Profile Picture">
+          </button>
+          <div class="dropdown-content">
+            <a href="editProfile.php">Profile</a>
+            <a href="homepage.php">Log Out</a>
+          </div>
+        </div>
       </div>
     </div>
+
+    
     
     <div class="search">
         <label>
