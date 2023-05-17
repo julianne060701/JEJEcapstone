@@ -1,11 +1,13 @@
 <?php 
 include "dbconn.php";
 
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.middlename, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum
+$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.middlename, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum,
+tbl_images.id
 FROM tbl_userinfo
 JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
 JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
 JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
+JOIN tbl_images ON tbl_userinfo.userinfo_id = tbl_images.user_id
 WHERE tbl_usertype.user_type = 'lawyer'";
 
 $result = mysqli_query($conn, $sql);

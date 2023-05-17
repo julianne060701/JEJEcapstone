@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lawyer_HomePage</title>
+    <title>Client_HomePage</title>
     <link rel="stylesheet" href="userHome.css">
     <style>
       /* Profile dropdown*/
@@ -30,7 +30,7 @@
     display: block;
   }
 </style>
-</head>
+  </head>
   <body>
     <!-- Fixed Header with Navigation -->
     <div class="header">
@@ -42,20 +42,23 @@
             <img class="profile" src="https://picsum.photos/50" alt="Profile Picture">
           </button>
           <div class="dropdown-content">
-            <a href="editProfile.php"> Profile</a>
-            <a href="lawyerDashboard.php">Manage </a>
+            <a href="editProfile.php">Profile</a>
+            <a href="lawyerDashboard.php">Manage</a>
             <a href="homepage.php">Log Out</a>
           </div>
         </div>
       </div>
     </div>
 
+    
+    
     <div class="search">
-  <label>
-    <input type="text" placeholder="Search here" id="search-input">
-    <ion-icon name="search-outline"></ion-icon>
-  </label>
-</div>
+        <label>
+            <input type="text" placeholder="Search here" id="search-input">
+            <ion-icon name="search-outline"></ion-icon>
+        </label>
+    </div>
+
     <!-- Table with Picture, User Details and Action -->
     <table class="table" id="office-table">
     
@@ -103,6 +106,22 @@
         }
       });
     </script>
+
+    <!-- script logout -->
+    <script>
+        var timer;
+        function resetTimer() {
+            clearTimeout(timer);
+            timer =setTimeout(logout, 120000);
+        }
+        function logout() {
+            window.location.href = "homepage.php?logout";
+        }
+        resetTimer();
+        document.addEventListener("mousemove", resetTimer);
+        document.addEventListener("keypress", resetTimer);
+    </script>
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </html>
