@@ -43,7 +43,16 @@
           </button>
           <div class="dropdown-content">
             <a href="editProfile.php">Profile</a>
-            <a href="homepage.php">Log Out</a>
+            <a href="?logout" onclick="logout(event)">Log Out</a>
+            <?php
+                    session_start(); 
+                    if(isset($_GET['logout'])) { 
+                         session_unset();
+                         session_destroy();
+                         header("Location: homepage.php?logout");
+                         exit(); 
+                        }
+                    ?>
           </div>
         </div>
       </div>
