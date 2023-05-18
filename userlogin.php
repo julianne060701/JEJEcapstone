@@ -19,40 +19,39 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     } elseif (empty($password)) {
         header("Location: homepage.php?error=Password cannot be empty!");
     } else {
-        $stmt = mysqli_prepare($conn, "SELECT tbl_cred.user_id, tbl_cred.email, tbl_cred.password, tbl_usertype.user_type AS userType
+        
+        $sql = "SELECT tbl_cred.user_id, tbl_cred.email, tbl_cred.password, tbl_usertype.user_id, tbl_usertype.user_type AS userType
             FROM tbl_cred
             INNER JOIN tbl_usertype ON tbl_cred.user_id = tbl_usertype.user_id
-            WHERE tbl_cred.email = ? AND tbl_usertype.user_type IN ('lawyer', 'client')
-            UNION
-            SELECT tbl_useradmin.adminID, tbl_useradmin.userName as email, tbl_useradmin.passWord AS password, 'admin' AS userType
-            FROM tbl_useradmin
-            INNER JOIN tbl_cred ON tbl_useradmin.adminID = tbl_cred.user_id
-            WHERE tbl_useradmin.userName = ?");
+            WHERE tbl_cred.email = '$email' AND tbl_cred.password = '$password' AND (tbl_usertype.user_type IN ('lawyer', 'client', 'admin', 'secretary'))";
 
-        mysqli_stmt_bind_param($stmt, "ss", $email, $email);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+            $result = mysqli_query($conn, $sql);
 
-        if(mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-        
-            if(password_verify($password, $row['password'])) {
-                $_SESSION['user_id'] = $row['user_id'];
-                $_SESSION['userType'] = $row['userType'];
-
-                if($row['userType'] === 'lawyer') {
-                    header("Location: lawyerDashboard.php?message=Login Successful");
-                } elseif($row['userType'] === 'client') {
-                    header("Location: userHomePage.php?message=Login Successful");
-                } elseif($row['userType'] === 'admin') {
-                    header("Location: Dashboard.php?message=Login Successful");
+            if ($result) {
+                echo "Query successful!";
+                if (mysqli_num_rows($result) === 1) {
+                    $row = mysqli_fetch_assoc($result);
+                
+                    if ($row['userType'] === 'lawyer') {
+                        header("Location: lawyerDashboard.php?Login Successfully");
+                        exit();
+                    } elseif ($row['userType'] === 'client') {
+                        header("Location: userHomePage.php?Login Successfully");
+                        exit();
+                    } elseif ($row['userType'] === 'admin') {
+                        header("Location: Dashboard.php?Login Successfully");
+                        exit();
+                    }
+                } else {
+                    echo "Incorrect email or password!";
+                    header("Location: homepage.php?error=Incorrect email or password!");
+                    exit();
                 }
             } else {
-                header("Location: homepage.php?error=Incorrect email or password");
-            }
-        } else {
-            header("Location: homepage.php?error=Incorrect email or password");
-        }    
-    }  
+            echo "Query error: " . mysqli_error($conn);
+            header("Location: homepage.php?");
+            exit();
+        }
+    } 
 }
 ?>
