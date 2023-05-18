@@ -372,3 +372,13 @@ input[type=text] {
     border-radius: 4px;
     resize: vertical;
   }  
+  .error {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background: #00ff37;
+  color: #00ff37;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+}

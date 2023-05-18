@@ -42,7 +42,7 @@
 
     <!-- Description -->
 
-    <section class="slider">
+    <!-- <section class="slider">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -175,8 +175,9 @@
 
             </div>
         </div>
-    </footer>
+    </footer> -->
 <!-- popup login -->
+
 <div class="wrapper" id="login-popup">
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         <div class="form-box login">

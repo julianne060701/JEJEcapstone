@@ -163,10 +163,12 @@
 
         <!-- ================= Notice Board================ -->
 <div class="container">
-	<div id="content" align="center">
-		<form action="#" method="post">
+	<div id="content" align="center">     
+		<form action="notice.php" method="post">
 		<h1>Notice Board</h1><hr/>
-		
+		<?php if (isset($_GET['error'])) { ?>
+			<p class="error"><?php echo $_GET['error']; ?> </p>
+		<?php } ?>
 		<textarea type="text" name="message" class="ed" rows="5" class="form-control"></textarea><br/><br/>
 		<input type="submit" class="btn btn-primary" value="Send" id="button1">
 		</form>
