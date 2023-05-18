@@ -180,3 +180,12 @@ transform: scale(1.8);
 opacity: 0;
 }
 }
+
+.error {
+    text-align: center;
+    background: #f59595fb;
+    color: #b92c2c;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}

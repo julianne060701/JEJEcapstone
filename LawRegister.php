@@ -19,6 +19,9 @@
         
         
         <p class="title"> Lawyer Register </p>
+        <?php if (isset($_GET['error'])) { ?>
+			<p class="error"><?php echo $_GET['error']; ?> </p>
+		<?php } ?>
             <div class="flex">
             <label>
                 <input placeholder="" type="text" name="firstname" class="input" style="width: 200px">
