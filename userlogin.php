@@ -25,33 +25,30 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             INNER JOIN tbl_usertype ON tbl_cred.user_id = tbl_usertype.user_id
             WHERE tbl_cred.email = '$email' AND tbl_cred.password = '$password' AND (tbl_usertype.user_type IN ('lawyer', 'client', 'admin', 'secretary'))";
 
-            $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-            if ($result) {
-                echo "Query successful!";
-                if (mysqli_num_rows($result) === 1) {
-                    $row = mysqli_fetch_assoc($result);
-                
-                    if ($row['userType'] === 'lawyer') {
-                        header("Location: lawyerDashboard.php?Login Successfully");
-                        exit();
-                    } elseif ($row['userType'] === 'client') {
-                        header("Location: userHomePage.php?Login Successfully");
-                        exit();
-                    } elseif ($row['userType'] === 'admin') {
-                        header("Location: Dashboard.php?Login Successfully");
-                        exit();
-                    }
-                } else {
-                    echo "Incorrect email or password!";
-                    header("Location: homepage.php?error=Incorrect email or password!");
+    
+            if (mysqli_num_rows($result) === 1) {
+                $row = mysqli_fetch_assoc($result);
+
+                if ($row['userType'] === 'lawyer') {
+                    header("Location: lawyerDashboard.php?Login Successfully");
+                    exit();
+                } elseif ($row['userType'] === 'client') {
+                    header("Location: userHomePage.php?Login Successfully");
+                    exit();
+                } elseif ($row['userType'] === 'admin') {
+                    header("Location: Dashboard.php?Login Successfully");
+                    exit();
+                } elseif ($row['userType'] === 'secretary') {
+                    header("Location: lawyerappointment.php?Login Successfully");
                     exit();
                 }
             } else {
-            echo "Query error: " . mysqli_error($conn);
-            header("Location: homepage.php?");
-            exit();
-        }
+                header("Location: homepage.php?error=Incorrect email or password!");
+                exit();
+            }
+        }   
     } 
-}
+
 ?>

@@ -1,3 +1,13 @@
+<?php
+    session_start(); 
+    if(isset($_GET['logout'])) { 
+    session_unset();
+    session_destroy();
+    header("Location: homepage.php?logout");
+    exit(); 
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,13 +149,13 @@
             </li>
 
             <li>
-                <a href="homepage.php">
-                    <span class="icon">
-                        <ion-icon name="log-out-outline"></ion-icon>
-                    </span>
-                    <span class="title">Sign Out</span>
-                </a>
-            </li>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
         </ul>
     </div>
 

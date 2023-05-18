@@ -7,7 +7,16 @@ FROM tbl_officeinfo
 JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
 
 $result = mysqli_query($conn, $sql);
+
+session_start(); 
+if(isset($_GET['logout'])) { 
+     session_unset();
+     session_destroy();
+     header("Location: homepage.php?logout");
+     exit(); 
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -136,14 +145,14 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 
-
                 <li>
-                    <a href="homepage.php">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
+
                 </li>
             </ul>
         </div>

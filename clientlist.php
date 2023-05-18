@@ -9,6 +9,14 @@ JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
 WHERE tbl_usertype.user_type = 'client'";
 
 $result = mysqli_query($conn, $sql);
+
+session_start(); 
+if(isset($_GET['logout'])) { 
+     session_unset();
+     session_destroy();
+     header("Location: homepage.php?logout");
+     exit(); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +115,7 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="homepage.php">
+                <a href="?logout" onclick="logout(event)">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>

@@ -11,6 +11,14 @@ JOIN tbl_images ON tbl_userinfo.userinfo_id = tbl_images.user_id
 WHERE tbl_usertype.user_type = 'lawyer'";
 
 $result = mysqli_query($conn, $sql);
+
+session_start(); 
+if(isset($_GET['logout'])) { 
+     session_unset();
+     session_destroy();
+     header("Location: homepage.php?logout");
+     exit(); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -109,9 +117,9 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="homepage.php">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
