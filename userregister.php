@@ -75,7 +75,7 @@ include "dbconn.php";
          if($conn->query($sql) === TRUE){
             $user_id = $conn->insert_id; //auto insert id
 
-            $sql = "INSERT INTO tbl_cred (user_id, email, password) VALUES ('$user_id', '$email', '$encrypted_password')";
+            $sql = "INSERT INTO tbl_cred (user_id, email, password) VALUES ('$user_id', '$email', '$password')";
             if($conn->query($sql) === TRUE) {
                $sql = "INSERT INTO tbl_usertype (user_id, user_type) VALUES ('$user_id', 'client')";
                

@@ -16,47 +16,47 @@ include "dbconn.php";
     $passingyear = $_POST['passingyear'];
     $specialty = $_POST['specialty'];
     
-    if (empty($firstname)) {
-        header("Location: LawRegister.php?error= First Name cannot be empty!");
-        exit();
-     } 
-     elseif (empty($middlename)) {
-        header("Location: LawRegister.php?error= Middle Name cannot be empty!");
-        exit();
-     }
-     elseif (empty($lastname)) {
-        header("Location: LawRegister.php?error= Last Name cannot be empty!");
-        exit();
-     }
-     elseif (empty($phonenumber)) {
-        header("Location: LawRegister.php?error= Phone Number cannot be empty!");
-        exit();
-     }
-     elseif (!preg_match('/^\d{1,11}/', $phonenumber)) {
-        header("Location: LawRegister.php?error= Invalid Phone Number");
-        exit();
-     }
-     elseif (empty($email)) {
-        header("Location: LawRegister.php?error= Email cannot be empty!");
-        exit();
-     }
-     elseif (!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)){
-        header("Location: LawRegister.php?error= Email address must contain @");
-        exit();
-     }
-     elseif (empty($password)) {
-        header("Location: LawRegister.php?error= Password cannot be empty!");
-        exit();
-     }
-     elseif ($cfpassword != $password) {
-        header("Location: LawRegister.php?error= Password and confirm password is not match");
-        exit();
-     }
-     elseif(mysqli_num_rows($check_email_run) > 0){
-        header("Location: LawRegister.php?error= Email already exist");
-        exit();
-     }
-     else {
+   //  if (empty($firstname)) {
+   //      header("Location: LawRegister.php?error= First Name cannot be empty!");
+   //      exit();
+   //   } 
+   //   elseif (empty($middlename)) {
+   //      header("Location: LawRegister.php?error= Middle Name cannot be empty!");
+   //      exit();
+   //   }
+   //   elseif (empty($lastname)) {
+   //      header("Location: LawRegister.php?error= Last Name cannot be empty!");
+   //      exit();
+   //   }
+   //   elseif (empty($phonenumber)) {
+   //      header("Location: LawRegister.php?error= Phone Number cannot be empty!");
+   //      exit();
+   //   }
+   //   elseif (!preg_match('/^\d{1,11}/', $phonenumber)) {
+   //      header("Location: LawRegister.php?error= Invalid Phone Number");
+   //      exit();
+   //   }
+   //   elseif (empty($email)) {
+   //      header("Location: LawRegister.php?error= Email cannot be empty!");
+   //      exit();
+   //   }
+   //   elseif (!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)){
+   //      header("Location: LawRegister.php?error= Email address must contain @");
+   //      exit();
+   //   }
+   //   elseif (empty($password)) {
+   //      header("Location: LawRegister.php?error= Password cannot be empty!");
+   //      exit();
+   //   }
+   //   elseif ($cfpassword != $password) {
+   //      header("Location: LawRegister.php?error= Password and confirm password is not match");
+   //      exit();
+   //   }
+   //   elseif(mysqli_num_rows($check_email_run) > 0){
+   //      header("Location: LawRegister.php?error= Email already exist");
+   //      exit();
+   //   }
+   //   else {
         $sql = "INSERT INTO tbl_userinfo (firstName, middleName, lastName) VALUES ('$firstname', '$middlename', '$lastname')";
         
         if ($conn->query($sql) === TRUE) {
@@ -88,5 +88,5 @@ include "dbconn.php";
                 }
             }
         }
-    }
+   //  }
 ?>
