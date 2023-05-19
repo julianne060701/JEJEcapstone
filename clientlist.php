@@ -1,12 +1,10 @@
-<?php
+<?php 
 include "dbconn.php";
 
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum
-FROM tbl_userinfo
-JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
-JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
-JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
-WHERE tbl_usertype.user_type = 'client'";
+$sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
+
+FROM tbl_officeinfo
+JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
 
 $result = mysqli_query($conn, $sql);
 
@@ -19,6 +17,7 @@ if(isset($_GET['logout'])) {
     }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,11 +27,42 @@ if(isset($_GET['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/lawOffice.css">
+    <link rel="stylesheet" href="Law_ofiice.css">
 </head>
 
 <body>
     <!-- =============== Navigation ================ -->
+
+<!-- Button to trigger the modal -->
+
+
+<!-- The popup -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Register Office</h2>
+    <form action="registerOffice.php" method="POST">
+      <label for="firmName">Firm Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" required></textarea>
+      
+      <label for="contactNumber">Contact Number:</label>
+      <input type="tel" id="contactNumber" name="contactNumber" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+	<label for="num">Upload Lawyer ID</label>
+	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+    <label for="num">Upload Business Permit</label>
+	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+    <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- end popup -->
     <div class="container">
         <div class="navigation">
             <ul>
@@ -114,18 +144,20 @@ if(isset($_GET['logout'])) {
                     </a>
                 </li>
 
+                
                 <li>
-                <a href="?logout" onclick="logout(event)">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
+
                 </li>
             </ul>
         </div>
 
-        <!-- ========================= Main ==================== -->
+        <!-- ========================= Seacrh ==================== -->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -144,46 +176,67 @@ if(isset($_GET['logout'])) {
                 </div>
             </div>
 
-            <!-- ======================= Cards ================== -->
+            <!-- ======================= Dropdown Button Acitive/Inactive ================== -->
+
+            
             
 
-            <!-- ================ Order Details List ================= -->
+            <!-- ================ Table List ================= -->
             <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
-                        <h2>Client</h2>
+                        <h2>Law Offices</h2>
+                        <button id="registerBtn" class="btn">Register</button>
                     </div>
-
-                    <table id="client-table">
+                    
+                    <table id="lawoffice-table">
                         <thead>
-                        <tr>
-                                <td>Client ID</td>
-                                <td>Full Name</td>
+                            <tr>
+                                <td>Firm ID</td>
+                                <td>Firm Name</td>
                                 <td>Address</td>
-                                <td>Contact</td>
+                                <td>Contact Number</td>
                                 <td>Email Address</td>
                                 <td>Action</td>
+                                <td>Status</td>
                             </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                                <?php 
-
-                                while($row = mysqli_fetch_assoc($result)) 
-                                {
-                                ?>
-                                 <td><?php echo $row['userinfo_id']; ?></td>
-                                 <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
-                                 <td><?php echo $row['address']; ?></td>
-                                 <td><?php echo $row['phoneNum']; ?></td>
-                                 <td><?php echo $row['email']; ?></td>
-                                 <td><button class="method active">View</button><strong> </strong>
-                             </tr>
                                 <?php
-                                }
-                                 ?>
-
+                                    while($row = mysqli_fetch_assoc($result))
+                                    {
+                                ?>
+                                    <td><?php echo $row['office_id'] ?></td>
+                                    <td><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['office_address']; ?></td>
+                                    <td><?php echo $row['office_contact']; ?></td>
+                                    <td><?php echo $row['office_email']; ?></td>
+                                    <td>
+                                        <?php
+                                        if($row['office_status'] == 0) {
+                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=1" class="method active">Accept</a></p>';
+                                        }
+                                        else {
+                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                        }
+                                        ?>
+                                    </td>
+                                    
+                                    <td>
+                                        <?php 
+                                        if($row['office_status'] == 1) {
+                                        echo '<span class="status delivered">ACTIVE</span>';
+                                        } else {
+                                            echo '<span class="status pending">INACTIVE</span>';
+                                        }
+                                        ?>
+                                    </td>
+                            </tr>
+                                <?php
+                                    }
+                                    ?>  
                         </tbody>
                     </table>
                 </div>
@@ -195,22 +248,22 @@ if(isset($_GET['logout'])) {
     <!-- search script -->
     <script>
         const searchInput = document.getElementById('search-input');
-        const clientTable = document.getElementById('client-table');
+        const lawofficeTable = document.getElementById('lawoffice-table');
 
         searchInput.addEventListener('keyup', function() {
-            const searchTerm =searchInput.value.toLowerCase();
-            const rows = clientTable.getElementsByTagName('tr');
-
-            for (let i = 0; i < rows.length; i++) {
-                const fullName =rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
-
-                if (fullName.includes(searchTerm)) {
-                    rows[i].style.display = '';
-                } else {
-                    rows[i].style.display = 'none';
-                }
-            }
-        });
+        const searchTerm = searchInput.value.toLowerCase();
+        const rows = lawofficeTable.getElementsByTagName('tr');
+  
+        for (let i = 0; i < rows.length; i++) {
+        const fullName = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
+    
+        if (fullName.includes(searchTerm)) {
+        rows[i].style.display = '';
+        } else {
+        rows[i].style.display = 'none';
+        }
+     }
+    });
     </script>
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>

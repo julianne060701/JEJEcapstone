@@ -1,13 +1,22 @@
 <?php 
 include "dbconn.php";
 
-$sql = "SELECT tbl_appointment.appointment_id, tbl_userinfo.firstName, tbl_userinfo.lastName, tbl_officeinfo.office_name, tbl_appointment.appointment_timendate
-FROM tbl_appointment
-JOIN tbl_userinfo ON tbl_appointment.appointment_id = tbl_userinfo.userinfo_id
-JOIN tbl_officeinfo ON tbl_appointment.appointment_id = tbl_officeinfo.office_id";
+$sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
+
+FROM tbl_officeinfo
+JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
 
 $result = mysqli_query($conn, $sql);
+
+session_start(); 
+if(isset($_GET['logout'])) { 
+     session_unset();
+     session_destroy();
+     header("Location: homepage.php?logout");
+     exit(); 
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,11 +27,42 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/lawOffice.css">
+    <link rel="stylesheet" href="Law_ofiice.css">
 </head>
 
 <body>
     <!-- =============== Navigation ================ -->
+
+<!-- Button to trigger the modal -->
+
+
+<!-- The popup -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Register Office</h2>
+    <form action="registerOffice.php" method="POST">
+      <label for="firmName">Firm Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" required></textarea>
+      
+      <label for="contactNumber">Contact Number:</label>
+      <input type="tel" id="contactNumber" name="contactNumber" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+	<label for="num">Upload Lawyer ID</label>
+	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+    <label for="num">Upload Business Permit</label>
+	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
+    <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- end popup -->
     <div class="container">
         <div class="navigation">
             <ul>
@@ -104,6 +144,7 @@ $result = mysqli_query($conn, $sql);
                     </a>
                 </li>
 
+                
                 <li>
                     <a href="?logout" onclick="logout(event)">
                          <span class="icon">
@@ -111,20 +152,12 @@ $result = mysqli_query($conn, $sql);
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
-                    <?php
-                    session_start(); 
-                    if(isset($_GET['logout'])) { 
-                         session_unset();
-                         session_destroy();
-                         header("Location: homepage.php?logout");
-                         exit(); 
-                        }
-                    ?>
+
                 </li>
             </ul>
         </div>
 
-        <!-- ========================= Main ==================== -->
+        <!-- ========================= Seacrh ==================== -->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -143,43 +176,67 @@ $result = mysqli_query($conn, $sql);
                 </div>
             </div>
 
-            <!-- ======================= Cards ================== -->
+            <!-- ======================= Dropdown Button Acitive/Inactive ================== -->
+
+            
             
 
-            <!-- ================ Order Details List ================= -->
+            <!-- ================ Table List ================= -->
             <div class="details">
                 <div class="Appointment">
                     <div class="cardHeader">
-                        <h2>Appointment List</h2>
+                        <h2>Law Offices</h2>
+                        <button id="registerBtn" class="btn">Register</button>
                     </div>
-
-                    <table id="appointment-table">
+                    
+                    <table id="lawoffice-table">
                         <thead>
-                        <tr>
-                                <td>Appointment ID</td>
-                                <td>Client Name</td>
-                                <td>Office Name</td>
-                                <td>Time and Date</td>
+                            <tr>
+                                <td>Firm ID</td>
+                                <td>Firm Name</td>
+                                <td>Address</td>
+                                <td>Contact Number</td>
+                                <td>Email Address</td>
                                 <td>Action</td>
+                                <td>Status</td>
                             </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                                <?php 
-
-                                while($row = mysqli_fetch_assoc($result)) 
-                                {
-                                ?>
-                                 <td><?php echo "REF" . ' ' . $row['appointment_id']; ?></td>
-                                 <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
-                                 <td><?php echo $row['office_name']; ?></td>
-                                 <td><?php echo $row['appointment_timendate']; ?></td>
-                                 <td><button class="method active">View</button><strong> </strong>
-                             </tr>
                                 <?php
-                                }
-                                 ?>
+                                    while($row = mysqli_fetch_assoc($result))
+                                    {
+                                ?>
+                                    <td><?php echo $row['office_id'] ?></td>
+                                    <td><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['office_address']; ?></td>
+                                    <td><?php echo $row['office_contact']; ?></td>
+                                    <td><?php echo $row['office_email']; ?></td>
+                                    <td>
+                                        <?php
+                                        if($row['office_status'] == 0) {
+                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=1" class="method active">Accept</a></p>';
+                                        }
+                                        else {
+                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                        }
+                                        ?>
+                                    </td>
+                                    
+                                    <td>
+                                        <?php 
+                                        if($row['office_status'] == 1) {
+                                        echo '<span class="status delivered">ACTIVE</span>';
+                                        } else {
+                                            echo '<span class="status pending">INACTIVE</span>';
+                                        }
+                                        ?>
+                                    </td>
+                            </tr>
+                                <?php
+                                    }
+                                    ?>  
                         </tbody>
                     </table>
                 </div>
@@ -188,14 +245,14 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
-<!-- search script -->
+    <!-- search script -->
     <script>
         const searchInput = document.getElementById('search-input');
-        const appointmentTable = document.getElementById('appointment-table');
+        const lawofficeTable = document.getElementById('lawoffice-table');
 
         searchInput.addEventListener('keyup', function() {
         const searchTerm = searchInput.value.toLowerCase();
-        const rows = appointmentTable.getElementsByTagName('tr');
+        const rows = lawofficeTable.getElementsByTagName('tr');
   
         for (let i = 0; i < rows.length; i++) {
         const fullName = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();

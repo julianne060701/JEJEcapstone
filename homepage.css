@@ -22,13 +22,13 @@
 
 body{
     margin-top: 60px;
-    display:flex ;
+    /* display:flex ;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background:url('assets/imgs/lawyerOffice2.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center; */
     margin: 0px;
   padding: 0px;
   font-family: 'Work Sans' , sans-serif;
@@ -371,3 +371,4 @@ header h2{
     display: flex;
     justify-content: center;
 }
+

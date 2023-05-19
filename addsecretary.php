@@ -19,7 +19,6 @@
         $email = validate($_POST['email']);
         $password = validate($_POST['password']);
         $password2 = validate($_POST['password2']);
-        $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $regex = '/^[a-zA-Z ]*$/';
 
         if(empty($firstname) || empty($lastname)) {
@@ -66,7 +65,8 @@
             if($conn->query($sql) === TRUE) {
                 $user_id = $conn->insert_id;
 
-                $sql = "INSERT INTO tbl_cred(user_id, email, password) VALUES ('$user_id', '$email', '$encrypted_password')";
+                
+                $sql = "INSERT INTO tbl_cred(user_id, email, password) VALUES ('$user_id', '$email', '$password')";
                 
                 if($conn->query($sql) === TRUE) {
                     $sql = "INSERT INTO tbl_usertype (user_id, user_type) VALUES ('$user_id', 'secretary')";
