@@ -110,6 +110,19 @@ header h2{
     margin-left: 40px;
 }
 
+.btnmodal{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--white);
+    font-weight: 500;
+    margin-left: 40px;
+}
+
 .navigation .btnLogin-popup:hover{
     background: var(--white);
     color: var(--black1);
@@ -124,13 +137,13 @@ header h2{
     border: 2px solid rgba(255, 255, 255, 5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+   
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     transition: transform .18s ease, height .2s ease;
-    transform: scale(0);
+    transform: scale(1);
     z-index: 999;
     
 }
@@ -372,3 +385,40 @@ header h2{
     justify-content: center;
 }
 
+    /* Modal Styles */
+    .modal {
+        display: none; /* Hide the modal by default */
+        position: fixed; /* Position the modal */
+        z-index: 99; /* Set a higher z-index to overlay other elements */
+        left: 0;
+        top: 0;
+        width: 550px;
+        height: fit-content;
+        overflow: hidden; /* Enable scrolling if needed */
+       background: transparent;
+       transform: translate(500px,100px);
+       
+      }
+      
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; /* Center the modal vertically and horizontally */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
