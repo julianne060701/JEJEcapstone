@@ -39,26 +39,59 @@
                 <input placeholder="" type="text" name="lastname" class="input">
                 <span>Last name</span>
             </label>
-    
+
             <label>
-                <input placeholder="" type="number" name="phonenumber" maxlength="11" class="input-number input">
-                <span>Contact Number</span>
-            </label>
+                    <select name="gender" class="input" style="width: 215px">
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Prefer not to say</option>
+                    </select>
+                </label>
         </div> 
+        <div class="flex"> 
+            <label>
+                <input placeholder="" type="text" name="address" class="input">
+                <span> Street</span>
+            </label>
+
+            <label>
+                <input placeholder="" type="text" name="Barangay" class="input">
+                <span> Barangay</span>
+            </label>
+        </div>
+
+        <div class="flex"> 
+            <label>
+                <input placeholder="" type="text" name="City" class="input">
+                <span> City </span>
+            </label>
+
+            <label>
+                <input placeholder="" type="text" name="zip code" class="input">
+                <span> Zip Code</span>
+            </label>
+        </div>
                 
         <div class="flex">       
         <label>
-            <input placeholder="" type="text" name="email" class="input" style="width: 410px">
+            <input placeholder="" type="text" name="email" class="input" >
             <span>Email </span>
         </label> 
-        </div>
-            
+        
         <label>
-            <input placeholder="" type="password" name="password_1" class="input" style="width: 410px;">
+                <input placeholder="" type="number" name="phonenumber" maxlength="11" class="input-number input">
+                <span>Contact Number</span>
+            </label>
+        </div>
+
+        <div class="flex"> 
+        <label>
+            <input placeholder="" type="password" name="password_1" class="input" >
             <span>Password</span>
         </label>
         <label>
-            <input placeholder="" type="password" name="cfpassword" class="input" style="width: 410px;">
+            <input placeholder="" type="password" name="cfpassword" class="input" >
             <span>Confirm password</span>
         </label> 
                           

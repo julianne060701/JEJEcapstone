@@ -85,6 +85,15 @@ if(isset($_GET['logout'])) {
                 </li>
 
                 <li>
+                    <a href="adminlist.php">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class="title">Admin List</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="appointmentlist.php">
                         <span class="icon">
                             <ion-icon name="calendar-outline"></ion-icon>
