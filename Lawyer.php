@@ -230,10 +230,10 @@ if(isset($_GET['logout'])) {
                                         
                                         <?php
                                         if($row['user_status'] == 0) {
-                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=1" class="method active">Accept</a></p>';
+                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=1" class="method active">ACTIVATE</a></p>';
                                         }
                                         else {
-                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=0" class="method deactive">DEACTIVATE</a></p>';
                                         }
                                         ?>
                                         
