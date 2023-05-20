@@ -57,7 +57,7 @@ include "dbconn.php";
    //      exit();
    //   }
    //   else {
-        $sql = "INSERT INTO tbl_userinfo (firstName, middleName, lastName) VALUES ('$firstname', '$middlename', '$lastname')";
+        $sql = "INSERT INTO tbl_userinfo (firstName, middleName, lastName, user_type) VALUES ('$firstname', '$middlename', '$lastname', '1')";
         
         if ($conn->query($sql) === TRUE) {
             $user_id = $conn->insert_id;
@@ -68,9 +68,6 @@ include "dbconn.php";
 
                 if($conn->query($sql) === TRUE) {
                     $sql = "INSERT INTO tbl_contactinfo (user_id, address, phoneNum) VALUES ('$user_id', '$address', '$contact')";
-
-                    if($conn->query($sql) === TRUE) {
-                        $sql = "INSERT INTO tbl_status (user_id, office_id, status) VALUES ('$user_id', '', '0')";
 
                         if($conn->query($sql) === TRUE) {
                             $sql = "INSERT INTO tbl_lawyerinfo (user_id, institute_name, degree, passing_year, specialty) VALUES ('$user_id', '$institute', '$degree', '$passingyear', '$specialty')";
@@ -87,6 +84,4 @@ include "dbconn.php";
                     }
                 }
             }
-        }
-   //  }
 ?>

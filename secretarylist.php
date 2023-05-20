@@ -97,6 +97,15 @@ if(isset($_GET['logout'])) {
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
+                
+                <li>
+                    <a href="adminlist.php">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class="title">Admin List</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="appointmentlist.php">
@@ -226,13 +235,14 @@ if(isset($_GET['logout'])) {
                                     <td>
                                         <?php
                                         if($row['user_status'] == 0) {
-                                            echo '<p><a href="secretarylist.php?appointment_id='.$row['userinfo_id'].'&status=1" class="method active">Accept</a></p>';
+                                            echo '<p><a href="secretaryactivate.php?userinfo_id='.$row['userinfo_id'].'&status=1" class="method active">Accept</a></p>';
                                         }
                                         else {
-                                            echo '<p><a href="useractivate.php?appointment_id='.$row['userinfo_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                            echo '<p><a href="secretaryactivate.php?userinfo_id='.$row['userinfo_id'].'&status=0" class="method deactive">Deactivate</a></p>';
                                         }
                                         ?>
                                     </td>
+                                    
                                     <td>
                                         <?php 
                                         if($row['user_status'] == 1) {

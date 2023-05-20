@@ -1,7 +1,6 @@
 <?php
 include "dbconn.php";
-   if (isset($_POST['firstname']) && isset($_POST['middlename']) && isset($_POST['lastname']) && isset($_POST['phonenumber'])
-   && isset($_POST['email']) && isset($_POST['password_1']) && isset($_POST['cfpassword'])) {
+
       
         function validate($data) {
             $data = trim($data);
@@ -13,6 +12,11 @@ include "dbconn.php";
         $firstname = validate($_POST['firstname']);
         $middlename = validate($_POST['middlename']);
         $lastname = validate($_POST['lastname']);
+        $gender = validate($_POST['gender']);
+        $address = validate($_POST['address']);
+        $barangay = validate($_POST['Barangay']);
+        $city = validate($_POST['City']);
+        $zipcode = validate($_POST['zipcode']);
         $phonenumber = validate($_POST['phonenumber']);
         $email = validate($_POST['email']);
         $password = validate($_POST['password_1']);
@@ -70,29 +74,23 @@ include "dbconn.php";
       }
       else {       
          //INSERT TO DATABASE
-         $sql = "INSERT INTO tbl_userinfo (firstName, middlename, lastName) VALUES ('$firstname', '$middlename', '$lastname')";
+         $sql = "INSERT INTO tbl_userinfo (firstName, middlename, lastName, gender, user_status) VALUES ('$firstname', '$middlename', '$lastname', '$gender', '1')";
 
          if($conn->query($sql) === TRUE){
             $user_id = $conn->insert_id; //auto insert id
 
-            $sql = "INSERT INTO tbl_cred (user_id, email, password) VALUES ('$user_id', '$email', '$password')";
+            $sql = "INSERT INTO tbl_cred (user_id, email, password) VALUES ('$user_id', '$email', '$encrypted_password')";
             if($conn->query($sql) === TRUE) {
                $sql = "INSERT INTO tbl_usertype (user_id, user_type) VALUES ('$user_id', 'client')";
                
                if($conn->query($sql) === TRUE) {
-                  $sql = "INSERT INTO tbl_contactinfo (user_id, address, phoneNum) VALUES ('$user_id', '$address', '$phonenumber')";
-                  
-                  if($conn->query($sql) === TRUE) {
-                     $sql = "INSERT INTO tbl_status (user_id, office_id, status) VALUES ('$user_id', '', '0')";
-                     
+                  $sql = "INSERT INTO tbl_contactinfo (user_id, address, barangay, city, zipcode, phoneNum) VALUES ('$user_id', '$address', '$barangay', '$city', '$zipcode', '$phonenumber')";
+                    
                      if($conn->query($sql) === TRUE) {
                         header("Location: homepage.php?msg=Register+Successfull");
                         exit();  
                      }
-                  } else {
-                     echo ("Error inserting status");
                   }
-               }
                else {
                   echo ('Error  inserting contact');
                }
@@ -105,5 +103,5 @@ include "dbconn.php";
             echo ('Error inserting userinfo');
          }
       }  
-   }   
+   
 ?> 
