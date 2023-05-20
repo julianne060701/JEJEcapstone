@@ -25,74 +25,74 @@
             <div class="flex">
             <label>
                 <input placeholder="" type="text" name="firstname" class="input">
-                <span>First name</span>
+                <span>First name *</span>
             </label>
     
             <label>
                 <input  placeholder="" type="text" name="middlename" class="input">
-                <span>Middle Name</span>
+                <span>Middle Name *</span>
             </label>
         </div> 
         
         <div class="flex">
             <label>
                 <input placeholder="" type="text" name="lastname" class="input">
-                <span>Last name</span>
+                <span>Last name *</span>
             </label>
 
             <label>
                     <select name="gender" class="input" style="width: 215px">
-                        <option value="">Select gender</option>
+                        <option value="">Gender *</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="other">Prefer not to say</option>
                     </select>
-                </label>
+            </label>
         </div> 
         <div class="flex"> 
             <label>
                 <input placeholder="" type="text" name="address" class="input">
-                <span> Street</span>
+                <span> Street *</span>
             </label>
 
             <label>
                 <input placeholder="" type="text" name="Barangay" class="input">
-                <span> Barangay</span>
+                <span> Barangay *</span>
             </label>
         </div>
 
         <div class="flex"> 
             <label>
                 <input placeholder="" type="text" name="City" class="input">
-                <span> City </span>
+                <span> City *</span>
             </label>
 
             <label>
                 <input placeholder="" type="text" name="zip code" class="input">
-                <span> Zip Code</span>
+                <span> Zip Code *</span>
             </label>
         </div>
                 
         <div class="flex">       
         <label>
             <input placeholder="" type="text" name="email" class="input" >
-            <span>Email </span>
+            <span>Email *</span>
         </label> 
         
         <label>
                 <input placeholder="" type="number" name="phonenumber" maxlength="11" class="input-number input">
-                <span>Contact Number</span>
+                <span>Contact Number *</span>
             </label>
         </div>
 
         <div class="flex"> 
         <label>
             <input placeholder="" type="password" name="password_1" class="input" >
-            <span>Password</span>
+            <span>Password *</span>
         </label>
         <label>
             <input placeholder="" type="password" name="cfpassword" class="input" >
-            <span>Confirm password</span>
+            <span>Confirm password *</span>
         </label> 
                           
         </div>     

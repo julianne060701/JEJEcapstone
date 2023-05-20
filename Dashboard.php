@@ -104,13 +104,7 @@
                 </li>
 
                 <li>
-                    <a href="?logout" onclick="logout(event)">
-                         <span class="icon">
-                             <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                    <?php
+                <?php
                     session_start(); 
                     if(isset($_GET['logout'])) { 
                          session_unset();
@@ -119,6 +113,12 @@
                          exit(); 
                         }
                     ?>
+                    <a href="?logout" onclick="logout(event)">
+                         <span class="icon">
+                             <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
                 </li>
             </ul>
         </div>
