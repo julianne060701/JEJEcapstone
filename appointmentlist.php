@@ -1,13 +1,26 @@
 <?php 
 include "dbconn.php";
 
-$sql = "SELECT tbl_officeinfo.office_id, tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officeinfo.office_status, tbl_officecred.office_address, tbl_officecred.office_contact
+$sql = "SELECT 
+tbl_appointment.appointment_id, 
+tbl_officeinfo.office_name, 
+tbl_userinfo.firstName, 
+tbl_userinfo.middlename, 
+tbl_userinfo.lastName, 
+tbl_appointment.appointment_timendate,
+tbl_appointment.appointment_status
+FROM 
+tbl_appointment
+JOIN 
+tbl_userinfo ON tbl_appointment.appointment_id = tbl_userinfo.userinfo_id
+JOIN 
+tbl_officeinfo ON tbl_appointment.appointment_id = tbl_officeinfo.office_id";
 
-FROM tbl_officeinfo
-JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_id";
 
 $result = mysqli_query($conn, $sql);
 
+
+//logout
 session_start(); 
 if(isset($_GET['logout'])) { 
      session_unset();
@@ -192,11 +205,10 @@ if(isset($_GET['logout'])) {
                     <table id="lawoffice-table">
                         <thead>
                             <tr>
-                                <td>Firm ID</td>
+                                <td>Appointment ID</td>
+                                <td>Client Name</td>
                                 <td>Firm Name</td>
-                                <td>Address</td>
-                                <td>Contact Number</td>
-                                <td>Email Address</td>
+                                <td>Time and Date</td>
                                 <td>Action</td>
                                 <td>Status</td>
                             </tr>
@@ -208,28 +220,26 @@ if(isset($_GET['logout'])) {
                                     while($row = mysqli_fetch_assoc($result))
                                     {
                                 ?>
-                                    <td><?php echo $row['office_id'] ?></td>
+                                    <td><?php echo $row['appointment_id'] ?></td>
+                                    <td><?php echo $row['firstName'] . ' ' . $row['middlename'] . ' ' . $row['lastName']; ?></td>
                                     <td><?php echo $row['office_name']; ?></td>
-                                    <td><?php echo $row['office_address']; ?></td>
-                                    <td><?php echo $row['office_contact']; ?></td>
-                                    <td><?php echo $row['office_email']; ?></td>
+                                    <td><?php echo $row['appointment_timendate']; ?></td>
                                     <td>
                                         <?php
-                                        if($row['office_status'] == 0) {
-                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=1" class="method active">Accept</a></p>';
+                                        if($row['appointment_status'] == 0) {
+                                            echo '<p><a href="appointmentactivate.php?appointment_id='.$row['appointment_id'].'&status=1" class="method active">Accept</a></p>';
                                         }
                                         else {
-                                            echo '<p><a href="activate.php?office_id='.$row['office_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                            echo '<p><a href="appointmentactivate.php?appointment_id='.$row['appointment_id'].'&status=0" class="method deactive">Deactivate</a></p>';
                                         }
                                         ?>
                                     </td>
-                                    
                                     <td>
                                         <?php 
-                                        if($row['office_status'] == 1) {
+                                        if($row['appointment_status'] == 1) {
                                         echo '<span class="status delivered">ACTIVE</span>';
                                         } else {
-                                            echo '<span class="status pending">INACTIVE</span>';
+                                            echo '<span class="status pending">COMPLETED</span>';
                                         }
                                         ?>
                                     </td>
