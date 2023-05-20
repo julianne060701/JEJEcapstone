@@ -93,31 +93,52 @@
                </div>
             </div>
 
+
             <div class="row">
                <div class="col-md-12">
                   <div class="form-group">
                      <label class="control-label">Purpose</label>
-                     <textarea class="form-control" name="purpose" rows="4" cols="50"></textarea>
+                     <select name="select" class="input" style="width: 215px" onchange="updateTextarea(this)">
+                        <option value="">Select</option>
+                        <option value="family">Family Case</option>
+                        <option value="tax">Tax Case</option>
+                        <option value="corporate">Corporate Case</option>
+                        <option value="criminal">Criminal Case</option>
+                        <option value="employment">Employment Case</option>
+                        <option value="financial">Financial Case</option>
+                        <option value="labour">Labour Case</option>
+                        <option value="immigration">Immigration Case</option>
+                        <option value="defense">Defense Case</option>
+                        <option value=" intellectual"> Intellectual Property Case</option>
+                        <option value="government ">Government Case</option>
+                        <option value="estate">Real Estate Case</option>
+                        <option value="contract">Contract Case</option>
+                     </select>
+                     <textarea class="form-control" name="purpose" id="purpose-textarea" rows="4" cols="50"></textarea>
                   </div>
                   <input type="submit" class="btn btn-primary" value="Submit">
                </div>
             </div>
-         </div>
-      </div>
-   </div>
+
+            <script>
+               function updateTextarea(select) {
+                  var textarea = document.getElementById('purpose-textarea');
+                  textarea.value = select.value;
+               }
+            </script>
 </body>
 <script>
-      document.addEventListener('DOMContentLoaded', function () {
-         $('.form-group').addClass('fade-in');
-         var startDatetime = document.getElementById('start_datetime');
-         startDatetime.addEventListener('input', function () {
-            var selectedDate = new Date(startDatetime.value);
-            if (selectedDate.getDay() === 0) {
-               alert('Sundays are not allowed for appointments. Please select a different day.');
-               startDatetime.value = '';
-            }s
-         });
+   document.addEventListener('DOMContentLoaded', function () {
+      $('.form-group').addClass('fade-in');
+      var startDatetime = document.getElementById('start_datetime');
+      startDatetime.addEventListener('input', function () {
+         var selectedDate = new Date(startDatetime.value);
+         if (selectedDate.getDay() === 0) {
+            alert('Sundays are not allowed for appointments. Please select a different day.');
+            startDatetime.value = '';
+         } s
       });
-   </script>
+   });
+</script>
 
 </html>
