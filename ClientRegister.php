@@ -69,7 +69,7 @@
             </label>
 
             <label>
-                <input placeholder="" type="text" name="zip code" class="input">
+                <input placeholder="" type="text" name="zipcode" class="input">
                 <span> Zip Code <font color="red">*</font></span>
             </label>
         </div>
