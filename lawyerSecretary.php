@@ -66,6 +66,9 @@ $result = mysqli_query($conn, $sql);
       <label for="password2">Confirm Password:</label>
       <input type="password" id="password2" name="password2">
 
+      <label for="file"> Upload Valid ID <font color="red">*</font> </label>
+      <input type="file" id="file" name="file">
+
     <button type="submit" class="submit" name="add">Add</button>
     </div>
     </form>
@@ -90,6 +93,15 @@ $result = mysqli_query($conn, $sql);
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lawyercalendar.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Calendar</span>
                     </a>
                 </li>
 
@@ -129,7 +141,8 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                <?php
+                    <!-- Comment sa nako -->
+                <!-- <?php
                     session_start(); 
                     if(isset($_GET['logout'])) { 
                          session_unset();
@@ -137,7 +150,7 @@ $result = mysqli_query($conn, $sql);
                          header("Location: homepage.php?logout");
                          exit(); 
                         }
-                    ?>
+                    ?> -->
                     <a href="?logout" onclick="logout(event)">
                          <span class="icon">
                              <ion-icon name="log-out-outline"></ion-icon>

@@ -30,24 +30,24 @@
             <div class="flex">
                 <label>
                     <input placeholder="" type="text" name="firstname" class="input" style="width: 200px">
-                    <span>First name</span>
+                    <span>First name <font color="red">*</font> </span>
                 </label>
 
                 <label>
                     <input placeholder="" type="text" name="middlename" class="input" style="width: 200px">
-                    <span>Middle Name</span>
+                    <span>Middle Name <font color="red">*</font> </span>
                 </label>
             </div>
 
             <div class="flex">
                 <label>
                     <input placeholder="" type="text" name="lastname" class="input" style="width: 200px">
-                    <span>Last name</span>
+                    <span>Last name<font color="red">*</font> </span>
                 </label>
 
                 <label>
                     <select name="gender" class="input" style="width: 220px">
-                        <option value="">Select gender</option>
+                        <option value="">Select gender </option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="other">Prefer not to say</option>
@@ -59,12 +59,12 @@
             <div class="flex">
                 <label>
                     <input placeholder="" type="text" name="firmname" class="input" style="width: 200px">
-                    <span>Firm name</span>
+                    <span>Firm name <font color="red">*</font> </span>
                 </label>
 
                 <label>
                 <input placeholder="" type="number" name="contactnum" class="input-number input" style="width: 200px">
-                <span>Contact Number</span>
+                <span>Contact Number <font color="red">*</font> </span>
             </label>
 
             </div>
@@ -73,46 +73,46 @@
             <div class="flex">
             <label>
                     <input placeholder="" type="email" name="email" class="input" style="width: 200px;">
-                    <span>Email </span>
+                    <span>Email <font color="red">*</font> </span>
                 </label>
                 <label>
                 <input placeholder="" type="text" name="address" class="input" style="width: 200px;">
-                <span> Street</span>
+                <span> Street <font color="red">*</font> </span>
             </label>
             </div>
                 <div class="flex">
                 <label>
                 <input placeholder="" type="text" name="Barangay" class="input" style="width: 200px;">
-                <span> Barangay</span>
+                <span> Barangay <font color="red">*</font> </span>
             </label>
             <label>
                 <input placeholder="" type="text" name="City" class="input" style="width: 200px;">
-                <span> City </span>
+                <span> City <font color="red">*</font> </span>
             </label>
         </div>
 
         <div class="flex">
         <label>
                 <input placeholder="" type="text" name="zip code" class="input" style="width: 200px;">
-                <span> Zip Code</span>
+                <span> Zip Code <font color="red">*</font> </span>
             </label>
         </div>
 
             <div class="flex">
             <label>
                 <input placeholder="" type="password" name="password" class="input" style="width: 200px;">
-                <span>Password</span>
+                <span>Password <font color="red">*</font> </span>
             </label>
             <label>
                 <input placeholder="" type="password" name="cfpassword" class="input" style="width: 200px;">
-                <span>Confirm password</span>
+                <span>Confirm password <font color="red">*</font> </span>
             </label>
             </div>
 
             <div class="flex">
             <label>
                     <select name="Speciality" class="input" style="width: 220px">
-                        <option value="">Select Speciality</option>
+                        <option value="">Select Speciality <font color="red">*</font></option>
                         <option value="family">Family Lawyer</option>
                         <option value="tax">Tax Lawyer</option>
                         <option value="corporate">Corporate Lawyer</option>
@@ -139,11 +139,11 @@
 
             <div class="flex-file">
                 <label>
-                    <p style="width: 200px;">Upload your Lawyer ID</p>
+                    <p style="width: 200px;">Upload your Lawyer ID <font color="red">*</font> </p>
                     <input placeholder="" type="file" name="id" class="file input" style="width: 200px">
                 </label>
                 <label>
-                    <p style="width: 200px;">Upload Business permit</p>
+                    <p style="width: 200px;">Upload Business permit <font color="red">*</font> </p>
                     <input placeholder="" type="file" name="permit" class="file input" style="width: 200px">
                 </label>
             </div>

@@ -20,6 +20,7 @@ $result = mysqli_query($conn, $sql);
     <title>Lawyer Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="LawyerOfficeFinal.css">
+    <link rel="stylesheet" href="assets/css/lawyercalendar.css">
 </head>
 
 <body>
@@ -30,7 +31,7 @@ $result = mysqli_query($conn, $sql);
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <img src="assets/imgs/justice-scale.png" alt="" style="width: 66px; height: 66px;" >
+                            <img src="assets/imgs/justice-scale.png" alt="" style="width: 66px; height: 66px;">
                         </span>
                         <span class="title">Law Office Gensan</span>
                     </a>
@@ -55,7 +56,7 @@ $result = mysqli_query($conn, $sql);
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="lawyerappointment.php">
                         <span class="icon">
                             <ion-icon name="reader-outline"></ion-icon>
                         </span>
@@ -91,19 +92,19 @@ $result = mysqli_query($conn, $sql);
 
                 <li>
                     <a href="?logout" onclick="logout(event)">
-                         <span class="icon">
-                             <ion-icon name="log-out-outline"></ion-icon>
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
                     <?php
-                    session_start(); 
-                    if(isset($_GET['logout'])) { 
-                         session_unset();
-                         session_destroy();
-                         header("Location: homepage.php?logout");
-                         exit(); 
-                        }
+                    session_start();
+                    if (isset($_GET['logout'])) {
+                        session_unset();
+                        session_destroy();
+                        header("Location: homepage.php?logout");
+                        exit();
+                    }
                     ?>
                 </li>
             </ul>
@@ -116,45 +117,93 @@ $result = mysqli_query($conn, $sql);
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
-                </div>
 
                 <div class="user">
                     <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
 
+
+            <!-- ================ Calendar ================= -->
+
+  <div class="content">
+    <div class="calendar-container">
+      <div class="calendar"> 
+        <div class="year-header"> 
+          <span class="left-button" id="prev"> &lang; </span> 
+          <span class="year" id="label"></span> 
+          <span class="right-button" id="next"> &rang; </span>
+        </div> 
+        <table class="months-table"> 
+          <tbody>
+            <tr class="months-row">
+              <td class="month">Jan</td> 
+              <td class="month">Feb</td> 
+              <td class="month">Mar</td> 
+              <td class="month">Apr</td> 
+              <td class="month">May</td> 
+              <td class="month">Jun</td> 
+              <td class="month">Jul</td>
+              <td class="month">Aug</td> 
+              <td class="month">Sep</td> 
+              <td class="month">Oct</td>          
+              <td class="month">Nov</td>
+              <td class="month">Dec</td>
+            </tr>
+          </tbody>
+        </table> 
         
-                <!-- ================ Table List ================= -->
-                <div class="details">
-                <div class="Appointment">
-                    <div class="cardHeader">
-                        <h2>Appointment List</h2>
-                    </div>
-                    
-                    <table id="lawoffice-table">
-                        <thead>
-                            <tr>
-                                <td>Appointment ID</td>
-                                <td>Client Name</td>
-                                <td>Contact Number</td>
-                                <td>Email Address</td>
-                                <td>Date/Time</td>
-                                <td>Action</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
+        <table class="days-table"> 
+          <td class="day">Sun</td> 
+          <td class="day">Mon</td> 
+          <td class="day">Tue</td> 
+          <td class="day">Wed</td> 
+          <td class="day">Thu</td> 
+          <td class="day">Fri</td> 
+          <td class="day">Sat</td>
+        </table> 
+        <div class="frame"> 
+          <table class="dates-table"> 
+              <tbody class="tbody">             
+              </tbody> 
+          </table>
+        </div> 
+        <button class="button" id="add-button">Customize the Slot</button>
+      </div>
+    </div>
+    <div class="events-container">
+    </div>
+    <div class="dialog" id="dialog">
+        <h2 class="dialog-header"> Slot </h2>
+        <form class="form" id="form">
+          <div class="form-container" align="center">
+            <label class="form-label" id="valueFromMyButton" for="name">Title</label>
+            <input class="input" type="text" id="name" maxlength="36">
+            <label class="form-label" id="valueFromMyButton" for="count">Number of Slot</label>
+            <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
+            <input type="button" value="Cancel" class="button" id="cancel-button">
+            <input type="button" value="OK" class="button" id="ok-button">
+          </div>
+        </form>
+      </div>
+  </div>
+  
+  <!-- Dialog Box-->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script src="app.js"></script>
 
-    <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
+    
+<!-- =========== Scripts =========  -->
+<script src="assets/js/main.js"></script>
+<script src = "assets/js/lawyercalendar.js"></script>
 
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

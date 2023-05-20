@@ -73,6 +73,15 @@ $result = mysqli_query($conn, $sql);
                     </a>
                 </li>
 
+                <li>
+                    <a href="lawyercalendar.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Calendar</span>
+                    </a>
+                </li>
+
              
                 <li>
                     <a href="lawyerappointment.php">
