@@ -63,7 +63,7 @@
                 </label>
 
                 <label>
-                <input placeholder="" type="number" name="contactnum" class="input-number input" style="width: 200px">
+                <input placeholder="" type="number" name="contactnum" maxlength="11" class="input-number input" style="width: 200px">
                 <span>Contact Number <font color="red">*</font> </span>
             </label>
 
@@ -93,7 +93,7 @@
 
         <div class="flex">
         <label>
-                <input placeholder="" type="text" name="zip code" class="input" style="width: 200px;">
+                <input placeholder="" type="text" name="zipcode" class="input" style="width: 200px;">
                 <span> Zip Code <font color="red">*</font> </span>
             </label>
         </div>
@@ -111,7 +111,7 @@
 
             <div class="flex">
             <label>
-                    <select name="Speciality" class="input" style="width: 220px">
+                    <select name="Specialty" class="input" style="width: 220px">
                         <option value="">Select Speciality <font color="red">*</font></option>
                         <option value="family">Family Lawyer</option>
                         <option value="tax">Tax Lawyer</option>
@@ -126,6 +126,7 @@
                         <option value="government ">Government  Lawyer</option>
                         <option value="estate">Real Estate Lawyer</option>
                         <option value="contract">Contract Lawyer</option>
+                        <option value="other">Others</option>
 
                     </select>
                 </label>

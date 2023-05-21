@@ -1,26 +1,12 @@
-<?php 
-include "dbconn.php";
-
-$sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.middlename, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum,
-tbl_images.id, tbl_userinfo.user_status
-FROM tbl_userinfo
-JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
-JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
-JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
-JOIN tbl_images ON tbl_userinfo.userinfo_id = tbl_images.user_id
-WHERE tbl_usertype.user_type = 'lawyer'";
-$result = mysqli_query($conn, $sql);
-
-session_start(); 
-if(isset($_GET['logout'])) { 
-     session_unset();
-     session_destroy();
-     header("Location: homepage.php?logout");
-     exit(); 
-    }
-?>
-
-
+<?php
+                        session_start(); 
+                        if(isset($_GET['logout'])) { 
+                             session_unset();
+                             session_destroy();
+                             header("Location: homepage.php?logout");
+                             exit(); 
+                            } 
+                        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +30,7 @@ if(isset($_GET['logout'])) {
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>Register Office</h2>
-    <form action="registerOffice.php" method="POST">
+    <form action="registerOffice.php" method="POST" enctype="multipart/form-data">
       <label for="firmName">Firm Name:</label>
       <input type="text" id="firmName" name="firmName" required>
       
@@ -164,7 +150,6 @@ if(isset($_GET['logout'])) {
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
-
                 </li>
             </ul>
         </div>
@@ -205,7 +190,9 @@ if(isset($_GET['logout'])) {
                         <thead>
                             <tr>
                                 <td>Firm ID</td>
-                                <td>Firm Name</td>
+                                <td>ID</td>
+                                <td>Permit</td>
+                                <td>Name</td>
                                 <td>Address</td>
                                 <td>Contact Number</td>
                                 <td>Email Address</td>
@@ -215,12 +202,30 @@ if(isset($_GET['logout'])) {
                         </thead>
 
                         <tbody>
+                        <?php 
+                            include "dbconn.php";
+
+                            $sql = "SELECT tbl_userinfo.userinfo_id, tbl_userinfo.firstName, tbl_userinfo.middlename, tbl_userinfo.lastName, tbl_usertype.user_type, tbl_cred.email, tbl_contactinfo.address, tbl_contactinfo.phoneNum,
+                            tbl_images.id, tbl_userinfo.user_status, tbl_images.id, tbl_images.permit
+                            FROM tbl_userinfo
+                            JOIN tbl_usertype ON tbl_userinfo.userinfo_id = tbl_usertype.user_id
+                            JOIN tbl_cred ON tbl_userinfo.userinfo_id = tbl_cred.user_id
+                            JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
+                            JOIN tbl_images ON tbl_userinfo.userinfo_id = tbl_images.user_id
+                            WHERE tbl_usertype.user_type = 'lawyer'";
+                            $result = mysqli_query($conn, $sql);
+                        ?>
                         <tr>
                                 <?php
                                     while($row = mysqli_fetch_assoc($result))
                                     {
-                                ?>
+                                ?>  
+                                    
                                     <td><?php echo $row['userinfo_id'] ?></td>
+                                    <td>
+                                        <?php if($row['id'] != ""); ?>
+                                        <img src="images" <?php echo $row['id']; ?>>
+                                    </td>
                                     <td><?php echo $row['firstName'] . ' ' . $row['lastName']; ?></td>
                                     <td><?php echo $row['address']; ?></td>
                                     <td><?php echo $row['phoneNum']; ?></td>
@@ -230,10 +235,10 @@ if(isset($_GET['logout'])) {
                                         
                                         <?php
                                         if($row['user_status'] == 0) {
-                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=1" class="method active">Accept</a></p>';
+                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=1" class="method active">ACTIVATE</a></p>';
                                         }
                                         else {
-                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=0" class="method deactive">Deactivate</a></p>';
+                                            echo '<p><a href="Lawyeractivate.php?userinfo_id='.$row['userinfo_id'].'&status=0" class="method deactive">DEACTIVATE</a></p>';
                                         }
                                         ?>
                                         

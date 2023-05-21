@@ -16,7 +16,7 @@
         background-size: cover;
     }
     </style>
-    <form class="form" action="userregister.php" method="POST">
+    <form class="form" id="clientregister" action="userregister.php" method="POST">
 
         <p class="title">Register </p>
         <?php if (isset($_GET['error'])) { ?>
@@ -24,20 +24,20 @@
 		<?php } ?>
             <div class="flex">
             <label>
-                <input placeholder="" type="text" name="firstname" class="input">
+                <input placeholder="" type="text" name="firstname" id="firstname" class="input">
                 <span>First name <font color="red">*</font></span>
 
             </label>
     
             <label>
-                <input  placeholder="" type="text" name="middlename" class="input">
+                <input  placeholder="" type="text" name="middlename" id="middlename" class="input">
                 <span>Middle Name <font color="red">*</font></span>
             </label>
         </div> 
         
         <div class="flex">
             <label>
-                <input placeholder="" type="text" name="lastname" class="input">
+                <input placeholder="" type="text" name="lastname" id="lastname" class="input">
                 <span>Last name <font color="red">*</font></span>
             </label>
 
@@ -69,7 +69,7 @@
             </label>
 
             <label>
-                <input placeholder="" type="text" name="zip code" class="input">
+                <input placeholder="" type="text" name="zipcode" class="input">
                 <span> Zip Code <font color="red">*</font></span>
             </label>
         </div>
@@ -100,5 +100,7 @@
         <button class="submit" type="submit" name="register">Register</button>
         <p class="signin">Already have an acount ? <a href="homepage.php">Signin</a> </p>
     </form>
+
+    <!-- Javascript -->
 </body>
 </html>
