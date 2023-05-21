@@ -33,15 +33,62 @@
     <form action="registerOffice.php" method="POST" enctype="multipart/form-data">
       <label for="firmName">Firm Name:</label>
       <input type="text" id="firmName" name="firmName" required>
+
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firmName" name="firmName" required>
+
+      <label for="middle">Middle Name:</label>
+      <input type="text" id="middle" name="middle" required>
+
+      <label for="Last">Last Name:</label>
+      <input type="text " id="Last" name="Last" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
       
-      <label for="address">Address:</label>
-      <textarea id="address" name="address" required></textarea>
+      <label for="street">Street:</label>
+      <textarea id="text" name="street" required></textarea>
+
+      <label for="barangay">Barangay:</label>
+      <textarea id="text" name="barangay" required></textarea>
+
+      <label for="city">City:</label>
+      <textarea id="text" name="city" required></textarea>
+
+      <label for="zip">Zip Code:</label>
+      <textarea id="text" name="zip" required></textarea>
       
       <label for="contactNumber">Contact Number:</label>
       <input type="tel" id="contactNumber" name="contactNumber" required>
       
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
+
+      <label>
+                    <select name="Specialty" class="input" style="width: 220px">
+                        <option value="">Select Speciality <font color="red">*</font></option>
+                        <option value="family">Family Lawyer</option>
+                        <option value="tax">Tax Lawyer</option>
+                        <option value="corporate">Corporate Lawyer</option>
+                        <option value="criminal">Criminal Lawyer</option>
+                        <option value="employment">Employment Lawyer</option>
+                        <option value="financial">Financial Lawyer</option>
+                        <option value="labour">Labour Lawyer</option>
+                        <option value="immigration">Immigration Lawyer</option>
+                        <option value="defense">Defense Lawyer</option>
+                        <option value=" intellectual"> Intellectual Property Lawyer</option>
+                        <option value="government ">Government  Lawyer</option>
+                        <option value="estate">Real Estate Lawyer</option>
+                        <option value="contract">Contract Lawyer</option>
+                        <option value="other">Others</option>
+
+                    </select>
+                </label>
+                <label>
+                <span>Others</span>
+                <input placeholder="" type="text" name="others" class="input" style="width: 200px;">
+                
+            </label>
 
 	<label for="num">Upload Lawyer ID</label>
 	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >

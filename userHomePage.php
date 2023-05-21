@@ -87,7 +87,7 @@
       <td><ion-icon name="mail-outline"></ion-icon><?php echo $row['office_email']?></td>
       <td><ion-icon name="navigate"></ion-icon><?php echo $row['office_address']?></td>
       <td><ion-icon name="call"></ion-icon><?php echo $row['office_contact']?></td>
-      <td><button>View Profile</button></td>
+      <td><a href="viewProfile.php"><button>View Profile</button></td> </a>
       </tr>
       <?php
     }

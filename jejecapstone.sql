@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 04:42 PM
+-- Generation Time: May 21, 2023 at 09:04 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE `tbl_appointment` (
 --
 
 INSERT INTO `tbl_appointment` (`appointment_id`, `user_id`, `office_id`, `appointment_timendate`, `appointment_status`) VALUES
-(1, 1, 1, '2023-04-27 18:30:00', 1);
+(1, 1, 1, '2023-04-27 18:30:00', 0);
 
 -- --------------------------------------------------------
 
@@ -52,6 +52,9 @@ CREATE TABLE `tbl_contactinfo` (
   `contact_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `address` varchar(244) NOT NULL,
+  `barangay` varchar(244) NOT NULL,
+  `city` varchar(244) NOT NULL,
+  `zipcode` int(11) NOT NULL,
   `phoneNum` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -59,12 +62,29 @@ CREATE TABLE `tbl_contactinfo` (
 -- Dumping data for table `tbl_contactinfo`
 --
 
-INSERT INTO `tbl_contactinfo` (`contact_id`, `user_id`, `address`, `phoneNum`) VALUES
-(62, 141, '', 12312312312),
-(63, 142, 'jh', 12312312312),
-(64, 143, '', 12312312312),
-(65, 144, '', 123123123122),
-(66, 145, '', 12312312312);
+INSERT INTO `tbl_contactinfo` (`contact_id`, `user_id`, `address`, `barangay`, `city`, `zipcode`, `phoneNum`) VALUES
+(62, 141, '', '', '', 0, 12312312312),
+(63, 142, 'jh', '', '', 0, 12312312312),
+(64, 143, '', '', '', 0, 12312312312),
+(65, 144, '', '', '', 0, 123123123122),
+(66, 145, '', '', '', 0, 12312312312),
+(67, 146, 'zz', '', '', 0, 9876543211),
+(68, 147, 'admind', '', '', 0, 12312312312),
+(69, 148, 'zaza', 'zaza', 'zaza', 0, 12312312312),
+(70, 149, 'za', '', '', 1111, 12312312312),
+(71, 150, 'azx', '', '', 1111, 12312312312),
+(72, 151, 'yer', '', '', 11123, 12312312312),
+(73, 152, 'yerr', '', '', 1234, 12312312312),
+(74, 153, 'yeq', '', '', 3214, 12312312312),
+(75, 154, '', '', '', 0, 0),
+(76, 155, '', '', '', 0, 0),
+(77, 156, '', '', '', 0, 0),
+(78, 157, '', '', '', 0, 0),
+(79, 158, '', '', '', 0, 0),
+(80, 159, '', '', '', 0, 0),
+(81, 160, 'tte', 'tte', 'tte', 1234, 12312312312),
+(82, 161, 'client', 'client', 'client', 1234, 12312312312),
+(83, 162, 'lawyer', 'lawyer', 'lawyer', 1111, 12312312312);
 
 -- --------------------------------------------------------
 
@@ -92,7 +112,24 @@ INSERT INTO `tbl_cred` (`usercred_id`, `user_id`, `email`, `password`) VALUES
 (115, 142, 'jh@gmail.com', 'jh'),
 (116, 143, 'firstname@gmail.com', '$2y$10$lTjeQih4I9qa1NbEiz.n2uHT6qbknzhjd5hCTdj1yL/Mbvig7zU7.'),
 (117, 144, 'mk@gmail.com', '$2y$10$MPLLUq7HG8sbJhHAX4EfoeLNPNdhVaSzBDvrjueR1vYNV2d8Hbqce'),
-(118, 145, 'lk@gmail.com', '123');
+(118, 145, 'lk@gmail.com', '123'),
+(119, 146, 'zz@gmail.com', '$2y$10$u7E1PfCG9QOFj2yoy6sL2OqlGQtmeTrn6OBija2pOrmIGlxGujSoC'),
+(120, 147, 'admin@gmail.com', '$2y$10$p/XfDeU3SYRcBSbRZ2qsnep87y017IAwLDsHpLynXeB2TD6DlfPJS'),
+(121, 148, 'zaza@gmail.com', '$2y$10$qgf5d3RBHEnye3R8LTDL6eCMoUgshWzGSyKk2gowEAqvs/0yEf3Ce'),
+(122, 149, 'zaa@gmail.com', 'za'),
+(123, 150, 'azx@gmail.com', 'azx'),
+(124, 151, 'yer@gmail.com', '$2y$10$zZmuYW24KVezys9Zp1rIz.yvkpbTHQhjPLXoL/3LuvY2e9C.0LS/6'),
+(125, 152, 'yerr@gmail.com', '$2y$10$Dhg/CmGlHjcjGynRc/22l.p6QIjxgJzOK7aMixgQ1NURqAmIH2Tiu'),
+(126, 153, 'yeq@gmail.com', '$2y$10$Mygf0bpVY4sUZOfTpU7XgOy513DD9Rjv.Gy.Xuau311cWjRkJSKf6'),
+(127, 154, '', '$2y$10$ev4gOziDbYbNiTdrOG3A8.Nw3E5HsYQdCm/oj5oxC5fa41eQClmja'),
+(128, 155, '', '$2y$10$Qhcrq1fg1/t3/s9h08O0aux7.cJjyVnhOkgPgFpgBBvRBbD0SuJsi'),
+(129, 156, '', '$2y$10$nY82Oo7h0uxQGJNZNzkYhedUCCQLKikcQEftmBVSfEwnIUi9rWhYG'),
+(130, 157, '', '$2y$10$xbrAFvEdgfNL/o5qcMW1mOVYoLsRAQznZ3AocanJOtrSRPbysUMs.'),
+(131, 158, '', '$2y$10$imHTunyDpK.n5n9jNeTbBeOievU/1whNPo7lrjgI7Q.SNOL09.26C'),
+(132, 159, '', '$2y$10$Uif7Wh1k5tFdzUJK4pAK9utMP1BTM0L3rHWjGlUD6kh6hHjdFD.t6'),
+(133, 160, 'tte@gmail.com', '$2y$10$VsUlU35UQK/xMUeDMGAXbuQzkYANvO0.5YSqONdcoJkwW2wyNudH2'),
+(134, 161, 'client@gmail.com', '$2y$10$2QW97LLe32T.0LsScg4H9evcCvsfgZvpLBgLy31gJKjaTj8LiW.Iu'),
+(135, 162, 'lawyer@gmail.com', '$2y$10$NtDFx8WzTbJO4il/1ZpFzevvkAViu2nPL7KLzXR7fN9.JVpYZYnju');
 
 -- --------------------------------------------------------
 
@@ -103,17 +140,22 @@ INSERT INTO `tbl_cred` (`usercred_id`, `user_id`, `email`, `password`) VALUES
 CREATE TABLE `tbl_images` (
   `images_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(11) NOT NULL,
   `id` text NOT NULL,
-  `permit` text NOT NULL
+  `permit` text NOT NULL,
+  `profile` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_images`
 --
 
-INSERT INTO `tbl_images` (`images_id`, `user_id`, `name`, `id`, `permit`) VALUES
-(24, 142, '', '', '');
+INSERT INTO `tbl_images` (`images_id`, `user_id`, `id`, `permit`, `profile`) VALUES
+(24, 142, '', '', ''),
+(25, 150, 'za.jpg', '', ''),
+(26, 151, 'Untitled.png', 'za.jpg', ''),
+(27, 152, 'pexels-johannes-plenio-3131634.jpg', 'spicyuuu1.jpg', ''),
+(28, 153, 'spicyuuu1.jpg', 'spicyuuu.jpg', ''),
+(29, 162, 'za.jpg', 'Untitled.png', '');
 
 -- --------------------------------------------------------
 
@@ -124,9 +166,6 @@ INSERT INTO `tbl_images` (`images_id`, `user_id`, `name`, `id`, `permit`) VALUES
 CREATE TABLE `tbl_lawyerinfo` (
   `lawyerinfo_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `institute_name` varchar(244) NOT NULL,
-  `degree` varchar(244) NOT NULL,
-  `passing_year` varchar(244) NOT NULL,
   `specialty` varchar(244) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -134,8 +173,14 @@ CREATE TABLE `tbl_lawyerinfo` (
 -- Dumping data for table `tbl_lawyerinfo`
 --
 
-INSERT INTO `tbl_lawyerinfo` (`lawyerinfo_id`, `user_id`, `institute_name`, `degree`, `passing_year`, `specialty`) VALUES
-(14, 142, 'jh', 'jh', 'jh', 'jh');
+INSERT INTO `tbl_lawyerinfo` (`lawyerinfo_id`, `user_id`, `specialty`) VALUES
+(14, 142, ''),
+(15, 149, 'family'),
+(16, 150, 'family'),
+(17, 151, ''),
+(18, 152, ''),
+(19, 153, 'yeq'),
+(20, 162, '');
 
 -- --------------------------------------------------------
 
@@ -192,29 +237,6 @@ INSERT INTO `tbl_officeinfo` (`office_id`, `office_name`, `office_email`, `offic
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_status`
---
-
-CREATE TABLE `tbl_status` (
-  `status_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_status`
---
-
-INSERT INTO `tbl_status` (`status_id`, `user_id`, `status`) VALUES
-(36, 141, 0),
-(37, 142, 0),
-(38, 143, 0),
-(39, 144, 0),
-(40, 145, 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_useradmin`
 --
 
@@ -242,6 +264,7 @@ CREATE TABLE `tbl_userinfo` (
   `firstName` varchar(244) NOT NULL,
   `middlename` varchar(244) NOT NULL,
   `lastName` varchar(244) NOT NULL,
+  `gender` varchar(244) NOT NULL,
   `user_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -249,16 +272,33 @@ CREATE TABLE `tbl_userinfo` (
 -- Dumping data for table `tbl_userinfo`
 --
 
-INSERT INTO `tbl_userinfo` (`userinfo_id`, `firstName`, `middlename`, `lastName`, `user_status`) VALUES
-(1, 'Jv', '', 'Burdo', 0),
-(2, 'ryan', '', 'laroco', 0),
-(3, 'admin', 'admin', 'admin', 0),
-(4, 'secretary', 'secretary', 'secretary', 0),
-(141, 'bobo', 'ka', 'sige', 0),
-(142, 'jh', 'jh', 'jh', 1),
-(143, 'first', 'name', 'last', 0),
-(144, 'mk', 'mk', 'mk', 0),
-(145, 'lk', 'lk', 'lk', 0);
+INSERT INTO `tbl_userinfo` (`userinfo_id`, `firstName`, `middlename`, `lastName`, `gender`, `user_status`) VALUES
+(1, 'Jv', '', 'Burdo', '', 0),
+(2, 'ryan', '', 'laroco', '', 0),
+(3, 'admin', 'admin', 'admin', '', 0),
+(4, 'secretary', 'secretary', 'secretary', '', 0),
+(141, 'bobo', 'ka', 'sige', '', 1),
+(142, 'jh', 'jh', 'jh', '', 1),
+(143, 'first', 'name', 'last', '', 1),
+(144, 'mk', 'mk', 'mk', '', 1),
+(145, 'lk', 'lk', 'lk', '', 1),
+(146, 'zz', 'zz', 'zz', '', 0),
+(147, 'admin', 'admin', 'admin', '', 1),
+(148, 'zaza', 'zaza', 'zaza', 'other', 1),
+(149, 'za', 'za', 'za', 'male', 1),
+(150, 'azx', 'azx', 'azx', 'female', 1),
+(151, 'yer', 'yer', 'yer', 'male', 1),
+(152, 'yerr', 'yerr', 'yerr', 'male', 1),
+(153, 'yeq', 'yeq', 'yeq', 'female', 1),
+(154, '', '', '', '', 1),
+(155, '', '', '', '', 1),
+(156, '', '', '', '', 1),
+(157, '', '', '', '', 1),
+(158, '', '', '', '', 1),
+(159, '', '', '', '', 1),
+(160, 'tte', 'tte', 'tte', 'female', 1),
+(161, 'client', 'client', 'client', 'male', 1),
+(162, 'lawyer', 'lawyer', 'lawyer', 'male', 1);
 
 -- --------------------------------------------------------
 
@@ -285,7 +325,24 @@ INSERT INTO `tbl_usertype` (`usertype_id`, `user_id`, `user_type`) VALUES
 (113, 142, 'lawyer'),
 (114, 143, 'client'),
 (115, 144, 'client'),
-(116, 145, 'client');
+(116, 145, 'client'),
+(117, 146, 'secretary'),
+(118, 147, 'admin'),
+(119, 148, 'client'),
+(120, 149, 'lawyer'),
+(121, 150, 'lawyer'),
+(122, 151, 'lawyer'),
+(123, 152, 'lawyer'),
+(124, 153, 'lawyer'),
+(125, 154, 'client'),
+(126, 155, 'client'),
+(127, 156, 'client'),
+(128, 157, 'client'),
+(129, 158, 'client'),
+(130, 159, 'client'),
+(131, 160, 'client'),
+(132, 161, 'client'),
+(133, 162, 'lawyer');
 
 --
 -- Indexes for dumped tables
@@ -341,13 +398,6 @@ ALTER TABLE `tbl_officeinfo`
   ADD PRIMARY KEY (`office_id`);
 
 --
--- Indexes for table `tbl_status`
---
-ALTER TABLE `tbl_status`
-  ADD PRIMARY KEY (`status_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
 -- Indexes for table `tbl_useradmin`
 --
 ALTER TABLE `tbl_useradmin`
@@ -380,25 +430,25 @@ ALTER TABLE `tbl_appointment`
 -- AUTO_INCREMENT for table `tbl_contactinfo`
 --
 ALTER TABLE `tbl_contactinfo`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `tbl_cred`
 --
 ALTER TABLE `tbl_cred`
-  MODIFY `usercred_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `usercred_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `tbl_images`
 --
 ALTER TABLE `tbl_images`
-  MODIFY `images_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `images_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_lawyerinfo`
 --
 ALTER TABLE `tbl_lawyerinfo`
-  MODIFY `lawyerinfo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `lawyerinfo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_officecred`
@@ -413,12 +463,6 @@ ALTER TABLE `tbl_officeinfo`
   MODIFY `office_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
--- AUTO_INCREMENT for table `tbl_status`
---
-ALTER TABLE `tbl_status`
-  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
---
 -- AUTO_INCREMENT for table `tbl_useradmin`
 --
 ALTER TABLE `tbl_useradmin`
@@ -428,13 +472,13 @@ ALTER TABLE `tbl_useradmin`
 -- AUTO_INCREMENT for table `tbl_userinfo`
 --
 ALTER TABLE `tbl_userinfo`
-  MODIFY `userinfo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `userinfo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `tbl_usertype`
 --
 ALTER TABLE `tbl_usertype`
-  MODIFY `usertype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `usertype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- Constraints for dumped tables
@@ -476,12 +520,6 @@ ALTER TABLE `tbl_lawyerinfo`
 --
 ALTER TABLE `tbl_officecred`
   ADD CONSTRAINT `tbl_officecred_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `tbl_officeinfo` (`office_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tbl_status`
---
-ALTER TABLE `tbl_status`
-  ADD CONSTRAINT `tbl_status_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_userinfo` (`userinfo_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_usertype`

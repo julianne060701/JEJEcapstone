@@ -14,6 +14,9 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootdey">
 <div class="content-page">
+    <!-- Add the arrow icon or button above in the left side -->
+<a href="userhomepage.php" class="back-button"><i class="fa fa-arrow-left"></i></a>
+
 <div class="profile-banner" style="background:url(https://bootdey.com/img/Content/bg1.jpg);">
 <div class="col-sm-3 avatar-container">
 <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle profile-avatar" alt="User avatar">
