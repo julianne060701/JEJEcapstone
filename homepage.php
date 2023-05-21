@@ -49,7 +49,7 @@
     <div class="wrapper" id="login-popup">
         <!-- <span class="icon-close"><ion-icon name="close"></ion-icon></span> -->
         <div class="form-box login">
-            <h2>Login</h2>
+            <h2 style="">Login</h2>
             <form action="userlogin.php" method="POST" >
             <?php if (isset($_GET['error'])) { ?>
 			<p class="error"><?php echo $_GET['error']; ?> </p>
