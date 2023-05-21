@@ -174,6 +174,15 @@ $result = mysqli_query($conn, $sql);
     <div class="events-container">
     </div>
     <div class="dialog" id="dialog">
+        <div class="dtabg">
+        <button>7:00AM</button>
+        <button>8:00AM</button>
+        <button>9:00AM</button>
+        <button>12:00PM</button>
+        <button>1:00PM</button>
+        <button>2:00PM</button>
+        </div>
+    
         <h2 class="dialog-header"> Slot </h2>
         <form class="form" id="form">
           <div class="form-container" align="center">

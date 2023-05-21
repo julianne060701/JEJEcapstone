@@ -1,4 +1,8 @@
 /* Overall body and content */
+/* *{
+    outline: dashed red 1px;
+} */
+
 body { 
     height: 100%;
     width: 100%;
@@ -140,6 +144,7 @@ body {
 
 /* Buttons */
 .button{
+    width: 150px;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -164,6 +169,15 @@ body {
     background: -webkit-linear-gradient(left,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
     background: linear-gradient(to right,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
 }
+
+.dtabg button:hover{
+    transform: scale(1.03);
+}
+
+.dtabg button:active{
+    transform: translateY(3px) scale(.97);
+}
+
 #add-button {
     display: block;
     position: absolute;
@@ -215,6 +229,39 @@ body {
     text-shadow: 0 1px 4px RGBA(255, 50, 120, .8);
 }
 
+.dtabg{
+    
+    padding: 5px 20px 10px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    
+}
+
+.dtabg button{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 0.65rem 1.9rem;
+    transition: .2s ease all;
+    color: white;
+    border: none;
+    box-shadow: -1px 10px 20px #9BC6FD;
+    background: #52A0FD;
+    background: -moz-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
+    background: -webkit-linear-gradient(left,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
+    background: linear-gradient(to right,  #52A0FD 0%, #00C9FB 80%, #00C9FB 100%);
+}
+
 /*  Dates table */
 .table-date {
     cursor: default;
@@ -259,6 +306,7 @@ body {
     border-bottom-right-radius: 3px;
     display:none;
     border-left: 1px #aaa solid;
+    box-sizing: border-box;
 }
 .dialog-header {
     margin: 20px;
@@ -266,7 +314,7 @@ body {
     text-align: center;
 }
 .form-container {
-    margin-top:25%;
+    margin-top:15%;
 }
 .form-label {
     color:#333;
