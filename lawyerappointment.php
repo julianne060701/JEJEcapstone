@@ -148,6 +148,7 @@ $result = mysqli_query($conn, $sql);
                                 <td>Status</td>
                             </tr>
                         </thead>
+                        
 
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
