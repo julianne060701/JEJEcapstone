@@ -174,7 +174,7 @@ $result = mysqli_query($conn, $sql);
     <div class="events-container">
     </div>
     <div class="dialog" id="dialog">
-        <h2 class="dialog-header"> SLOT </h2>
+        <h2 class="dialog-header"> Select unavailable time </h2>
         <div class="dtabg">
         <button>7:00AM</button>
         <button>8:00AM</button>

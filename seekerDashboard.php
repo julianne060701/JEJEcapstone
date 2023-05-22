@@ -127,7 +127,7 @@ include("dbconn.php");
                                         <option > <?php echo $row['barangay']; ?></option>
                                     <?php
                                     }
-                                ?>
+                                ?> 
                                 </select>
                             </div>
                         </div>
