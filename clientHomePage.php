@@ -29,6 +29,12 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .fixplacement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>
   </head>
   <body>
@@ -50,13 +56,15 @@
       </div>
     </div>
 
-    
+    <div class="fixplacement">
     <div class="search">
         <label>
             <input type="text" placeholder="Search here" id="search-input">
             <ion-icon name="search-outline"></ion-icon>
         </label>
     </div>
+    </div>
+    
 
     <!-- Table with Picture, User Details and Action
     <table class="table" id="office-table">
@@ -189,111 +197,7 @@
 /* *{
   outline: dashed red 1px;
 } */
-.container{
-            max-width: 1400px;
-           margin: 50px 0px 0px 70px;
-            /* background: red; */
-            display: flex;
-            align-items: center;
-            justify-content: first baseline;
-            flex-direction: row;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-            padding: 20px 80px;
-           
-}
 
-.container .content{
-background: #d8d8d8;
-position: relative;
-/* width: 325px; */
-width: 600px;
-height: 700px;
-margin-left: 10px;
-margin-top: 10px;
-box-sizing: border-box;
-padding: 2px;
-box-shadow: 0px 0px 5px 0px;
-
-}
-
-.container .content .picture{
-  background: orange;
-  width: 100%;
-  position: relative;
-  height: 500px;
-  margin-bottom: 30px;
-  
-}
-
-.container .content .picture img{
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.container .content button{
-position: relative;
-left: 0;
-top: 0;
-width: fit-content;
-transform: translate(15px,20px);
-}
-
-.container .content .tagname{
-  margin-top: 20px;
-  margin-left: 15px;
-}
-
-.container .content .tagname label{
-  margin-top: 13px;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-
-
-.container .content button {
-    
-    padding: 15px 25px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: absolute;
-    font-weight: 1000;
-    font-size: 14px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms;
-    overflow: hidden;
-   }
-   
-  .container .content button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #212121;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms
-   }
-   
-  .container .content button:hover {
-    color: #e8e8e8;
-   }
-   
-  .container .content button:hover::before {
-    width: 100%;
-   }
 
     </style>
 </head>
@@ -306,7 +210,7 @@ transform: translate(15px,20px);
    <!-- content start here -->
   <div class="content">
     <div class="picture">
-    <button>view profile</button>
+    <button>View Office</button>
       <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
     </div>
     <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
