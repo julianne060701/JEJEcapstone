@@ -210,29 +210,6 @@
    <!-- content start here -->
   <div class="content">
     <div class="picture">
-    <button>View Office</button>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-  <div class="content">
-    <div class="picture">
-    <button>view profile</button>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-
-  <div class="content">
-    <div class="picture">
     <button>view profile</button>
       <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
     </div>
@@ -244,7 +221,7 @@
 
   <div class="content">
     <div class="picture">
-    <button>view profile</button>
+    <a href="viewProfile.php"><button>View Profile</button></a>
       <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
     </div>
     <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
@@ -256,7 +233,7 @@
 
   <div class="content">
     <div class="picture">
-    <button>view profile</button>
+    <a href="viewProfile.php"><button>View Profile</button></a>
       <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
     </div>
     <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
@@ -267,7 +244,30 @@
 
   <div class="content">
     <div class="picture">
-    <button>view profile</button>
+    <a href="viewProfile.php"><button>View Profile</button></a>
+      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
+    </div>
+    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
+    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
+    <div class="tagname"><label>Location: General Santos City</label></div>
+    <div class="tagname"><label>Contact: 09217381873</label></div>
+  </div>
+
+
+  <div class="content">
+    <div class="picture">
+    <a href="viewProfile.php"><button>View Profile</button></a>
+      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
+    </div>
+    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
+    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
+    <div class="tagname"><label>Location: General Santos City</label></div>
+    <div class="tagname"><label>Contact: 09217381873</label></div>
+  </div>
+
+  <div class="content">
+    <div class="picture">
+    <a href="viewProfile.php"><button>View Profile</button></a>
       <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
     </div>
     <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
