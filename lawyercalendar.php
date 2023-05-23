@@ -194,8 +194,8 @@ $result = mysqli_query($conn, $sql);
         </div>
         <form class="form" id="form">
           <div class="form-container" align="center">
-            <label class="form-label" id="valueFromMyButton" for="name">Title</label>
-            <input class="input" type="text" id="name" maxlength="36">
+            <!-- <label class="form-label" id="valueFromMyButton" for="name">Title</label> -->
+            <!-- <input class="input" type="text" id="name" maxlength="36"> -->
             <label class="form-label" id="valueFromMyButton" for="count">Number of Slot</label>
             <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
             <input type="button" value="Cancel" class="button" id="cancel-button">

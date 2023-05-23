@@ -8,6 +8,7 @@
       .dropdown {
         position: relative;
         display: inline-block;
+        
       }
       .dropdown-content {
     display: none;
@@ -41,7 +42,17 @@
     <!-- Fixed Header with Navigation -->
     <div class="header">
       <h1>Homepage</h1>
+      <div class="search">
+        <label>
+          <span><ion-icon name="search-outline"></ion-icon></span>
+            <input type="text" placeholder="Search here" id="search-input">
+            
+        </label>
+    </div>
       <div class="nav">
+      <div class="fixplacement">
+    
+    </div>
         <a href="#"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
         <div class="dropdown">
           <button class="dropbtn">
@@ -56,14 +67,7 @@
       </div>
     </div>
 
-    <div class="fixplacement">
-    <div class="search">
-        <label>
-            <input type="text" placeholder="Search here" id="search-input">
-            <ion-icon name="search-outline"></ion-icon>
-        </label>
-    </div>
-    </div>
+    
     
 
     <!-- Table with Picture, User Details and Action
@@ -204,9 +208,92 @@
 <body>
 
 
+<div class="main_header">
+        <span class="text first-text">Law office General Santos City</span> <br> <br> <br>
+        <span class="text sec-text"></span>
 
+        <!-- picture ni sya sa baba -->
+  <img src="atorneydawsya.png" alt="">
+
+  <div class="tablediv">
+    <div class="advertise">
+      <h2>Follow us on!</h2>
+      <img src="facebook (2).png" alt="">
+      <button>
+      Follow Us!
+      </button>
+    </div>
+    <div class="advertise">
+    <h2>Follow us on!</h2>
+    <img src="twitter.png" alt="">
+      <button>
+        Follow Us!
+      </button>
+    </div>
+
+    <div class="advertise">
+    <h2>Follow us on!</h2>
+    <img src="instagram.png" alt="">
+      <button>
+      Follow Us!
+      </button>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+        const text = document.querySelector(".sec-text");
+
+        const textLoad = () => {
+            setTimeout(() => {
+                text.textContent = "The first duty of society is justice.";
+            }, 0);
+            setTimeout(() => {
+                text.textContent = "The law is reason, free from passion.";
+            }, 4000);
+            setTimeout(() => {
+                text.textContent = "In the face of injustice, the law becomes our shield.";
+            }, 8000);
+            setTimeout(() => {
+                text.textContent = "A lawyer's true strength lies in upholding truth and justice.";
+            }, 12000); //1s = 1000 milliseconds
+            
+        }
+
+        textLoad();
+        setInterval(textLoad, 16000);
+    </script>   
+
+
+<script src="asd.js"></script>
+<script src="asdf.js"></script>
+<script>
+VANTA.RINGS({
+  el: ".main_header",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor:  0x1e4a,
+})
+</script>
+
+<!-- container starts here -->
+<h1 class="lawofficeHeaderfind">Find Law Office</h1>
+<h2 class="lawofficeHeaderfind2">Guiding You to Justice and Legal Solutions</h2>
 <div class="container">
 
+<div>
+  
+</div>
    <!-- content start here -->
   <div class="content">
     <div class="picture">
@@ -281,7 +368,7 @@
 </div>
 
 
-
+<!-- container ends here -->
 
 
 
