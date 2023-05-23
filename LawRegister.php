@@ -57,10 +57,10 @@
 
 
             <div class="flex">
-                <label>
+                <!-- <label>
                     <input placeholder="" type="text" name="firmname" class="input" style="width: 200px">
                     <span>Firm name <font color="red">*</font> </span>
-                </label>
+                </label> -->
 
                 <label>
                 <input placeholder="" type="number" name="contactnum" maxlength="11" class="input-number input" style="width: 200px">
@@ -143,10 +143,10 @@
                     <p style="width: 200px;">Upload your Lawyer ID <font color="red">*</font> </p>
                     <input placeholder="" type="file" name="id" class="file input" style="width: 200px">
                 </label>
-                <label>
-                    <p style="width: 200px;">Upload Business permit <font color="red">*</font> </p>
+               <!-- <label>
+                     <p style="width: 200px;">Upload Business permit <font color="red">*</font> </p>
                     <input placeholder="" type="file" name="permit" class="file input" style="width: 200px">
-                </label>
+                </label> -->
             </div>
 
 

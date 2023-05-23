@@ -15,7 +15,7 @@
 <div class="container bootdey">
 <div class="content-page">
     <!-- Add the arrow icon or button above in the left side -->
-<a href="userhomepage.php" class="back-button"><i class="fa fa-arrow-left"></i></a>
+<a href="clientHomePage.php" class="back-button"><i class="fa fa-arrow-left"></i></a>
 
 <div class="profile-banner" style="background:url(https://bootdey.com/img/Content/bg1.jpg);">
 <div class="col-sm-3 avatar-container">
@@ -46,7 +46,7 @@
 <ul class="nav nav-tabs nav-justified">
 
 <li><a href="#about" data-toggle="tab"><i class="fa fa-user"></i> About</a></li>
-<li><a href="#user-services" data-toggle="tab"><i class="fa fa-laptop"></i> Services</a></li>
+<!-- <li><a href="#user-services" data-toggle="tab"><i class="fa fa-laptop"></i> Services</a></li> -->
 
 </ul>
 
