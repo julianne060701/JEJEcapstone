@@ -1,7 +1,7 @@
 <?php 
 include "dbconn.php";
 
-    if(!isset($_FILES['id']['tmp_name']) && !isset($_FILES['permit']['tmp_name'])) {
+    if(!isset($_FILES['id']['tmp_name'])) {
 
         echo("");
     }
@@ -13,13 +13,8 @@ include "dbconn.php";
         $size = $_FILES['id']['size'];
         $error = $_FILES['id']['error'];
 
-        $filepermit = $_FILES['permit']['tmp_name'];
-        $imagepermit = $_FILES['permit']['name'];
-        $image_permit_name = addslashes($_FILES['permit']['name']);
-        $size_permit = $_FILES['permit']['size'];
-        $error_permit = $_FILES['permit']['error'];
     }
-    if($size > 10000000 && $size_permit > 10000000) {
+    if($size > 10000000) {
         die("Files size is too big");
     } 
     else {
@@ -33,12 +28,10 @@ include "dbconn.php";
 
         move_uploaded_file($_FILES["id"]["tmp_name"], "images/" . $_FILES["id"]["name"]);
         $image_id = $_FILES["id"]["name"];
-        $image_permit = $_FILES['permit']['name'];
         $firstname = $_POST['firstname'];
         $middlename = $_POST['middlename'];
         $lastname = $_POST['lastname'];
         $gender = $_POST['gender'];
-        $firmname = $_POST['firmname'];
         $contactnum = $_POST['contactnum'];
         $email = $_POST['email'];
         $address = $_POST['address'];
@@ -70,10 +63,6 @@ include "dbconn.php";
          }
          elseif (empty($lastname)) {
             header("Location: LawRegister.php?error= Last Name cannot be empty!");
-            exit();
-         }
-         elseif (empty($firmname)) {
-            header("Location: LawRegister.php?error= Firm name cannot be empty!");
             exit();
          }
          elseif (empty($contactnum)) {
@@ -133,10 +122,7 @@ include "dbconn.php";
             header("Location: LawRegister.php?error= ID cannot be empty!");
             exit();
          }
-         elseif (empty($image_permit)) {
-            header("Location: LawRegister.php?error= Permit cannot be empty!");
-            exit();
-         }
+
          else {
 
         //database
@@ -163,7 +149,7 @@ include "dbconn.php";
                             }
                     
                             if($conn->query($sql) === TRUE) {
-                                $sql = "INSERT INTO tbl_images (user_id, id, permit, profile) VALUES ('$user_id', '$image_id', '$image_permit', '')";
+                                $sql = "INSERT INTO tbl_images (user_id, id, profile) VALUES ('$user_id', '$image_id', '')";
                                 
                                 if($conn->query($sql) === TRUE) {
                                     header("Location: homepage.php?msg=Register Successfully");

@@ -291,80 +291,34 @@ VANTA.RINGS({
 <h2 class="lawofficeHeaderfind2">Guiding You to Justice and Legal Solutions</h2>
 <div class="container">
 
-<div>
-  
-</div>
-   <!-- content start here -->
-  <div class="content">
-    <div class="picture">
-    <button>view profile</button>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
 
-  <div class="content">
-    <div class="picture">
-    <a href="viewProfile.php"><button>View Profile</button></a>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-
-  <div class="content">
-    <div class="picture">
-    <a href="viewProfile.php"><button>View Profile</button></a>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-  <div class="content">
-    <div class="picture">
-    <a href="viewProfile.php"><button>View Profile</button></a>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-
-  <div class="content">
-    <div class="picture">
-    <a href="viewProfile.php"><button>View Profile</button></a>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-  <div class="content">
-    <div class="picture">
-    <a href="viewProfile.php"><button>View Profile</button></a>
-      <img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">
-    </div>
-    <div class="tagname"><label>FirmName: Law Office Gensan</label></div> 
-    <div class="tagname"><label>Email: Ann@Gmail.com</label></div>
-    <div class="tagname"><label>Location: General Santos City</label></div>
-    <div class="tagname"><label>Contact: 09217381873</label></div>
-  </div>
-
-  <!-- end content -->
-
+ <?php 
+ include 'dbconn.php';
+ $sql = "SELECT tbl_officeinfo.office_name, tbl_officeinfo.office_email, tbl_officecred.office_address, tbl_officecred.office_contact
+ FROM tbl_officeinfo
+ JOIN tbl_officecred ON tbl_officeinfo.office_id = tbl_officecred.office_credid
+ WHERE tbl_officeinfo.office_status = 1";
+ 
+ $result = mysqli_query($conn, $sql);
+ 
+ if (mysqli_num_rows($result) > 0) {
+     while ($row = mysqli_fetch_assoc($result)) {
+         echo '<div class="content">';
+         echo '<div class="picture">';
+         echo '<button>view profile</button>';
+         echo '<img src="https://www.lowmanlawfirm.com/hs-fs/hubfs/Lowman_Law_Firm.jpg?width=894&name=Lowman_Law_Firm.jpg" alt="">';
+         echo '</div>';
+         echo '<div class="tagname"><label>Firm Name: ' . $row['office_name'] . '</label></div>';
+         echo '<div class="tagname"><label>Email: ' . $row['office_email'] . '</label></div>';
+         echo '<div class="tagname"><label>Location: ' . $row['office_address'] . '</label></div>';
+         echo '<div class="tagname"><label>Contact: ' . $row['office_contact'] . '</label></div>';
+         echo '</div>';
+     }
+ } else {
+     echo 'No data found.';
+ }
+ 
+ ?>
 </div>
 
 

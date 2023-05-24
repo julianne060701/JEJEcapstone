@@ -33,7 +33,7 @@ if ($result && mysqli_num_rows($result) === 1) {
                 header("Location: lawyerDashboard.php?message=Login Successfully");
                 exit();
             } elseif ($row['userType'] === 'client') {
-                header("Location: userHomePage.php?message=Login Successfully");
+                header("Location: clientHomePage.php?message=Login Successfully");
                 exit();
             } elseif ($row['userType'] === 'admin') {
                 header("Location: Dashboard.php?message=Login Successfully");

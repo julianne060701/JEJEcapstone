@@ -9,6 +9,14 @@ JOIN tbl_contactinfo ON tbl_userinfo.userinfo_id = tbl_contactinfo.user_id
 WHERE tbl_usertype.user_type = 'client'";
 
 $result = mysqli_query($conn, $sql);
+
+session_start(); 
+    if(isset($_GET['logout'])) { 
+        session_unset();
+        session_destroy();
+        header("Location: homepage.php?logout");
+        exit(); 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -135,15 +143,6 @@ $result = mysqli_query($conn, $sql);
                         </span>
                         <span class="title">Sign Out</span>
                     </a>
-                    <?php
-                    session_start(); 
-                    if(isset($_GET['logout'])) { 
-                         session_unset();
-                         session_destroy();
-                         header("Location: homepage.php?logout");
-                         exit(); 
-                        }
-                    ?>
                 </li>
             </ul>
         </div>

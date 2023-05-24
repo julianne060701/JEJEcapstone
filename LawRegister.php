@@ -63,8 +63,8 @@
                 </label> -->
 
                 <label>
-                <input placeholder="" type="number" name="contactnum" maxlength="11" class="input-number input" style="width: 200px">
-                <span>Contact Number <font color="red">*</font> </span>
+                <input placeholder="" type="email" name="email" class="input-number input" style="width: 450px">
+                <span>Email <font color="red">*</font> </span>
             </label>
 
             </div>
@@ -72,8 +72,8 @@
 
             <div class="flex">
             <label>
-                    <input placeholder="" type="email" name="email" class="input" style="width: 200px;">
-                    <span>Email <font color="red">*</font> </span>
+                    <input placeholder="" type="number" name="contactnum" maxlength="11" class="input" style="width: 200px;">
+                    <span>Contact Number <font color="red">*</font> </span>
                 </label>
                 <label>
                 <input placeholder="" type="text" name="address" class="input" style="width: 200px;">

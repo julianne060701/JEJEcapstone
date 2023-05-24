@@ -238,7 +238,6 @@
                             <tr>
                                 <td>Firm ID</td>
                                 <td>ID</td>
-                                <td>Permit</td>
                                 <td>Name</td>
                                 <td>Address</td>
                                 <td>Contact Number</td>
