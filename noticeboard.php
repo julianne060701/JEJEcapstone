@@ -1,4 +1,20 @@
 <?php
+   include 'dbconn.php';   
+   if(isset($_POST['submit'])) {
+       $message = $_POST['message'];
+   
+       $sql = "INSERT INTO tbl_notice (message) VALUES ('$message')";
+       $result = mysqli_query($conn, $sql);
+   
+       if($result) {
+           header("Location: noticeboard.php?msg=Notice added successfully");
+           exit();
+       } else {
+           header("Location: noticeboard.php?error=Unable to add message!");
+       }
+    }
+
+    //logout
     session_start(); 
     if(isset($_GET['logout'])) { 
     session_unset();
@@ -6,8 +22,7 @@
     header("Location: homepage.php?logout");
     exit(); 
     }
-?>
-
+   ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +76,27 @@
   background-color: #007A8D;
 }
 
+/*Notice*/ 
+.msg {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background: #00ff37;
+  color: #333;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+.error {
+    background: #f59595fb;
+    color: #b92c2c;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
     </style>
+
+
 </head>
 
 <body>
@@ -183,13 +218,13 @@
         <!-- ================= Notice Board================ -->
 <div class="container">
 	<div id="content" align="center">     
-		<form action="notice.php" method="post">
+		<form method="post">
 		<h1>Notice Board</h1><hr/>
-		<?php if (isset($_GET['error'])) { ?>
-			<p class="error"><?php echo $_GET['error']; ?> </p>
+		<?php if (isset($_GET['msg'])) { ?>
+			<p class="msg"><?php echo $_GET['msg']; ?> </p>
 		<?php } ?>
 		<textarea type="text" name="message" class="ed" rows="5" class="form-control"></textarea><br/><br/>
-		<input type="submit" class="btn btn-primary" value="Send" id="button1">
+		<input type="submit" class="btn btn-primary" value="Send" id="button1" name="submit">
 		</form>
 	</div><hr/>
     <h2>History</h2>
