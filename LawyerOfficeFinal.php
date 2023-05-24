@@ -41,22 +41,22 @@ if(isset($_GET['logout'])) {
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>Register Office</h2>
-    <form action="registerOffice.php" method="POST">
+    <form action="LawyerOfficeRegistration.php" method="POST">
       <label for="firmName">Firm Name:</label>
-      <input type="text" id="firmName" name="firmName" required>
+      <input type="text" id="firmName" name="firmName">
       
       <label for="address">Address:</label>
-      <textarea id="address" name="address" required></textarea>
+      <textarea id="address" name="address"></textarea>
       
       <label for="contactNumber">Contact Number:</label>
-      <input type="tel" id="contactNumber" name="contactNumber" required>
+      <input type="tel" id="contactNumber" name="contactNumber">
       
       <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email">
 
-	<label for="num">Upload Lawyer ID</label>
-	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
-    <label for="num">Upload Business Permit</label>
+	<label for="num">Upload Lawyer Permit</label>
+	<input type="file" class="form-control" name="permit" id="permit" oninput="CheckValue(this);"  >
+    <label for="num">Law Office Image</label>
 	<input type="file" class="form-control" name="fileToUpload" id="image" oninput="CheckValue(this);"  >
     <button type="submit">Submit</button>
     </form>
@@ -254,6 +254,8 @@ if(isset($_GET['logout'])) {
             </div>
         </div>
     </div>
+
+
     <!-- search script -->
     <script>
         const searchInput = document.getElementById('search-input');

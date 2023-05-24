@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>User_HomePage</title>
-    <link rel="stylesheet" href="userHome.css">
+    <link rel="stylesheet" href="clientHomePage.css">
     <style>
       /* Profile dropdown*/
       .dropdown {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Client_HomePage</title>
+    <title>Client Homepage</title>
     <link rel="stylesheet" href="clientHomePage.css">
     <style>
       /* Profile dropdown*/
